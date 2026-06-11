@@ -6,13 +6,6 @@ const current = Astro.url.pathname;
 const isActive = (key: string) => current.includes(`/${key}`);
 ---
 <nav class="sidebar" data-pagefind-ignore aria-label="Site sections">
-	<a class="brand" href={href('/')}>
-		<span class="brand-mark">⚔️</span>
-		<span class="brand-text">Draw Steel <span>SRD</span></span>
-	</a>
-
-	<div id="search" class="search" aria-label="Search"></div>
-
 	<div class="nav-groups">
 		{GROUPS.map(group => (
 			<div class="nav-group">

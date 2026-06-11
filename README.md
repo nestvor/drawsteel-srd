@@ -5,8 +5,9 @@ A fast, searchable, mobile-friendly **rules reference (SRD)** for the
 [forgesteel](https://github.com/andyaiken/forgesteel) character-builder dataset and published as a
 static site on GitHub Pages.
 
-> **Unofficial fan project.** Draw Steel game content is © MCDM Productions, used under the Draw Steel
-> Creator License. Not affiliated with or endorsed by MCDM. See the in-site **About & Credits** page.
+> Draw Steel SRD is an independent product published under the DRAW STEEL Creator License and is not
+> affiliated with MCDM Productions, LLC. DRAW STEEL © 2026 MCDM Productions, LLC. See the in-site
+> **About & Credits** page.
 
 ## How it works
 
@@ -72,5 +73,5 @@ Actions**. The site is configured for the project path `https://nestvor.github.i
 
 ## Credits
 
-- **Draw Steel** © MCDM Productions.
+- **Draw Steel** © 2026 MCDM Productions, LLC. Used under the [Draw Steel Creator License](https://www.mcdmproductions.com/draw-steel-creator-license).
 - Rules data from [forgesteel](https://github.com/andyaiken/forgesteel) by Andy Aiken (GPL-3.0).

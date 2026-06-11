@@ -1,0 +1,93 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Search" description="Search the Draw Steel SRD.">
+	<div data-pagefind-ignore data-search-base={base}>
+		<h1>Search</h1>
+		<form class="search-page-form" role="search" method="get" autocomplete="off">
+			<input id="search-page-input" name="q" class="search-input search-input-lg" type="search" placeholder="Search the SRD…" aria-label="Search the SRD" />
+		</form>
+		<p id="search-status" class="page-lead"></p>
+		<div id="search-page-results" class="search-page-results"></div>
+	</div>
+</BaseLayout>
+
+<script>
+	import { runSearch, type Hit } from '~/lib/search';
+
+	const root = document.querySelector<HTMLElement>('[data-search-base]');
+	const input = document.getElementById('search-page-input') as HTMLInputElement | null;
+	const status = document.getElementById('search-status');
+	const out = document.getElementById('search-page-results');
+	const form = document.querySelector<HTMLFormElement>('.search-page-form');
+	form?.addEventListener('submit', e => e.preventDefault());
+
+	if (root && input && status && out) {
+		const base = root.dataset.searchBase || '/';
+		let token = 0;
+
+		const groupHits = (hits: Hit[]) => {
+			const groups = new Map<string, Hit[]>();
+			for (const h of hits) {
+				const k = h.category || 'Other';
+				if (!groups.has(k)) groups.set(k, []);
+				groups.get(k)!.push(h);
+			}
+			return [...groups.entries()];
+		};
+
+		const render = (hits: Hit[]) => {
+			out.innerHTML = groupHits(hits)
+				.map(
+					([cat, items]) =>
+						`<section class="search-group"><h2>${cat} <span class="source-tag">${items.length}</span></h2>` +
+						items
+							.map(
+								h =>
+									`<a class="search-hit" href="${h.url}">` +
+									`<span class="search-hit-title">${h.title}</span>` +
+									(h.excerpt ? `<span class="search-hit-excerpt">${h.excerpt}</span>` : '') +
+									`</a>`
+							)
+							.join('') +
+						`</section>`
+				)
+				.join('');
+		};
+
+		const update = async (q: string, pushUrl: boolean) => {
+			const query = q.trim();
+			const url = new URL(window.location.href);
+			if (query) url.searchParams.set('q', query); else url.searchParams.delete('q');
+			if (pushUrl) window.history.replaceState({}, '', url);
+
+			if (!query) { status.textContent = 'Type to search the full reference.'; out.innerHTML = ''; return; }
+			status.textContent = 'Searching…';
+			const mine = ++token;
+			try {
+				const res = await runSearch(base, query); // no limit: every result
+				if (mine !== token) return;
+				status.textContent = res.total
+					? `${res.total} result${res.total === 1 ? '' : 's'} for “${query}”`
+					: `No results for “${query}”.`;
+				render(res.hits);
+			} catch {
+				if (mine !== token) return;
+				status.textContent = 'Search isn’t available — build the site to enable it.';
+			}
+		};
+
+		let timer: number | undefined;
+		input.addEventListener('input', () => {
+			window.clearTimeout(timer);
+			timer = window.setTimeout(() => update(input.value, true), 160);
+		});
+
+		// Seed from ?q= on load
+		const initial = new URL(window.location.href).searchParams.get('q') || '';
+		input.value = initial;
+		update(initial, false);
+		input.focus();
+	}
+</script>

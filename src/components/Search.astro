@@ -1,0 +1,113 @@
+---
+// Header search: a styled input with a live dropdown shortlist of results, plus
+// a real GET form so Enter (and no-JS) lands on the full /search page.
+const base = import.meta.env.BASE_URL;
+const searchAction = `${base}search/`.replace(/\/{2,}/g, '/');
+---
+<div class="search" data-search-base={base} data-search-action={searchAction}>
+	<form class="search-form" role="search" action={searchAction} method="get" autocomplete="off">
+		<svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M8.5 3a5.5 5.5 0 0 1 4.23 9.02l3.62 3.62-1.06 1.06-3.62-3.62A5.5 5.5 0 1 1 8.5 3Zm0 1.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+		<input id="site-search" name="q" class="search-input" type="search" placeholder="Search the SRD…" aria-label="Search the SRD" aria-expanded="false" aria-controls="search-panel" role="combobox" />
+		<kbd class="search-kbd">/</kbd>
+	</form>
+	<div id="search-panel" class="search-panel" role="listbox" hidden></div>
+</div>
+
+<script>
+	import { runSearch, type Hit } from '~/lib/search';
+
+	const root = document.querySelector<HTMLElement>('.search');
+	const input = document.getElementById('site-search') as HTMLInputElement | null;
+	const panel = document.getElementById('search-panel');
+	if (root && input && panel) {
+		const base = root.dataset.searchBase || '/';
+		const action = root.dataset.searchAction || base;
+		const LIMIT = 6;
+		let active = -1;
+		let hits: Hit[] = [];
+		let token = 0;
+
+		const fullUrl = (q: string) => `${action}?q=${encodeURIComponent(q)}`;
+
+		const close = () => {
+			panel.hidden = true;
+			input.setAttribute('aria-expanded', 'false');
+			active = -1;
+		};
+
+		const render = (total: number) => {
+			if (!hits.length) {
+				panel.innerHTML = `<p class="search-empty">No results for “${input.value.replace(/</g, '&lt;')}”.</p>`;
+			} else {
+				const rows = hits
+					.map(
+						(h, i) =>
+							`<a class="search-hit" role="option" id="search-hit-${i}" href="${h.url}">` +
+							(h.category ? `<span class="search-hit-cat">${h.category}</span>` : '') +
+							`<span class="search-hit-title">${h.title}</span>` +
+							(h.excerpt ? `<span class="search-hit-excerpt">${h.excerpt}</span>` : '') +
+							`</a>`
+					)
+					.join('');
+				const more =
+					total > hits.length
+						? `<a class="search-more" href="${fullUrl(input.value)}">See all ${total} results →</a>`
+						: `<a class="search-more" href="${fullUrl(input.value)}">Open full results →</a>`;
+				panel.innerHTML = rows + more;
+			}
+			panel.hidden = false;
+			input.setAttribute('aria-expanded', 'true');
+			active = -1;
+		};
+
+		const setActive = (next: number) => {
+			const options = panel.querySelectorAll<HTMLElement>('.search-hit');
+			if (!options.length) return;
+			active = (next + options.length) % options.length;
+			options.forEach((el, i) => el.classList.toggle('active', i === active));
+			options[active].scrollIntoView({ block: 'nearest' });
+		};
+
+		let timer: number | undefined;
+		input.addEventListener('input', () => {
+			window.clearTimeout(timer);
+			const q = input.value.trim();
+			if (!q) return close();
+			timer = window.setTimeout(async () => {
+				const mine = ++token;
+				try {
+					const res = await runSearch(base, q, LIMIT);
+					if (mine !== token) return; // a newer keystroke won
+					hits = res.hits;
+					render(res.total);
+				} catch {
+					panel.innerHTML = '<p class="search-empty">Search isn’t available — build the site to enable it.</p>';
+					panel.hidden = false;
+				}
+			}, 140);
+		});
+
+		input.addEventListener('keydown', e => {
+			if (e.key === 'ArrowDown') { e.preventDefault(); if (panel.hidden && input.value.trim()) input.dispatchEvent(new Event('input')); else setActive(active + 1); }
+			else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(active - 1); }
+			else if (e.key === 'Enter') {
+				if (active >= 0 && hits[active]) { e.preventDefault(); window.location.href = hits[active].url; }
+				// otherwise let the form submit → /search page
+			} else if (e.key === 'Escape') {
+				close();
+				input.blur();
+			}
+		});
+
+		input.addEventListener('focus', () => { if (hits.length && input.value.trim()) panel.hidden = false; });
+		document.addEventListener('click', e => { if (!root.contains(e.target as Node)) close(); });
+
+		// "/" focuses search (unless already typing in a field)
+		document.addEventListener('keydown', e => {
+			if (e.key === '/' && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'TEXTAREA') {
+				e.preventDefault();
+				input.focus();
+			}
+		});
+	}
+</script>

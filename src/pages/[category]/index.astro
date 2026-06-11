@@ -65,8 +65,23 @@ const groupBy = (items: any[], key: string) => {
 		</section>
 	))}
 
+	{/* Perks: grouped by their skill list, linking to detail pages */}
+	{category === 'perks' && groupBy(entries, 'list').map(([group, items]) => (
+		<section>
+			<h2>{group}</h2>
+			<ul class="entry-list">
+				{items.map((p: any) => (
+					<li>
+						<a href={href(`/${category}/${entrySlug(p)}`)}>{p.name}</a>
+						{p._source && p._source !== 'Core' && <span class="source-tag"> {p._source}</span>}
+					</li>
+				))}
+			</ul>
+		</section>
+	))}
+
 	{/* All other (list) categories: alphabetical links to detail pages */}
-	{cat.style === 'list' && (
+	{cat.style === 'list' && category !== 'perks' && (
 		<ul class="entry-list">
 			{entries.map(e => (
 				<li>

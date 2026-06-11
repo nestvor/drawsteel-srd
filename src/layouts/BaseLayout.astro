@@ -1,6 +1,16 @@
 ---
 import Sidebar from '~/components/Sidebar.astro';
+import Search from '~/components/Search.astro';
 import { href } from '~/lib/url';
+// Self-hosted fonts (no external requests): Cinzel = heroic Roman-caps display,
+// Spectral = refined screen-readable serif for body text.
+import '@fontsource/cinzel/400.css';
+import '@fontsource/cinzel/600.css';
+import '@fontsource/cinzel/700.css';
+import '@fontsource/spectral/400.css';
+import '@fontsource/spectral/400-italic.css';
+import '@fontsource/spectral/600.css';
+import '@fontsource/spectral/700.css';
 import '~/styles/global.css';
 
 interface Props {
@@ -10,8 +20,6 @@ interface Props {
 const { title, description } = Astro.props;
 const fullTitle = title ? `${title} — Draw Steel SRD` : 'Draw Steel SRD';
 const desc = description ?? 'An unofficial, searchable rules reference (SRD) for the Draw Steel TTRPG.';
-const pagefindBundle = href('/pagefind/');
-const pagefindCss = href('/pagefind/pagefind-ui.css');
 ---
 <!doctype html>
 <html lang="en">
@@ -33,8 +41,12 @@ const pagefindCss = href('/pagefind/pagefind-ui.css');
 	<body>
 		<a class="skip-link" href="#main">Skip to content</a>
 		<header class="topbar">
-			<button id="menu-toggle" class="icon-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
-			<a class="topbar-title" href={href('/')}>Draw Steel SRD</a>
+			<button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+			<a class="topbar-brand" href={href('/')}>
+				<span class="brand-mark">⚔️</span>
+				<span class="brand-text">Draw Steel <span>SRD</span></span>
+			</a>
+			<Search />
 			<button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">🌓</button>
 		</header>
 
@@ -49,8 +61,11 @@ const pagefindCss = href('/pagefind/pagefind-ui.css');
 				</article>
 				<footer class="site-footer" data-pagefind-ignore>
 					<p>
-						An unofficial fan reference. Game content © MCDM Productions, used under the Draw Steel Creator
-						License. Data sourced from the <a href="https://github.com/andyaiken/forgesteel">forgesteel</a> project.
+						Draw Steel SRD is an independent product published under the DRAW STEEL Creator License and is
+						not affiliated with MCDM Productions, LLC. DRAW STEEL © 2026 MCDM Productions, LLC.
+					</p>
+					<p>
+						Data sourced from the <a href="https://github.com/andyaiken/forgesteel">forgesteel</a> project.
 						See <a href={href('/about')}>About &amp; Credits</a>.
 					</p>
 				</footer>
@@ -75,32 +90,6 @@ const pagefindCss = href('/pagefind/pagefind-ui.css');
 				const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
 				document.documentElement.dataset.theme = next;
 				localStorage.setItem('theme', next);
-			});
-		</script>
-
-		<link rel="stylesheet" href={pagefindCss} />
-		<script is:inline define:vars={{ pagefindBundle }}>
-			// Pagefind's UI bundle is an IIFE that defines a global PagefindUI (not an
-			// ES module), so we load it via a <script> tag rather than import().
-			// The index only exists after a build, so this no-ops during `astro dev`.
-			window.addEventListener('DOMContentLoaded', () => {
-				const el = document.getElementById('search');
-				if (!el) return;
-				const init = () => {
-					if (!window.PagefindUI) return false;
-					new window.PagefindUI({ element: '#search', bundlePath: pagefindBundle, showSubResults: true, showImages: false, pageSize: 8 });
-					return true;
-				};
-				if (init()) return;
-				const s = document.createElement('script');
-				s.src = pagefindBundle + 'pagefind-ui.js';
-				s.onload = init;
-				s.onerror = () => {
-					if (!el.querySelector('.pagefind-ui')) {
-						el.innerHTML = '<input class="search-fallback" type="search" placeholder="Search (build the site to enable)" disabled />';
-					}
-				};
-				document.head.appendChild(s);
 			});
 		</script>
 	</body>

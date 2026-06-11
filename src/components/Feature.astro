@@ -2,6 +2,7 @@
 import { renderMarkdown } from '~/lib/markdown';
 import { href, abilityCostAnchor, abilityCostLabel } from '~/lib/url';
 import Ability from './Ability.astro';
+import StatBlock from './StatBlock.astro';
 
 const { feature } = Astro.props;
 const f = feature ?? {};
@@ -9,6 +10,26 @@ const t: string = f.type ?? '';
 const d: any = f.data ?? {};
 const Self = Astro.self;
 const plural = (n: number) => (n > 1 ? 's' : '');
+const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
+
+// Mirror forgesteel's FormatLogic.getModifier for damage immunities/weaknesses,
+// so e.g. a revenant's cold immunity reads "+1 per level" rather than just "1".
+function formatModifier(m: any): string {
+	const parts: string[] = [];
+	if (m.value && m.valuePerLevel && m.value === m.valuePerLevel) {
+		parts.push(`${sign(m.value)} per level`);
+	} else {
+		if (m.value) parts.push(sign(m.value));
+		if (m.valuePerLevel) parts.push(`${sign(m.valuePerLevel)} per level after 1st`);
+	}
+	if (m.valuePerEchelon) parts.push(`${sign(m.valuePerEchelon)} per echelon`);
+	const chars: string[] = m.valueCharacteristics ?? [];
+	if (chars.length > 0) {
+		const ch = chars.length === 5 ? 'highest characteristic' : chars.join(' or ');
+		parts.push(m.valueCharacteristicMultiplier === 1 ? `+ ${ch}` : `+ ${ch} x ${m.valueCharacteristicMultiplier}`);
+	}
+	return parts.join(' ') || '+0';
+}
 
 // Cross-reference summaries: a choice that should link somewhere useful.
 // (Class Ability links to the same-page cost group on a class detail page.)
@@ -70,16 +91,24 @@ function summary(): string | null {
 			return `Choose ${d.count ?? 1} language${(d.count ?? 1) > 1 ? 's' : ''}${d.options?.length ? ` from ${d.options.join(', ')}` : ''}`;
 		case 'Damage Modifier':
 			return d.modifiers?.length
-				? d.modifiers.map((m: any) => `${m.damageType ?? 'All'} ${m.type ?? ''} ${m.value ?? ''}`.replace(/\s+/g, ' ').trim()).join(' · ')
+				? d.modifiers.map((m: any) => `${m.damageType ?? 'All'} ${m.type ?? ''} ${formatModifier(m)}`.replace(/\s+/g, ' ').trim()).join(' · ')
 				: null;
 		default:
 			return null;
 	}
 }
 const summaryLine = summary();
+// When a feature carries a synthesised one-line mechanic, its `description` is
+// flavour text — show the mechanic prominently and the flavour italic/dim (like
+// abilities). Plain features without a mechanic keep their description as the
+// main body text.
+const hasMechanic = !!(linkSum || summaryLine);
 const children: any[] = t === 'Multiple Features' ? d.features ?? [] : [];
 const choiceOptions: any[] = t === 'Choice' ? d.options ?? [] : [];
 const resourceGains: any[] = t === 'Heroic Resource' ? d.gains ?? [] : [];
+// Summoner minions (Summon) and Beastheart companions (Summon Choice) each carry
+// a `monster` stat block we want to render in full.
+const summons: any[] = t === 'Summon' ? d.summons ?? [] : t === 'Summon Choice' ? d.options ?? [] : [];
 ---
 {t === 'Ability' || t === 'Malice Ability' ? (
 	<div class="feature">
@@ -90,11 +119,15 @@ const resourceGains: any[] = t === 'Heroic Resource' ? d.gains ?? [] : [];
 		{f.name && <p class="feature-name">{f.name}</p>}
 		{linkSum && <p class="feature-summary">{linkSum.pre}<a href={linkSum.to}>{linkSum.linkText}</a>{linkSum.post}</p>}
 		{!linkSum && summaryLine && <p class="feature-summary">{summaryLine}</p>}
-		{f.description && <div class="md" set:html={renderMarkdown(f.description)} />}
+		{f.description && (
+			hasMechanic
+				? <div class="feature-flavor md" set:html={renderMarkdown(f.description)} />
+				: <div class="md" set:html={renderMarkdown(f.description)} />
+		)}
 
 		{resourceGains.length > 0 && (
 			<ul class="resource-gains">
-				{resourceGains.map((g: any) => <li><strong>{g.value}</strong> — {g.trigger}</li>)}
+				{resourceGains.map((g: any) => <li><strong>{/^\d/.test(String(g.value)) ? '+' : ''}{g.value}{g.resource ? ` ${g.resource}` : ''}</strong> — {g.trigger}</li>)}
 			</ul>
 		)}
 
@@ -108,6 +141,18 @@ const resourceGains: any[] = t === 'Heroic Resource' ? d.gains ?? [] : [];
 		{children.length > 0 && (
 			<div class="feature-children">
 				{children.map((c: any) => <Self feature={c} />)}
+			</div>
+		)}
+
+		{summons.length > 0 && (
+			<div class="feature-children">
+				{t === 'Summon Choice' && d.count > 1 && <p class="feature-note">Choose {d.count}:</p>}
+				{summons.map((s: any) => (
+					<div class="summon">
+						{s.description && <div class="md" set:html={renderMarkdown(s.description)} />}
+						{s.monster && <StatBlock monster={s.monster} />}
+					</div>
+				))}
 			</div>
 		)}
 	</div>

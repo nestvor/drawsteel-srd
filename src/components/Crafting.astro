@@ -1,0 +1,20 @@
+---
+// Crafting / project block shared by treasures and imbuements: prerequisites,
+// the lore source, the characteristic roll, and the project-point goal.
+import { renderMarkdown } from '~/lib/markdown';
+
+const { crafting: c } = Astro.props;
+const roll: string = (c?.characteristic ?? []).join(' or ');
+---
+{c && (
+	<div class="crafting">
+		<p class="feature-name">Crafting</p>
+		<div class="sb-stats">
+			{c.itemPrerequisites && <span><strong>Prerequisites</strong> {c.itemPrerequisites}</span>}
+			{c.source && <span><strong>Source</strong> {c.source}</span>}
+			{roll && <span><strong>Roll</strong> {roll}</span>}
+			{c.goal > 0 && <span><strong>Project Goal</strong> {c.goal}</span>}
+		</div>
+		{c.description && <div class="md" set:html={renderMarkdown(c.description)} />}
+	</div>
+)}

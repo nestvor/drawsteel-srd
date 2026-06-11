@@ -3,12 +3,32 @@ import { renderMarkdown } from '~/lib/markdown';
 import { href } from '~/lib/url';
 import { byKey } from '~/lib/categories';
 import FeatureList from './FeatureList.astro';
+import Feature from './Feature.astro';
 import Ability from './Ability.astro';
+import Crafting from './Crafting.astro';
 
 const { entry: e, category } = Astro.props;
 const cat = byKey(category);
-const fbl = e.featuresByLevel ?? [];
+// Only show level blocks that actually carry features, so consumables whose
+// featuresByLevel is a set of empty levels (e.g. Healing Potion) aren't shown
+// as leveled items.
+const fbl = (e.featuresByLevel ?? []).filter((lvl: any) => (lvl.features ?? []).length > 0);
 const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
+
+// A terrain/upgrade section's `content` is an array of feature nodes (Text,
+// Ability, …) rather than a markdown string; render those through Feature.
+const sectionNodes = (s: any): any[] => (Array.isArray(s?.content) ? s.content : []);
+
+// Negotiation outcomes are keyed by Interest level (0–5). The source data leaves
+// them blank, falling back to forgesteel's standard ladder.
+const OUTCOME_DEFAULTS: Record<number, string> = {
+	5: 'Yes, and…',
+	4: 'Yes',
+	3: 'Yes, but…',
+	2: 'No, but…',
+	1: 'No',
+	0: 'No, and…'
+};
 ---
 <p class="breadcrumb">
 	<a href={href('/')}>Home</a> › <a href={href(`/${category}`)}>{cat?.title}</a> › {e.name}
@@ -28,14 +48,25 @@ const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
 {category === 'imbuements' && (
 	<p class="kv">{e.type && <span><strong>Type</strong> {e.type}&nbsp;&nbsp;</span>}{e.level != null && <span><strong>Level</strong> {e.level}</span>}</p>
 )}
+{category === 'imbuements' && e.crafting && <Crafting crafting={e.crafting} />}
 
 {e.description && <div class="md" set:html={renderMarkdown(e.description)} />}
+
+{/* cultures: the meaningful content is the environment/organization/upbringing
+    aspects (each with its own description + skill grant) plus the language. */}
+{category === 'cultures' && (
+	<>
+		{e.type && <p class="kv"><strong>Type</strong> {e.type}</p>}
+		{[e.environment, e.organization, e.upbringing, e.language].filter(Boolean).map((a: any) => <Feature feature={a} />)}
+	</>
+)}
 
 {/* abilities category: the entry itself is an ability */}
 {category === 'abilities' && <Ability ability={e} />}
 
-{/* items: effect + per-level features */}
+{/* items: effect + crafting + per-level features */}
 {category === 'items' && e.effect && <div class="md" set:html={renderMarkdown(e.effect)} />}
+{category === 'items' && e.crafting && <Crafting crafting={e.crafting} />}
 
 {/* terrain stat row + sections + upgrades */}
 {category === 'terrain' && (
@@ -47,7 +78,7 @@ const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
 			{e.area && <span><strong>Area</strong> {e.area}</span>}
 			{e.size && <span><strong>Size</strong> {typeof e.size === 'object' ? `${e.size.value ?? ''}${e.size.mod ?? ''}` : e.size}</span>}
 		</div>
-		{(e.sections ?? []).map((s: any) => <div class="md" set:html={renderMarkdown(s.content)} />)}
+		{(e.sections ?? []).map((s: any) => sectionNodes(s).map((c: any) => <Feature feature={c} />))}
 		{(e.upgrades ?? []).length > 0 && (
 			<>
 				<h3>Upgrades</h3>
@@ -55,7 +86,7 @@ const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
 					<div class="feature">
 						<p class="feature-name">{u.label}{u.cost != null ? ` (${u.cost})` : ''}</p>
 						{u.text && <div class="md" set:html={renderMarkdown(u.text)} />}
-						{(u.sections ?? []).map((s: any) => <div class="md" set:html={renderMarkdown(s.content)} />)}
+						{(u.sections ?? []).map((s: any) => sectionNodes(s).map((c: any) => <Feature feature={c} />))}
 					</div>
 				))}
 			</>
@@ -76,8 +107,18 @@ const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
 		{(e.motivations ?? []).map((m: any) => <div class="feature"><p class="feature-name">{m.trait}</p><div class="md" set:html={renderMarkdown(m.description)} /></div>)}
 		{(e.pitfalls ?? []).length > 0 && <h3>Pitfalls</h3>}
 		{(e.pitfalls ?? []).map((m: any) => <div class="feature"><p class="feature-name">{m.trait}</p><div class="md" set:html={renderMarkdown(m.description)} /></div>)}
-		{(e.outcomes ?? []).length > 0 && <h3>Outcomes</h3>}
-		{(e.outcomes ?? []).length > 0 && <ol>{e.outcomes.map((o: string) => <li set:html={renderMarkdown(o)} />)}</ol>}
+		<h3>Outcomes</h3>
+		<p class="page-lead">The result of the negotiation based on the NPC's final Interest.</p>
+		<table class="outcomes">
+			<tbody>
+				{[5, 4, 3, 2, 1, 0].map(i => (
+					<tr>
+						<td class="tier">{i}</td>
+						<td set:html={renderMarkdown(e.outcomes?.[i] || OUTCOME_DEFAULTS[i])} />
+					</tr>
+				))}
+			</tbody>
+		</table>
 	</>
 )}
 
@@ -127,7 +168,10 @@ const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
 
 {/* domains: resource gains */}
 {category === 'domains' && (e.resourceGains ?? []).length > 0 && (
-	<ul class="resource-gains">{e.resourceGains.map((g: any) => <li><strong>{g.value}</strong> — {g.trigger}</li>)}</ul>
+	<>
+		<h3>Resource Gains</h3>
+		<ul class="resource-gains">{e.resourceGains.map((g: any) => <li><strong>{/^\d/.test(String(g.value)) ? '+' : ''}{g.value}{g.resource ? ` ${g.resource}` : ''}</strong> — {g.trigger}</li>)}</ul>
+	</>
 )}
 
 {/* shared structured blocks */}

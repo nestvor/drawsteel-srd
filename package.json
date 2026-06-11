@@ -16,6 +16,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource/cinzel": "^5.2.8",
+    "@fontsource/spectral": "^5.2.8",
     "astro": "^5.6.1",
     "markdown-it": "^14.1.0"
   },

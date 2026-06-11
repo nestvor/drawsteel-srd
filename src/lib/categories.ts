@@ -40,6 +40,7 @@ export const CATEGORIES: Category[] = [
 	{ key: 'complications', title: 'Complications', style: 'list', group: 'Heroes', blurb: 'Character flaws and hooks with mechanical upsides and downsides.' },
 	{ key: 'titles', title: 'Titles', style: 'list', group: 'Heroes', blurb: 'Earned titles that grant features as your legend grows.' },
 	{ key: 'abilities', title: 'Standard Abilities', style: 'list', group: 'Heroes', blurb: 'Free strikes and other abilities available to everyone.' },
+	{ key: 'projects', title: 'Projects', style: 'list', group: 'Heroes', blurb: 'Downtime and crafting projects.' },
 
 	// Treasures
 	{ key: 'items', title: 'Treasures', style: 'list', group: 'Treasures', blurb: 'Artifacts, consumables, trinkets, and leveled gear.' },
@@ -54,7 +55,6 @@ export const CATEGORIES: Category[] = [
 	// Director's Tools
 	{ key: 'montages', title: 'Montages', style: 'list', group: "Director's Tools", blurb: 'Structured montage test challenges.' },
 	{ key: 'negotiations', title: 'Negotiations', style: 'list', group: "Director's Tools", blurb: 'Social encounter frameworks with motivations and pitfalls.' },
-	{ key: 'projects', title: 'Projects', style: 'list', group: "Director's Tools", blurb: 'Downtime and crafting projects.' },
 
 	// Reference
 	{ key: 'skills', title: 'Skills', style: 'single', group: 'Reference', blurb: 'The full skill list by group.' },
