@@ -22,7 +22,7 @@ const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
 		<span><strong>Size</strong> {sizeLabel}</span>
 		<span><strong>Stability</strong> {m.stability}</span>
 		<span><strong>EV</strong> {m.encounterValue}</span>
-		{m.freeStrikeDamage != null && <span><strong>Free Strike</strong> {m.freeStrikeDamage}</span>}
+		{m.freeStrikeDamage != null && <span><strong>Free Strike</strong> {m.freeStrikeDamage}{m.freeStrikeType && m.freeStrikeType !== 'Damage' ? ` ${m.freeStrikeType}` : ''}</span>}
 	</div>
 
 	{chars.length > 0 && (
@@ -30,6 +30,8 @@ const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
 			{chars.map((c: any) => <span><strong>{(c.characteristic || '').slice(0, 3)}</strong> {sign(c.value)}</span>)}
 		</div>
 	)}
+
+	{m.withCaptain && <p class="kv"><strong>With Captain</strong> {m.withCaptain}</p>}
 
 	{m.features?.length > 0 && (
 		<div class="sb-features">

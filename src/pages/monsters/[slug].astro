@@ -39,6 +39,13 @@ const desc = (g.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 		</>
 	)}
 
+	{(g.addOns ?? []).length > 0 && (
+		<>
+			<h2>Customization Options</h2>
+			<FeatureList features={g.addOns} />
+		</>
+	)}
+
 	<h2>Stat Blocks</h2>
 	{monsters.map((m: any) => <StatBlock monster={m} />)}
 </BaseLayout>

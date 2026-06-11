@@ -48,9 +48,44 @@ const OUTCOME_DEFAULTS: Record<number, string> = {
 {category === 'imbuements' && (
 	<p class="kv">{e.type && <span><strong>Type</strong> {e.type}&nbsp;&nbsp;</span>}{e.level != null && <span><strong>Level</strong> {e.level}</span>}</p>
 )}
-{category === 'imbuements' && e.crafting && <Crafting crafting={e.crafting} />}
+
+{/* titles: echelon + how it's earned */}
+{category === 'titles' && (e.echelon != null || e.prerequisites) && (
+	<p class="kv">
+		{e.echelon != null && <span><strong>Echelon</strong> {e.echelon}&nbsp;&nbsp;</span>}
+		{e.prerequisites && <span><strong>Prerequisite</strong> {e.prerequisites}</span>}
+	</p>
+)}
+
+{/* ancestries: trait point budget */}
+{category === 'ancestries' && e.ancestryPoints != null && (
+	<p class="kv"><strong>Ancestry Points</strong> {e.ancestryPoints}</p>
+)}
 
 {e.description && <div class="md" set:html={renderMarkdown(e.description)} />}
+
+{/* kits: equipment + combat stat bonuses */}
+{category === 'kits' && (
+	<div class="sb-stats">
+		{e.armor?.length > 0 && <span><strong>Armor</strong> {e.armor.join(', ')}</span>}
+		{e.weapon?.length > 0 && <span><strong>Weapon</strong> {e.weapon.join(', ')}</span>}
+		{e.stamina > 0 && <span><strong>Stamina</strong> +{e.stamina}</span>}
+		{e.speed > 0 && <span><strong>Speed</strong> +{e.speed}</span>}
+		{e.stability > 0 && <span><strong>Stability</strong> +{e.stability}</span>}
+		{e.meleeDamage && <span><strong>Melee Damage</strong> +{e.meleeDamage.tier1} / +{e.meleeDamage.tier2} / +{e.meleeDamage.tier3}</span>}
+		{e.rangedDamage && <span><strong>Ranged Damage</strong> +{e.rangedDamage.tier1} / +{e.rangedDamage.tier2} / +{e.rangedDamage.tier3}</span>}
+		{e.meleeDistance > 0 && <span><strong>Melee Distance</strong> +{e.meleeDistance}</span>}
+		{e.rangedDistance > 0 && <span><strong>Ranged Distance</strong> +{e.rangedDistance}</span>}
+		{e.disengage > 0 && <span><strong>Disengage</strong> +{e.disengage}</span>}
+	</div>
+)}
+
+{/* imbuements: the mechanical feature (ability, modifier, …) beyond the flavour */}
+{category === 'imbuements' && e.feature && e.feature.type !== 'Text' && <Feature feature={e.feature} />}
+{category === 'imbuements' && e.crafting && <Crafting crafting={e.crafting} />}
+
+{/* perks: the granted ability, if any */}
+{category === 'perks' && e.type === 'Ability' && e.data?.ability && <Ability ability={e.data.ability} />}
 
 {/* cultures: the meaningful content is the environment/organization/upbringing
     aspects (each with its own description + skill grant) plus the language. */}
@@ -73,8 +108,9 @@ const OUTCOME_DEFAULTS: Record<number, string> = {
 	<>
 		<div class="sb-stats">
 			{e.level != null && <span><strong>Level</strong> {e.level}</span>}
-			{e.role?.type && <span><strong>Role</strong> {e.role.type}</span>}
+			{e.role?.type && <span><strong>Role</strong> {e.role.type}{e.role.terrainType ? ` (${e.role.terrainType})` : ''}</span>}
 			{e.encounterValue != null && <span><strong>EV</strong> {e.encounterValue}</span>}
+			{e.stamina && <span><strong>Stamina</strong> {e.stamina.base}{e.stamina.perSquare ? ` (+${e.stamina.perSquare}/sq)` : ''}</span>}
 			{e.area && <span><strong>Area</strong> {e.area}</span>}
 			{e.size && <span><strong>Size</strong> {typeof e.size === 'object' ? `${e.size.value ?? ''}${e.size.mod ?? ''}` : e.size}</span>}
 		</div>

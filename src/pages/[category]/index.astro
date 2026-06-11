@@ -60,7 +60,7 @@ const groupBy = (items: any[], key: string) => {
 		<section>
 			<h2>{group}</h2>
 			<dl>
-				{items.map((l: any) => <><dt><strong>{l.name}</strong></dt><dd>{l.description}</dd></>)}
+				{items.map((l: any) => <><dt><strong>{l.name}</strong></dt><dd>{l.description}{l.related?.length ? <span class="source-tag"> Related: {l.related.join(', ')}</span> : null}</dd></>)}
 			</dl>
 		</section>
 	))}
