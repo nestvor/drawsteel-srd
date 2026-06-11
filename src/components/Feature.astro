@@ -1,5 +1,6 @@
 ---
 import { renderMarkdown } from '~/lib/markdown';
+import { href, abilityCostAnchor, abilityCostLabel } from '~/lib/url';
 import Ability from './Ability.astro';
 
 const { feature } = Astro.props;
@@ -7,6 +8,34 @@ const f = feature ?? {};
 const t: string = f.type ?? '';
 const d: any = f.data ?? {};
 const Self = Astro.self;
+const plural = (n: number) => (n > 1 ? 's' : '');
+
+// Cross-reference summaries: a choice that should link somewhere useful.
+// (Class Ability links to the same-page cost group on a class detail page.)
+type LinkSummary = { pre: string; linkText: string; to: string; post?: string };
+function linkSummary(): LinkSummary | null {
+	const count = d.count ?? 1;
+	switch (t) {
+		case 'Kit': {
+			const types = (d.types ?? []).filter((x: string) => x && x.trim());
+			return { pre: `Choose ${count} `, linkText: `kit${plural(count)}`, to: href('/kits'), post: types.length ? ` (${types.join(', ')})` : '' };
+		}
+		case 'Perk': {
+			const lists = (d.lists ?? []).filter(Boolean);
+			return { pre: `Choose ${count} `, linkText: `perk${plural(count)}`, to: href('/perks'), post: lists.length ? ` (${lists.join(', ')})` : '' };
+		}
+		case 'Class Ability':
+			return {
+				pre: `Choose ${count} `,
+				linkText: `${abilityCostLabel(d.cost)} ability${count > 1 ? 'ies' : ''}`,
+				to: `#${abilityCostAnchor(d.cost)}`,
+				post: d.minLevel ? ` (level ${d.minLevel}+)` : ''
+			};
+		default:
+			return null;
+	}
+}
+const linkSum = linkSummary();
 
 // Synthesise a one-line summary for structured features that carry little/no prose.
 function summary(): string | null {
@@ -39,14 +68,6 @@ function summary(): string | null {
 		}
 		case 'Language Choice':
 			return `Choose ${d.count ?? 1} language${(d.count ?? 1) > 1 ? 's' : ''}${d.options?.length ? ` from ${d.options.join(', ')}` : ''}`;
-		case 'Perk':
-			return `Choose ${d.count ?? 1} perk${(d.count ?? 1) > 1 ? 's' : ''}${d.lists?.length ? ` (${d.lists.join(', ')})` : ''}`;
-		case 'Kit':
-			return `Choose ${d.count ?? 1} kit${(d.count ?? 1) > 1 ? 's' : ''}${d.types?.length ? ` (${d.types.join(', ')})` : ''}`;
-		case 'Class Ability': {
-			const c = d.cost === 'signature' ? 'signature ability' : `${d.cost}-point ability`;
-			return `Choose ${d.count ?? 1} ${c}${d.minLevel ? ` (level ${d.minLevel}+)` : ''}`;
-		}
 		case 'Damage Modifier':
 			return d.modifiers?.length
 				? d.modifiers.map((m: any) => `${m.damageType ?? 'All'} ${m.type ?? ''} ${m.value ?? ''}`.replace(/\s+/g, ' ').trim()).join(' · ')
@@ -67,7 +88,8 @@ const resourceGains: any[] = t === 'Heroic Resource' ? d.gains ?? [] : [];
 ) : (
 	<div class="feature">
 		{f.name && <p class="feature-name">{f.name}</p>}
-		{summaryLine && <p class="feature-summary">{summaryLine}</p>}
+		{linkSum && <p class="feature-summary">{linkSum.pre}<a href={linkSum.to}>{linkSum.linkText}</a>{linkSum.post}</p>}
+		{!linkSum && summaryLine && <p class="feature-summary">{summaryLine}</p>}
 		{f.description && <div class="md" set:html={renderMarkdown(f.description)} />}
 
 		{resourceGains.length > 0 && (

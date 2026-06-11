@@ -4,7 +4,7 @@ import FeatureList from '~/components/FeatureList.astro';
 import Ability from '~/components/Ability.astro';
 import { renderMarkdown } from '~/lib/markdown';
 import { all, entrySlug } from '~/lib/data';
-import { href } from '~/lib/url';
+import { href, abilityCostAnchor } from '~/lib/url';
 
 export function getStaticPaths() {
 	return all('classes').map(entry => ({ params: { slug: entrySlug(entry) }, props: { entry } }));
@@ -14,7 +14,14 @@ const { entry: c } = Astro.props;
 const primaryOptions: string[][] = c.primaryCharacteristicsOptions ?? [];
 const primary = primaryOptions.map(o => o.join(' + ')).join('  /  ');
 const fbl = c.featuresByLevel ?? [];
-const abilities = [...(c.abilities ?? [])].sort((a: any, b: any) => (a.minLevel ?? 0) - (b.minLevel ?? 0) || (Number(a.cost) || 0) - (Number(b.cost) || 0));
+const abilities = c.abilities ?? [];
+// Group abilities by cost (signature first, then ascending) so the "Choose a
+// <cost> ability" links from class features can target each group by anchor.
+const costRank = (cost: any) => (cost === 'signature' ? -1 : Number(cost) || 0);
+const costHeading = (cost: any) => (cost === 'signature' ? 'Signature Abilities' : `${cost}-Point Abilities`);
+const costGroups = [...new Set(abilities.map((a: any) => a.cost))]
+	.sort((a: any, b: any) => costRank(a) - costRank(b))
+	.map((cost: any) => ({ cost, abilities: abilities.filter((a: any) => a.cost === cost).sort((x: any, y: any) => (x.minLevel ?? 0) - (y.minLevel ?? 0)) }));
 const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 ---
 <BaseLayout title={c.name} description={desc}>
@@ -35,8 +42,13 @@ const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 
 	{abilities.length > 0 && (
 		<>
-			<h2>Class Abilities</h2>
-			{abilities.map((a: any) => <Ability ability={a} />)}
+			<h2 id="class-abilities">Class Abilities</h2>
+			{costGroups.map(g => (
+				<section>
+					<h3 id={abilityCostAnchor(g.cost)}>{costHeading(g.cost)}</h3>
+					{g.abilities.map((a: any) => <Ability ability={a} />)}
+				</section>
+			))}
 		</>
 	)}
 

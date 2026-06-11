@@ -12,6 +12,16 @@ export function href(p = '/'): string {
 	return `${base}${path}`.replace(/([^:])\/{2,}/g, '$1/');
 }
 
+/** Human label for an ability cost, e.g. 'signature' or '3-point'. */
+export function abilityCostLabel(cost: number | string): string {
+	return cost === 'signature' ? 'signature' : `${cost}-point`;
+}
+
+/** Same-page anchor id for a class's ability cost group, e.g. 'signature-abilities'. */
+export function abilityCostAnchor(cost: number | string): string {
+	return `${abilityCostLabel(cost)}-abilities`;
+}
+
 /** URL-safe slug from an id or name. */
 export function slugify(s: string): string {
 	return (s || '')

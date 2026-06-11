@@ -10,8 +10,8 @@ interface Props {
 const { title, description } = Astro.props;
 const fullTitle = title ? `${title} — Draw Steel SRD` : 'Draw Steel SRD';
 const desc = description ?? 'An unofficial, searchable rules reference (SRD) for the Draw Steel TTRPG.';
-const pagefindJs = href('/pagefind/pagefind-ui.js');
 const pagefindBundle = href('/pagefind/');
+const pagefindCss = href('/pagefind/pagefind-ui.css');
 ---
 <!doctype html>
 <html lang="en">
@@ -78,18 +78,29 @@ const pagefindBundle = href('/pagefind/');
 			});
 		</script>
 
-		<link rel="stylesheet" href={href('/pagefind/pagefind-ui.css')} />
-		<script is:inline define:vars={{ pagefindJs, pagefindBundle }}>
-			// Initialise Pagefind search if the index exists (only after a build).
-			window.addEventListener('DOMContentLoaded', async () => {
+		<link rel="stylesheet" href={pagefindCss} />
+		<script is:inline define:vars={{ pagefindBundle }}>
+			// Pagefind's UI bundle is an IIFE that defines a global PagefindUI (not an
+			// ES module), so we load it via a <script> tag rather than import().
+			// The index only exists after a build, so this no-ops during `astro dev`.
+			window.addEventListener('DOMContentLoaded', () => {
 				const el = document.getElementById('search');
 				if (!el) return;
-				try {
-					const mod = await import(pagefindJs);
-					new mod.PagefindUI({ element: '#search', bundlePath: pagefindBundle, showImages: false, pageSize: 8 });
-				} catch {
-					el.innerHTML = '<input class="search-fallback" type="search" placeholder="Search (build the site to enable)" disabled />';
-				}
+				const init = () => {
+					if (!window.PagefindUI) return false;
+					new window.PagefindUI({ element: '#search', bundlePath: pagefindBundle, showSubResults: true, showImages: false, pageSize: 8 });
+					return true;
+				};
+				if (init()) return;
+				const s = document.createElement('script');
+				s.src = pagefindBundle + 'pagefind-ui.js';
+				s.onload = init;
+				s.onerror = () => {
+					if (!el.querySelector('.pagefind-ui')) {
+						el.innerHTML = '<input class="search-fallback" type="search" placeholder="Search (build the site to enable)" disabled />';
+					}
+				};
+				document.head.appendChild(s);
 			});
 		</script>
 	</body>

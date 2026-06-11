@@ -141,7 +141,8 @@ h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; color: var(--accent); }
 /* ---------- features ---------- */
 .feature { margin: 0.6rem 0; }
 .feature-name { font-weight: 700; margin: 0.2rem 0; }
-.feature-summary { color: var(--accent-2); font-weight: 600; margin: 0.1rem 0; }
+.feature-summary { color: var(--text-dim); font-weight: 600; margin: 0.1rem 0; }
+.feature-summary a { font-weight: 700; }
 .feature-note { font-weight: 600; color: var(--text-dim); margin: 0.4rem 0 0.2rem; }
 .feature-children { margin-left: 1rem; padding-left: 0.75rem; border-left: 2px solid var(--border); }
 .resource-gains { margin: 0.3rem 0; padding-left: 1.2rem; }
