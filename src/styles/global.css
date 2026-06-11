@@ -185,9 +185,16 @@ h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.18rem; mar
 .card-blurb { font-size: 0.88rem; color: var(--text-dim); margin-top: 0.25rem; line-height: 1.5; }
 .entry-list { list-style: none; padding: 0; margin: 1rem 0; columns: 2; column-gap: 2rem; }
 .entry-list li { break-inside: avoid; margin-bottom: 0.35rem; }
-.filter-bar { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0 1.5rem; }
+.filter-bar {
+	display: flex; flex-wrap: wrap; gap: 0.4rem;
+	position: sticky; top: var(--topbar-h); z-index: 10;
+	margin: 1rem 0 1.5rem; padding: 0.6rem 0;
+	background: var(--bg); border-bottom: 1px solid var(--border);
+}
 .filter-bar .pill { cursor: pointer; transition: background 0.12s ease, color 0.12s ease; }
 .filter-bar .pill:hover { background: var(--accent); color: #fff; text-decoration: none; }
+/* jump targets clear the sticky topbar + filter-bar */
+.filter-bar ~ section > h2 { scroll-margin-top: calc(var(--topbar-h) + 8rem); }
 
 /* ---------- abilities ---------- */
 .ability { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 0.8rem 1.1rem; margin: 0.85rem 0; box-shadow: var(--shadow); }
@@ -232,6 +239,22 @@ h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.18rem; mar
 
 /* summoned creatures / companions: their stat block already styles itself */
 .summon { margin: 0.85rem 0; }
+
+/* ---------- Monster Basics diagrams (original SVG figures) ---------- */
+.mb-diagram { margin: 1.25rem 0; padding: 0.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.mb-diagram svg { display: block; width: 100%; height: auto; max-width: 600px; margin: 0 auto; }
+.mb-diagram figcaption { font-family: var(--font-ui); font-size: 0.8rem; color: var(--text-dim); text-align: center; margin-top: 0.5rem; }
+.mb-label { fill: var(--text); }
+.mb-dim { fill: var(--text-dim); }
+.mb-accent { fill: var(--accent); }
+.mb-tnum { fill: var(--text); }
+.mb-tok { fill: var(--surface-2); stroke: var(--accent); stroke-width: 2; }
+.mb-tok-safe { fill: var(--surface-2); stroke: var(--border); stroke-width: 2; }
+.mb-foe { fill: var(--surface-2); stroke: var(--accent-2); stroke-width: 2; }
+.mb-pool { fill: var(--accent); opacity: 0.78; }
+.mb-seg { stroke: var(--bg); stroke-width: 2; }
+.mb-burst { fill: var(--accent); fill-opacity: 0.08; stroke: var(--accent); stroke-width: 2; stroke-dasharray: 6 5; }
+.mb-arrow { stroke: var(--accent); stroke-width: 2; fill: none; marker-end: url(#mb-ah); }
 
 /* ---------- crafting / project block ---------- */
 .crafting { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--accent-2); border-radius: var(--radius); padding: 0.6rem 0.95rem; margin: 1rem 0; }
