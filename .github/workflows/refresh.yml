@@ -1,0 +1,37 @@
+name: Refresh data from forgesteel
+
+# Manually triggered: pulls the latest forgesteel commit, re-extracts the JSON,
+# and commits any changes. The deploy workflow then runs automatically on push.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Update forgesteel submodule
+        run: git submodule update --remote vendor/forgesteel
+      - name: Re-extract data
+        run: npm run extract
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/json vendor/forgesteel
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "chore: refresh data from forgesteel"
+            git push
+          fi

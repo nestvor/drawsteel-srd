@@ -1,0 +1,63 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import FeatureList from '~/components/FeatureList.astro';
+import Ability from '~/components/Ability.astro';
+import { renderMarkdown } from '~/lib/markdown';
+import { all, entrySlug } from '~/lib/data';
+import { href } from '~/lib/url';
+
+export function getStaticPaths() {
+	return all('classes').map(entry => ({ params: { slug: entrySlug(entry) }, props: { entry } }));
+}
+
+const { entry: c } = Astro.props;
+const primaryOptions: string[][] = c.primaryCharacteristicsOptions ?? [];
+const primary = primaryOptions.map(o => o.join(' + ')).join('  /  ');
+const fbl = c.featuresByLevel ?? [];
+const abilities = [...(c.abilities ?? [])].sort((a: any, b: any) => (a.minLevel ?? 0) - (b.minLevel ?? 0) || (Number(a.cost) || 0) - (Number(b.cost) || 0));
+const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
+---
+<BaseLayout title={c.name} description={desc}>
+	<p class="breadcrumb"><a href={href('/')}>Home</a> › <a href={href('/classes')}>Classes</a> › {c.name}</p>
+	<h1>{c.name}</h1>
+	{c._source && c._source !== 'Core' && <p class="source-tag">{c._source}</p>}
+
+	{primary && <p class="kv"><strong>Primary Characteristics</strong> {primary}</p>}
+	{c.description && <div class="md" set:html={renderMarkdown(c.description)} />}
+
+	<h2>Class Features</h2>
+	{fbl.map((lvl: any) => (
+		<div class="level-block">
+			<h3>Level {lvl.level}</h3>
+			<FeatureList features={lvl.features ?? []} />
+		</div>
+	))}
+
+	{abilities.length > 0 && (
+		<>
+			<h2>Class Abilities</h2>
+			{abilities.map((a: any) => <Ability ability={a} />)}
+		</>
+	)}
+
+	{(c.subclasses ?? []).length > 0 && (
+		<>
+			<h2>{c.subclassName || 'Subclasses'}</h2>
+			{c.subclasses.map((s: any) => (
+				<section>
+					<h3 id={entrySlug(s)}>{s.name}</h3>
+					{s.description && <div class="md" set:html={renderMarkdown(s.description)} />}
+					{(s.featuresByLevel ?? []).map((lvl: any) => (
+						(lvl.features ?? []).length > 0 && (
+							<div class="level-block">
+								<h3>Level {lvl.level}</h3>
+								<FeatureList features={lvl.features} />
+							</div>
+						)
+					))}
+					{(s.abilities ?? []).length > 0 && s.abilities.map((a: any) => <Ability ability={a} />)}
+				</section>
+			))}
+		</>
+	)}
+</BaseLayout>

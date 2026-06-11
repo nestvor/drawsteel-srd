@@ -1,0 +1,10 @@
+---
+import Feature from './Feature.astro';
+const { features = [], title } = Astro.props;
+---
+{features.length > 0 && (
+	<section class="feature-list">
+		{title && <h3>{title}</h3>}
+		{features.map((f: any) => <Feature feature={f} />)}
+	</section>
+)}

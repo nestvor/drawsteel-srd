@@ -1,0 +1,44 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import StatBlock from '~/components/StatBlock.astro';
+import FeatureList from '~/components/FeatureList.astro';
+import { renderMarkdown } from '~/lib/markdown';
+import { all, entrySlug } from '~/lib/data';
+import { href } from '~/lib/url';
+
+export function getStaticPaths() {
+	return all('monsters').map(entry => ({ params: { slug: entrySlug(entry) }, props: { entry } }));
+}
+
+const { entry: g } = Astro.props;
+const monsters = [...(g.monsters ?? [])].sort((a: any, b: any) => (a.level ?? 0) - (b.level ?? 0));
+const desc = (g.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
+---
+<BaseLayout title={g.name} description={desc}>
+	<p class="breadcrumb"><a href={href('/')}>Home</a> › <a href={href('/monsters')}>Bestiary</a> › {g.name}</p>
+	<h1>{g.name}</h1>
+	{g._source && g._source !== 'Core' && <p class="source-tag">{g._source}</p>}
+	{g.description && <div class="md" set:html={renderMarkdown(g.description)} />}
+
+	{(g.information ?? []).length > 0 && (
+		<>
+			<h2>Lore</h2>
+			{g.information.map((i: any) => (
+				<section>
+					{i.name && <h3>{i.name}</h3>}
+					{i.description && <div class="md" set:html={renderMarkdown(i.description)} />}
+				</section>
+			))}
+		</>
+	)}
+
+	{(g.malice ?? []).length > 0 && (
+		<>
+			<h2>Malice</h2>
+			<FeatureList features={g.malice} />
+		</>
+	)}
+
+	<h2>Stat Blocks</h2>
+	{monsters.map((m: any) => <StatBlock monster={m} />)}
+</BaseLayout>

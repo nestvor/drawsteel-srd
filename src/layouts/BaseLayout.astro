@@ -1,0 +1,96 @@
+---
+import Sidebar from '~/components/Sidebar.astro';
+import { href } from '~/lib/url';
+import '~/styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+const { title, description } = Astro.props;
+const fullTitle = title ? `${title} — Draw Steel SRD` : 'Draw Steel SRD';
+const desc = description ?? 'An unofficial, searchable rules reference (SRD) for the Draw Steel TTRPG.';
+const pagefindJs = href('/pagefind/pagefind-ui.js');
+const pagefindBundle = href('/pagefind/');
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{fullTitle}</title>
+		<meta name="description" content={desc} />
+		<link rel="icon" href={href('/favicon.svg')} type="image/svg+xml" />
+		<script is:inline>
+			// Apply saved theme before paint to avoid a flash.
+			(() => {
+				const saved = localStorage.getItem('theme');
+				const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+				document.documentElement.dataset.theme = theme;
+			})();
+		</script>
+	</head>
+	<body>
+		<a class="skip-link" href="#main">Skip to content</a>
+		<header class="topbar">
+			<button id="menu-toggle" class="icon-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+			<a class="topbar-title" href={href('/')}>Draw Steel SRD</a>
+			<button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">🌓</button>
+		</header>
+
+		<div class="layout">
+			<div id="sidebar-wrap" class="sidebar-wrap">
+				<Sidebar />
+			</div>
+			<div id="scrim" class="scrim" hidden></div>
+			<main id="main" class="content">
+				<article class="article" data-pagefind-body>
+					<slot />
+				</article>
+				<footer class="site-footer" data-pagefind-ignore>
+					<p>
+						An unofficial fan reference. Game content © MCDM Productions, used under the Draw Steel Creator
+						License. Data sourced from the <a href="https://github.com/andyaiken/forgesteel">forgesteel</a> project.
+						See <a href={href('/about')}>About &amp; Credits</a>.
+					</p>
+				</footer>
+			</main>
+		</div>
+
+		<script>
+			// Mobile drawer
+			const toggle = document.getElementById('menu-toggle');
+			const wrap = document.getElementById('sidebar-wrap');
+			const scrim = document.getElementById('scrim');
+			const setOpen = (open: boolean) => {
+				wrap?.classList.toggle('open', open);
+				if (scrim) scrim.hidden = !open;
+				toggle?.setAttribute('aria-expanded', String(open));
+			};
+			toggle?.addEventListener('click', () => setOpen(!wrap?.classList.contains('open')));
+			scrim?.addEventListener('click', () => setOpen(false));
+
+			// Theme toggle
+			document.getElementById('theme-toggle')?.addEventListener('click', () => {
+				const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+				document.documentElement.dataset.theme = next;
+				localStorage.setItem('theme', next);
+			});
+		</script>
+
+		<link rel="stylesheet" href={href('/pagefind/pagefind-ui.css')} />
+		<script is:inline define:vars={{ pagefindJs, pagefindBundle }}>
+			// Initialise Pagefind search if the index exists (only after a build).
+			window.addEventListener('DOMContentLoaded', async () => {
+				const el = document.getElementById('search');
+				if (!el) return;
+				try {
+					const mod = await import(pagefindJs);
+					new mod.PagefindUI({ element: '#search', bundlePath: pagefindBundle, showImages: false, pageSize: 8 });
+				} catch {
+					el.innerHTML = '<input class="search-fallback" type="search" placeholder="Search (build the site to enable)" disabled />';
+				}
+			});
+		</script>
+	</body>
+</html>

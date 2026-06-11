@@ -1,0 +1,27 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { GROUPS, byGroup } from '~/lib/categories';
+import { all } from '~/lib/data';
+import { href } from '~/lib/url';
+---
+<BaseLayout>
+	<h1>Draw Steel SRD</h1>
+	<p class="page-lead">
+		An unofficial, searchable rules reference for the <strong>Draw Steel</strong> tabletop RPG.
+		Browse by category in the sidebar, or search above.
+	</p>
+
+	{GROUPS.map(group => (
+		<section>
+			<h2>{group}</h2>
+			<div class="card-grid">
+				{byGroup(group).map(c => (
+					<a class="card" href={href(`/${c.key}`)}>
+						<div class="card-title">{c.title} <span class="source-tag">{all(c.key).length}</span></div>
+						<div class="card-blurb">{c.blurb}</div>
+					</a>
+				))}
+			</div>
+		</section>
+	))}
+</BaseLayout>

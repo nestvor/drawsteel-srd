@@ -1,0 +1,25 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import EntryDetail from '~/components/EntryDetail.astro';
+import { CATEGORIES } from '~/lib/categories';
+import { all, entrySlug } from '~/lib/data';
+
+export function getStaticPaths() {
+	// Categories with dedicated detail pages or no detail pages at all.
+	const EXCLUDE = new Set(['classes', 'monsters', 'rules', 'conditions', 'skills', 'languages']);
+	const paths: any[] = [];
+	for (const c of CATEGORIES) {
+		if (EXCLUDE.has(c.key) || c.style !== 'list') continue;
+		for (const entry of all(c.key)) {
+			paths.push({ params: { category: c.key, slug: entrySlug(entry) }, props: { category: c.key, entry } });
+		}
+	}
+	return paths;
+}
+
+const { category, entry } = Astro.props;
+const desc = (entry.description || entry.effect || '').replace(/[#*_`>]/g, '').slice(0, 150);
+---
+<BaseLayout title={entry.name} description={desc}>
+	<EntryDetail entry={entry} category={category} />
+</BaseLayout>

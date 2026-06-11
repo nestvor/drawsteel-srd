@@ -1,0 +1,149 @@
+---
+import { renderMarkdown } from '~/lib/markdown';
+import { href } from '~/lib/url';
+import { byKey } from '~/lib/categories';
+import FeatureList from './FeatureList.astro';
+import Ability from './Ability.astro';
+
+const { entry: e, category } = Astro.props;
+const cat = byKey(category);
+const fbl = e.featuresByLevel ?? [];
+const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
+---
+<p class="breadcrumb">
+	<a href={href('/')}>Home</a> › <a href={href(`/${category}`)}>{cat?.title}</a> › {e.name}
+</p>
+
+<h1>{e.name}</h1>
+{e._source && e._source !== 'Core' && <p class="source-tag">{e._source}</p>}
+
+{/* items: keywords + type */}
+{category === 'items' && (
+	<div class="pills">
+		{e.type && <span class="pill pill-usage">{e.type}</span>}
+		{(e.keywords ?? []).map((k: string) => <span class="pill">{k}</span>)}
+	</div>
+)}
+
+{category === 'imbuements' && (
+	<p class="kv">{e.type && <span><strong>Type</strong> {e.type}&nbsp;&nbsp;</span>}{e.level != null && <span><strong>Level</strong> {e.level}</span>}</p>
+)}
+
+{e.description && <div class="md" set:html={renderMarkdown(e.description)} />}
+
+{/* abilities category: the entry itself is an ability */}
+{category === 'abilities' && <Ability ability={e} />}
+
+{/* items: effect + per-level features */}
+{category === 'items' && e.effect && <div class="md" set:html={renderMarkdown(e.effect)} />}
+
+{/* terrain stat row + sections + upgrades */}
+{category === 'terrain' && (
+	<>
+		<div class="sb-stats">
+			{e.level != null && <span><strong>Level</strong> {e.level}</span>}
+			{e.role?.type && <span><strong>Role</strong> {e.role.type}</span>}
+			{e.encounterValue != null && <span><strong>EV</strong> {e.encounterValue}</span>}
+			{e.area && <span><strong>Area</strong> {e.area}</span>}
+			{e.size && <span><strong>Size</strong> {typeof e.size === 'object' ? `${e.size.value ?? ''}${e.size.mod ?? ''}` : e.size}</span>}
+		</div>
+		{(e.sections ?? []).map((s: any) => <div class="md" set:html={renderMarkdown(s.content)} />)}
+		{(e.upgrades ?? []).length > 0 && (
+			<>
+				<h3>Upgrades</h3>
+				{e.upgrades.map((u: any) => (
+					<div class="feature">
+						<p class="feature-name">{u.label}{u.cost != null ? ` (${u.cost})` : ''}</p>
+						{u.text && <div class="md" set:html={renderMarkdown(u.text)} />}
+						{(u.sections ?? []).map((s: any) => <div class="md" set:html={renderMarkdown(s.content)} />)}
+					</div>
+				))}
+			</>
+		)}
+	</>
+)}
+
+{/* negotiations */}
+{category === 'negotiations' && (
+	<>
+		<div class="sb-stats">
+			{e.attitude && <span><strong>Attitude</strong> {e.attitude}</span>}
+			{e.impression != null && <span><strong>Impression</strong> {e.impression}</span>}
+			{e.interest != null && <span><strong>Interest</strong> {e.interest}</span>}
+			{e.patience != null && <span><strong>Patience</strong> {e.patience}</span>}
+		</div>
+		{(e.motivations ?? []).length > 0 && <h3>Motivations</h3>}
+		{(e.motivations ?? []).map((m: any) => <div class="feature"><p class="feature-name">{m.trait}</p><div class="md" set:html={renderMarkdown(m.description)} /></div>)}
+		{(e.pitfalls ?? []).length > 0 && <h3>Pitfalls</h3>}
+		{(e.pitfalls ?? []).map((m: any) => <div class="feature"><p class="feature-name">{m.trait}</p><div class="md" set:html={renderMarkdown(m.description)} /></div>)}
+		{(e.outcomes ?? []).length > 0 && <h3>Outcomes</h3>}
+		{(e.outcomes ?? []).length > 0 && <ol>{e.outcomes.map((o: string) => <li set:html={renderMarkdown(o)} />)}</ol>}
+	</>
+)}
+
+{/* montages */}
+{category === 'montages' && (
+	<>
+		{e.difficulty && <p class="kv"><strong>Difficulty</strong> {e.difficulty}</p>}
+		{e.scene && <div class="md" set:html={renderMarkdown(e.scene)} />}
+		{(e.sections ?? []).map((s: any) => (
+			<div class="feature">
+				{s.name && <p class="feature-name">{s.name}</p>}
+				{s.description && <div class="md" set:html={renderMarkdown(s.description)} />}
+			</div>
+		))}
+		{e.outcomes && (
+			<>
+				<h3>Outcomes</h3>
+				{e.outcomes.totalSuccess && <p><strong>Total success:</strong> <span set:html={renderMarkdown(e.outcomes.totalSuccess)} /></p>}
+				{e.outcomes.partialSuccess && <p><strong>Partial success:</strong> <span set:html={renderMarkdown(e.outcomes.partialSuccess)} /></p>}
+				{e.outcomes.totalFailure && <p><strong>Total failure:</strong> <span set:html={renderMarkdown(e.outcomes.totalFailure)} /></p>}
+			</>
+		)}
+	</>
+)}
+
+{/* projects */}
+{category === 'projects' && (
+	<div class="sb-stats">
+		{e.goal != null && <span><strong>Goal</strong> {e.goal}</span>}
+		{(e.characteristic ?? []).length > 0 && <span><strong>Roll</strong> {e.characteristic.join(' or ')}</span>}
+		{e.source && <span><strong>Source</strong> {e.source}</span>}
+		{e.itemPrerequisites && <span><strong>Prerequisite</strong> {e.itemPrerequisites}</span>}
+	</div>
+)}
+
+{/* careers: inciting incidents */}
+{category === 'careers' && (e.incitingIncidents?.options ?? []).length > 0 && (
+	<>
+		<h3>Inciting Incidents</h3>
+		<ol>
+			{e.incitingIncidents.options.map((o: any) => (
+				<li><strong>{o.name}</strong>{o.description ? <> — <span set:html={renderMarkdown(o.description)} /></> : null}</li>
+			))}
+		</ol>
+	</>
+)}
+
+{/* domains: resource gains */}
+{category === 'domains' && (e.resourceGains ?? []).length > 0 && (
+	<ul class="resource-gains">{e.resourceGains.map((g: any) => <li><strong>{g.value}</strong> — {g.trigger}</li>)}</ul>
+)}
+
+{/* shared structured blocks */}
+{(e.defaultFeatures ?? []).length > 0 && <FeatureList features={e.defaultFeatures} />}
+{category !== 'abilities' && (e.features ?? []).length > 0 && <FeatureList features={e.features} />}
+
+{fbl.length > 0 && fbl.map((lvl: any) => (
+	<div class="level-block">
+		<h3>Level {lvl.level}</h3>
+		<FeatureList features={lvl.features ?? []} />
+	</div>
+))}
+
+{(e.abilities ?? []).length > 0 && (
+	<>
+		<h3>Abilities</h3>
+		{e.abilities.map((a: any) => <Ability ability={a} />)}
+	</>
+)}

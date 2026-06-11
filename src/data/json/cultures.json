@@ -1,0 +1,1052 @@
+[
+	{
+		"id": "culture-artisan-guild",
+		"name": "Artisan Guild",
+		"description": "Urban, bureaucratic, creative.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-artisan-guild-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-urban",
+			"name": "Urban",
+			"description": "An urban culture is always centered in a city.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-bureaucratic",
+			"name": "Bureaucratic",
+			"description": "Bureaucratic cultures are steeped in official leadership and formally recorded laws.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-creative",
+			"name": "Creative",
+			"description": "A hero with a creative upbringing was raised among folk who create art or other works valuable enough to trade.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [
+					"Music",
+					"Perform"
+				],
+				"listOptions": [
+					"Crafting"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-borderland-homestead",
+		"name": "Borderland Homestead",
+		"description": "Wilderness, communal, labor.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-borderland-homestead-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-wilderness",
+			"name": "Wilderness",
+			"description": "A wilderness culture doesn’t try to tame the terrain in which its people live, whether desert, forest, swamp, tundra, ocean, or more exotic climes.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Crafting",
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-communal",
+			"name": "Communal",
+			"description": "A communal culture is a place where all members of the culture are considered equal.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Crafting",
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-labor",
+			"name": "Labor",
+			"description": "Your hero came of age in a culture where people labored for a living.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [
+					"Blacksmithing",
+					"Handle Animals"
+				],
+				"listOptions": [
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-college-conclave",
+		"name": "College Conclave",
+		"description": "Urban, bureaucratic, academic.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-college-conclave-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-urban",
+			"name": "Urban",
+			"description": "An urban culture is always centered in a city.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-bureaucratic",
+			"name": "Bureaucratic",
+			"description": "Bureaucratic cultures are steeped in official leadership and formally recorded laws.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-academic",
+			"name": "Academic",
+			"description": "Your hero was raised by people who collect, study, and share books and other records.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Lore"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-criminal-gang",
+		"name": "Criminal Gang",
+		"description": "Urban, communal, lawless.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-criminal-gang-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-urban",
+			"name": "Urban",
+			"description": "An urban culture is always centered in a city.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-communal",
+			"name": "Communal",
+			"description": "A communal culture is a place where all members of the culture are considered equal.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Crafting",
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-lawless",
+			"name": "Lawless",
+			"description": "Your hero grew up among folk who performed activities that other people — whether within or outside their culture — considered unlawful.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-farming-village",
+		"name": "Farming Village",
+		"description": "Rural, bureaucratic, labor.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-farming-village-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-rural",
+			"name": "Rural",
+			"description": "A rural culture is one located in a town, village, or smaller settled enclave.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Crafting",
+					"Lore"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-bureaucratic",
+			"name": "Bureaucratic",
+			"description": "Bureaucratic cultures are steeped in official leadership and formally recorded laws.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-labor",
+			"name": "Labor",
+			"description": "Your hero came of age in a culture where people labored for a living.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [
+					"Blacksmithing",
+					"Handle Animals"
+				],
+				"listOptions": [
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-herding-community",
+		"name": "Herding Community",
+		"description": "Nomadic, communal, labor.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-herding-community-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-nomadic",
+			"name": "Nomadic",
+			"description": "A nomadic culture travels from place to place to survive.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Exploration",
+					"Interpersonal"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-communal",
+			"name": "Communal",
+			"description": "A communal culture is a place where all members of the culture are considered equal.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Crafting",
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-labor",
+			"name": "Labor",
+			"description": "Your hero came of age in a culture where people labored for a living.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [
+					"Blacksmithing",
+					"Handle Animals"
+				],
+				"listOptions": [
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-knightly-order",
+		"name": "Knightly Order",
+		"description": "Secluded, bureaucratic, martial.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-knightly-order-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-secluded",
+			"name": "Secluded",
+			"description": "A secluded culture is based in one relatively close-quarters structure — a building, a cavern, and so forth — and interacts with other cultures only rarely.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Lore"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-bureaucratic",
+			"name": "Bureaucratic",
+			"description": "Bureaucratic cultures are steeped in official leadership and formally recorded laws.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-martial",
+			"name": "Martial",
+			"description": "A hero with a martial upbringing was raised by warriors.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [
+					"Blacksmithing",
+					"Fletching",
+					"Climb",
+					"Endurance",
+					"Ride",
+					"Intimidate",
+					"Alertness",
+					"Track",
+					"Monsters",
+					"Strategy"
+				],
+				"listOptions": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-mercenary-band",
+		"name": "Mercenary Band",
+		"description": "Nomadic, bureaucratic, martial.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-mercenary-band-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-nomadic",
+			"name": "Nomadic",
+			"description": "A nomadic culture travels from place to place to survive.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Exploration",
+					"Interpersonal"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-bureaucratic",
+			"name": "Bureaucratic",
+			"description": "Bureaucratic cultures are steeped in official leadership and formally recorded laws.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-martial",
+			"name": "Martial",
+			"description": "A hero with a martial upbringing was raised by warriors.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [
+					"Blacksmithing",
+					"Fletching",
+					"Climb",
+					"Endurance",
+					"Ride",
+					"Intimidate",
+					"Alertness",
+					"Track",
+					"Monsters",
+					"Strategy"
+				],
+				"listOptions": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-merchant-caravan",
+		"name": "Merchant Caravan",
+		"description": "Nomadic, bureaucratic, creative.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-merchant-caravan-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-nomadic",
+			"name": "Nomadic",
+			"description": "A nomadic culture travels from place to place to survive.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Exploration",
+					"Interpersonal"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-bureaucratic",
+			"name": "Bureaucratic",
+			"description": "Bureaucratic cultures are steeped in official leadership and formally recorded laws.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-creative",
+			"name": "Creative",
+			"description": "A hero with a creative upbringing was raised among folk who create art or other works valuable enough to trade.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [
+					"Music",
+					"Perform"
+				],
+				"listOptions": [
+					"Crafting"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-monastic-order",
+		"name": "Monastic Order",
+		"description": "Secluded, bureaucratic, academic.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-monastic-order-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-secluded",
+			"name": "Secluded",
+			"description": "A secluded culture is based in one relatively close-quarters structure — a building, a cavern, and so forth — and interacts with other cultures only rarely.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Lore"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-bureaucratic",
+			"name": "Bureaucratic",
+			"description": "Bureaucratic cultures are steeped in official leadership and formally recorded laws.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-academic",
+			"name": "Academic",
+			"description": "Your hero was raised by people who collect, study, and share books and other records.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Lore"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-noble-house",
+		"name": "Noble House",
+		"description": "Urban, bureaucratic, noble.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-noble-house-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-urban",
+			"name": "Urban",
+			"description": "An urban culture is always centered in a city.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-bureaucratic",
+			"name": "Bureaucratic",
+			"description": "Bureaucratic cultures are steeped in official leadership and formally recorded laws.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-noble",
+			"name": "Noble",
+			"description": "Your hero grew up among leaders who rule over others and play the games of politics to maintain power.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-outlaw-band",
+		"name": "Outlaw Band",
+		"description": "Wilderness, communal, lawless.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-outlaw-band-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-wilderness",
+			"name": "Wilderness",
+			"description": "A wilderness culture doesn’t try to tame the terrain in which its people live, whether desert, forest, swamp, tundra, ocean, or more exotic climes.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Crafting",
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-communal",
+			"name": "Communal",
+			"description": "A communal culture is a place where all members of the culture are considered equal.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Crafting",
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-lawless",
+			"name": "Lawless",
+			"description": "Your hero grew up among folk who performed activities that other people — whether within or outside their culture — considered unlawful.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-pauper-neighborhood",
+		"name": "Pauper Neighborhood",
+		"description": "Urban, communal, labor.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-pauper-neighborhood-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-urban",
+			"name": "Urban",
+			"description": "An urban culture is always centered in a city.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-communal",
+			"name": "Communal",
+			"description": "A communal culture is a place where all members of the culture are considered equal.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Crafting",
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-labor",
+			"name": "Labor",
+			"description": "Your hero came of age in a culture where people labored for a living.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [
+					"Blacksmithing",
+					"Handle Animals"
+				],
+				"listOptions": [
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-pirate-crew",
+		"name": "Pirate Crew",
+		"description": "Nomadic, communal, lawless.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-pirate-crew-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-nomadic",
+			"name": "Nomadic",
+			"description": "A nomadic culture travels from place to place to survive.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Exploration",
+					"Interpersonal"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-communal",
+			"name": "Communal",
+			"description": "A communal culture is a place where all members of the culture are considered equal.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Crafting",
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-lawless",
+			"name": "Lawless",
+			"description": "Your hero grew up among folk who performed activities that other people — whether within or outside their culture — considered unlawful.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Intrigue"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-telepathic-hive",
+		"name": "Telepathic Hive",
+		"description": "Secluded, communal, creative.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-telepathic-hive-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-secluded",
+			"name": "Secluded",
+			"description": "A secluded culture is based in one relatively close-quarters structure — a building, a cavern, and so forth — and interacts with other cultures only rarely.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Interpersonal",
+					"Lore"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-communal",
+			"name": "Communal",
+			"description": "A communal culture is a place where all members of the culture are considered equal.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Crafting",
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-creative",
+			"name": "Creative",
+			"description": "A hero with a creative upbringing was raised among folk who create art or other works valuable enough to trade.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [
+					"Music",
+					"Perform"
+				],
+				"listOptions": [
+					"Crafting"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "culture-traveling-entertainers",
+		"name": "Traveling Entertainers",
+		"description": "Nomadic, communal, creative.",
+		"type": "Professional",
+		"language": {
+			"id": "culture-traveling-entertainers-language",
+			"name": "Language",
+			"description": "",
+			"type": "Language Choice",
+			"data": {
+				"options": [],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"environment": {
+			"id": "env-nomadic",
+			"name": "Nomadic",
+			"description": "A nomadic culture travels from place to place to survive.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Exploration",
+					"Interpersonal"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"organization": {
+			"id": "org-communal",
+			"name": "Communal",
+			"description": "A communal culture is a place where all members of the culture are considered equal.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [],
+				"listOptions": [
+					"Crafting",
+					"Exploration"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"upbringing": {
+			"id": "up-creative",
+			"name": "Creative",
+			"description": "A hero with a creative upbringing was raised among folk who create art or other works valuable enough to trade.",
+			"type": "Skill Choice",
+			"data": {
+				"options": [
+					"Music",
+					"Perform"
+				],
+				"listOptions": [
+					"Crafting"
+				],
+				"count": 1,
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	}
+]

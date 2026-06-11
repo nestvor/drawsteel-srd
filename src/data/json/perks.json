@@ -1,0 +1,1329 @@
+[
+	{
+		"id": "perk-area-of-expertise",
+		"name": "Area of Expertise",
+		"description": "Choose one skill you already have from the crafting skill group. Whenever you obtain a tier 1 outcome on an easy or medium test using this skill, you treat it as a tier 2 outcome instead. Additionally, if you spend 1 minute inspecting an object related to the chosen skill, you can estimate its value and learn of any flaws in its construction.",
+		"type": "Text",
+		"data": null,
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-expert-artisan",
+		"name": "Expert Artisan",
+		"description": "Whenever you make a test as part of a crafting or research project that uses a skill you already have from the crafting skill group, you can make the power roll twice and use either roll.",
+		"type": "Text",
+		"data": null,
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-handy",
+		"name": "Handy",
+		"description": "Whenever you make a test to craft something and don’t have a skill that applies to the test, you gain a +1 bonus to the power roll.",
+		"type": "Text",
+		"data": null,
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-improvisation-creation",
+		"name": "Improvisation Creation",
+		"description": "Without needing to make a test—and even without tools—you can quickly jury-rig or repair a mundane item or piece of equipment related to a skill you have from the crafting skill group. That item lasts for 1 hour or works for one use or activation (whichever comes first, as the Director determines), then breaks beyond repair. For example, if you have the Carpentry skill, you could repair a rickety wooden bridge long enough for a group of creatures to cross it, or build a simple shovel made of wood that can be used for 1 hour.",
+		"type": "Text",
+		"data": null,
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-inspired-artisan",
+		"name": "Inspired Artisan",
+		"description": "When you make a project roll using a skill from the crafting skill group, you can spend a hero token to make another project roll for the same project as part of the same respite activity. You can’t use this perk more than once per respite.",
+		"type": "Text",
+		"data": null,
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-travelling-artisan",
+		"name": "Travelling Artisan",
+		"description": "On any day when you don’t take a respite, you can spend 1 uninterrupted hour working on a crafting project using a skill you have from the crafting skill group. If you do so, you gain 1d10 project points toward that project.",
+		"type": "Text",
+		"data": null,
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-brawny",
+		"name": "Brawny",
+		"description": "Whenever you fail a Might test, you can lose Stamina equal to 1d6 + your level to improve the outcome of the test by one tier. You can use this perk only once per test.",
+		"type": "Text",
+		"data": null,
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-camouflage-hunter",
+		"name": "Camouflage Hunter",
+		"description": "Whenever you are in wilderness, once you are hidden from a creature, you don’t need cover or concealment to stay hidden from them.",
+		"type": "Text",
+		"data": null,
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-danger-sense",
+		"name": "Danger Sense",
+		"description": "Whenever you are in a natural environment (but not in a settlement in that environment), you gain an edge on tests made using the Alertness skill, and you can’t be surprised. Additionally, you have a connection to nature that warns you if any natural disaster is imminent within the next 72 hours, though you don’t know exactly what it will entail (an earthquake, a wildfire, and so forth).",
+		"type": "Text",
+		"data": null,
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-friend-catapult",
+		"name": "Friend Catapult",
+		"description": "You hurl your ally through the air.",
+		"type": "Ability",
+		"data": {
+			"ability": {
+				"id": "perk-friend-catapult-1",
+				"name": "Friend Catapult",
+				"description": "You hurl your ally through the air.",
+				"type": {
+					"usage": "Maneuver",
+					"free": false,
+					"trigger": "",
+					"time": "",
+					"qualifiers": [],
+					"freeStrike": false
+				},
+				"keywords": [],
+				"distance": [
+					{
+						"type": "Self",
+						"value": 0,
+						"value2": 0,
+						"within": 0,
+						"special": "",
+						"qualifier": ""
+					}
+				],
+				"target": "Self",
+				"cost": 0,
+				"repeatable": false,
+				"minLevel": 1,
+				"sections": [
+					{
+						"type": "text",
+						"text": "You grab a willing adjacent ally or object of your size or smaller, then vertical push that target up to a number of squares equal to twice your Might score. If a creature you push falls as a result of this movement, the effective distance of the fall is reduced by a number of squares equal to twice your Might score. When you use this perk, you can’t use it again until you earn 1 or more Victories."
+					}
+				],
+				"_fmt": {
+					"keywords": [],
+					"distance": [
+						"Self"
+					]
+				}
+			}
+		},
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-ive-got-you",
+		"name": "I've Got You",
+		"description": "You catch a falling ally at the last possible moment.",
+		"type": "Ability",
+		"data": {
+			"ability": {
+				"id": "perk-ive-got-you-1",
+				"name": "I've Got You",
+				"description": "You catch a falling ally at the last possible moment.",
+				"type": {
+					"usage": "Triggered Action",
+					"free": true,
+					"trigger": "A willing ally lands on you or adjacent to you when they fall.",
+					"time": "",
+					"qualifiers": [],
+					"freeStrike": false
+				},
+				"keywords": [],
+				"distance": [
+					{
+						"type": "Self",
+						"value": 0,
+						"value2": 0,
+						"within": 0,
+						"special": "",
+						"qualifier": ""
+					}
+				],
+				"target": "Self",
+				"cost": 0,
+				"repeatable": false,
+				"minLevel": 1,
+				"sections": [
+					{
+						"type": "text",
+						"text": "You catch your ally. Neither of you takes damage from the fall."
+					}
+				],
+				"_fmt": {
+					"keywords": [],
+					"distance": [
+						"Self"
+					]
+				}
+			}
+		},
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-monster-whisperer",
+		"name": "Monster Whisperer",
+		"description": "You can use the Handle Animals skill to interact with nonsapient creatures who are not animals.",
+		"type": "Text",
+		"data": null,
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-put-your-back-into-it",
+		"name": "Put Your Back Into It",
+		"description": "During montage tests, whenever you make a test to assist a test and obtain a tier 1 outcome, the assisted test doesn’t take a bane. Additionally, once per montage test, you can turn an ally’s tier 1 test outcome into a tier 2 outcome.",
+		"type": "Text",
+		"data": null,
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-teamwork",
+		"name": "Teamwork",
+		"description": "When you take your first turn during a montage test, you can both make a test and assist another hero’s test.",
+		"type": "Text",
+		"data": null,
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-team-leader",
+		"name": "Team Leader",
+		"description": "At the start of a group test or montage test, you can spend a hero token. If you do, all participants make tests as if they also had any skill you have from the exploration group.",
+		"type": "Text",
+		"data": null,
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-wood-wise",
+		"name": "Wood Wise",
+		"description": "When you make a test using a skill from the exploration skill group and at least one of the d10s rolled is a 1, you can reroll one d10. You can use this perk only once per test.",
+		"type": "Text",
+		"data": null,
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-charming-liar",
+		"name": "Charming Liar",
+		"description": "If you fail a test using the Lie skill, you don’t suffer any consequences associated with the failure. Additionally, during a negotiation, you can be caught in one lie without negative consequences. When you use either benefit of this perk, you can’t use this perk again until you earn 1 or more Victories.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-dazzler",
+		"name": "Dazzler",
+		"description": "Whenever a creature watches you sing, dance, or perform a role (as an actor, not just in disguise) for 1 uninterrupted minute or more, you gain an edge on any test made to influence that creature for 1 hour after the performance ends.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-engrossing-monologue",
+		"name": "Engrossing Monologue",
+		"description": "Whenever you are not in combat, you can shout to get the attention of hearing creatures within 10 squares of you. Each such creature who is not hostile toward you listens to what you have to say for 1 uninterrupted minute or more, or until they sense danger or any form of imminent harm. While creatures are listening to you, each of your allies gains an edge on tests made to avoid being noticed by those creatures.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-harmonizer",
+		"name": "Harmonizer",
+		"description": "You can make a Presence test using the Music skill to influence creatures who don’t have emotions or can’t understand you. Additionally, once during a negotiation when an ally makes an argument, you can play music to give that ally an edge on their test.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-lie-detector",
+		"name": "Lie Detector",
+		"description": "In response to another creature communicating information to you, you can spend a hero token to determine whether that information contained any knowing lies. If so, you know what the lies are, but not what the truth is.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-open-book",
+		"name": "Open Book",
+		"description": "Whenever you speak one-on-one with a creature, you can ask them one question about themself that might typically offend them or raise suspicion. If they choose not to answer honestly, they simply deflect or redirect the question, with no further complications. If they choose to answer honestly, the creature can immediately ask you a question about yourself in turn, which you must answer honestly.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-pardon-my-friend",
+		"name": "Pardon My Friend",
+		"description": "When an ally within 5 squares fails a Presence test, you can step in and make a Presence test that takes a bane, with your roll replacing the ally’s roll. This perk can be used only once per test, even if more than one character has it.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-power-player",
+		"name": "Power Player",
+		"description": "Whenever you make a test that uses the Brag, Flirt, or Intimidate skills, you can use Might instead of any other characteristic the test calls for.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-so-tell-me",
+		"name": "So, Tell Me ...",
+		"description": "Whenever you succeed on a Presence test to influence one or more creatures, you can ask one creature you influenced a follow-up question after the test resolves, which they must answer honestly. At the Director’s discretion, the creature doesn’t have to answer the question completely—or at all—if the response would put them or a loved one in danger.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-spot-the-tell",
+		"name": "Spot The Tell",
+		"description": "Whenever you make a test to read a person and obtain a tier 3 outcome, you notice several tells that give away their true feelings. Any test you make to read that person in the future gains an edge.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-criminal-contacts",
+		"name": "Criminal Contacts",
+		"description": "You have access to a network of criminal contacts. As a respite activity while you take a respite in a settlement, you can ask a question of your contacts by making a Presence test. On a tier 2 outcome, you learn one piece of information that would be common among criminals—the secret entrances into a building, the location of a local criminal in hiding, the name of a local thieves’ guild leader, and so forth. On a tier 3 outcome, you can instead gain knowledge that would be uncommon among criminals as long as such information exists—the location of a local treasure cache, the location of a murder weapon used in a noble’s assassination, the name of an NPC secretly bankrolling a local assassin’s guild, and so forth.",
+		"type": "Text",
+		"data": null,
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-forgettable-face",
+		"name": "Forgettable Face",
+		"description": "If you spend 10 minutes or less interacting with a creature who hasn’t met you before, you can cause them to forget your face when you part. If asked to describe you, the creature gives only a vague, blank, and unhelpful description. Additionally, if you spend 1 hour or more assembling a disguise, you automatically obtain a tier 2 outcome on any test that could make use of the Disguise skill. If you have the Disguise skill, you automatically obtain a tier 3 outcome on the test.",
+		"type": "Text",
+		"data": null,
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-gum-up-the-works",
+		"name": "Gum Up The Works",
+		"description": "You prevent a trap from activating.",
+		"type": "Ability",
+		"data": {
+			"ability": {
+				"id": "perk-gum-up-the-works-1",
+				"name": "Gum Up The Works",
+				"description": "You prevent a trap from activating.",
+				"type": {
+					"usage": "Triggered Action",
+					"free": false,
+					"trigger": "A mundane trap activates within 3 squares of you.",
+					"time": "",
+					"qualifiers": [],
+					"freeStrike": false
+				},
+				"keywords": [],
+				"distance": [
+					{
+						"type": "Self",
+						"value": 0,
+						"value2": 0,
+						"within": 0,
+						"special": "",
+						"qualifier": ""
+					}
+				],
+				"target": "Self",
+				"cost": 0,
+				"repeatable": false,
+				"minLevel": 1,
+				"sections": [
+					{
+						"type": "text",
+						"text": "You can move up to 3 squares toward the trap. If this movement brings you adjacent to any of the trap’s mechanisms, you can jam the trap, preventing it from activating. As long as you stay adjacent to the mechanism, the trap can’t go off unless an attempt to disarm it fails."
+					}
+				],
+				"_fmt": {
+					"keywords": [],
+					"distance": [
+						"Self"
+					]
+				}
+			}
+		},
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-lucky-dog",
+		"name": "Lucky Dog",
+		"description": "Whenever you fail a test using any skill from the intrigue skill group, you can lose Stamina equal to 1d6 + your level to improve the outcome of the test by one tier. You can use this perk only once per test.",
+		"type": "Text",
+		"data": null,
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-master-of-disguise",
+		"name": "Master of Disguise",
+		"description": "You can don or remove a disguise as part of any test you make using the Hide skill, or while using the Hide maneuver.",
+		"type": "Text",
+		"data": null,
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-slipped-lead",
+		"name": "Slipped Lead",
+		"description": "You gain an edge on tests made to escape bonds. Given 1 uninterrupted minute, you can escape any mundane bonds without making a test. Additionally, it’s not immediately obvious when you’ve escaped bonds until you do something that makes it clear you have done so (cast them off, use an ability that harms one or more creatures, and so forth).",
+		"type": "Text",
+		"data": null,
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-but-i-know-who-does",
+		"name": "But I Know Who Does",
+		"description": "Whenever you fail a test to recall lore using a skill from the lore skill group, you instinctively recall the nearest location where the information you seek might be found. This could be the tower of a local sage, a library in a nearby city, somewhere deep in a dungeon, or any other location of the Director’s determination. The Director can decide that certain lore can’t be revealed this way.",
+		"type": "Text",
+		"data": null,
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-eidetic-memory",
+		"name": "Eidetic Memory",
+		"description": "Your mind is an encyclopedia, though not always an easy one to organize. When you finish a respite, choose one skill from the lore skill group that you don’t have. You have that skill until you finish your next respite. Additionally, if you spend 1 uninterrupted minute or more reading any page of text, you can memorize its contents, allowing you to memorize entire books with sufficient time.",
+		"type": "Text",
+		"data": null,
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-expert-sage",
+		"name": "Expert Sage",
+		"description": "Whenever you make a test as part of a crafting or research project using a skill from the lore skill group, you can make the power roll twice and use either roll.",
+		"type": "Text",
+		"data": null,
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-ive-read-about-this-place",
+		"name": "I've Read About This Place",
+		"description": "\nEach time you enter a settlement you’ve never been to before, you can ask the Director one of the following questions:\n\n* Who is the most influential public figure in this settlement?\n* Who in this settlement would be the friendliest to us right now?\n* What does this settlement need most from outsiders?\n\nIf the Director doesn’t have an answer to the question you ask, or doesn’t want to answer, you can instead ask a different question.",
+		"type": "Text",
+		"data": null,
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-linguist",
+		"name": "Linguist",
+		"description": "You have an ear for languages. You automatically learn two new languages, as long as you have regularly heard those languages spoken or seen them written before.",
+		"type": "Multiple Features",
+		"data": {
+			"features": [
+				{
+					"id": "perk-linguist-1",
+					"name": "Linguist",
+					"description": "If you spend 7 days or more in a place where you regularly hear or read a language you don’t know, you can pick up enough of that language to hold a conversation or understand basic written information. Having picked up a language this way, you can subsequently learn it using the Learn New Language research project at half the usual project goal cost.",
+					"type": "Text",
+					"data": null
+				},
+				{
+					"id": "perk-linguist-2",
+					"name": "Languages",
+					"description": "",
+					"type": "Language Choice",
+					"data": {
+						"options": [],
+						"count": 2,
+						"selected": []
+					}
+				}
+			]
+		},
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-polymath",
+		"name": "Polymath",
+		"description": "Whenever you make a test to recall lore and don’t have a skill that applies to the test, you gain a +1 bonus to the power roll.",
+		"type": "Text",
+		"data": null,
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-specialist",
+		"name": "Specialist",
+		"description": "You are a leading expert on a particular subject. Choose one skill you have from the lore skill group. You always have a double edge on tests made to recall lore using this skill. Additionally, your specialist knowledge grants you notoriety in fields related to the chosen skill. You treat your Renown as 1 higher when negotiating with an NPC who knows your reputation, or 2 higher if they have the same skill you chose for this perk.",
+		"type": "Text",
+		"data": null,
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-travelling-sage",
+		"name": "Travelling Sage",
+		"description": "On any day when you don’t take a respite, you can spend 1 uninterrupted hour working on a research project using a skill you have from the lore skill group. If you do so, you gain 1d10 project points toward that project.",
+		"type": "Text",
+		"data": null,
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-arcane-trick",
+		"name": "Arcane Trick",
+		"description": "You cast an entertaining spell that creates a minor but impressive magical effect.",
+		"type": "Ability",
+		"data": {
+			"ability": {
+				"id": "perk-arcane-trick-1",
+				"name": "Arcane Trick",
+				"description": "You cast an entertaining spell that creates a minor but impressive magical effect.",
+				"type": {
+					"usage": "Main Action",
+					"free": false,
+					"trigger": "",
+					"time": "",
+					"qualifiers": [],
+					"freeStrike": false
+				},
+				"keywords": [
+					"Magic"
+				],
+				"distance": [
+					{
+						"type": "Self",
+						"value": 0,
+						"value2": 0,
+						"within": 0,
+						"special": "",
+						"qualifier": ""
+					}
+				],
+				"target": "Self",
+				"cost": 0,
+				"repeatable": false,
+				"minLevel": 1,
+				"sections": [
+					{
+						"type": "text",
+						"text": "\nChoose one of the following effects:\n\n* You teleport a size 1S or smaller object adjacent to you into an unoccupied space adjacent to you.\n* Until the start of your next turn, a part of your body shoots a shower of harmless noisy sparks that light up each square adjacent to you.\n* You ignite or snuff out (your choice) every mundane light source of 1L or smaller adjacent to you.\n* You transform up to 1 pound of edible food you touch to make it taste delicious or disgusting.\n* Until the start of your next turn, you make your body exude a particular odor you’ve smelled before. This smell can be sensed by each creature within 5 squares of you, but can’t impose any condition or other drawback on those creatures.\n* You place a small magical inscription on the surface of a mundane object you touch, or you can remove an inscription that was made by you or by another creature using Arcane Trick.\n* You touch a size 1T object to cover it with an illusion that makes it look like a different object. Any creature who handles the object becomes aware of the illusion. The illusion ends when you stop touching the object."
+					}
+				],
+				"_fmt": {
+					"keywords": [
+						"Magic"
+					],
+					"distance": [
+						"Self"
+					]
+				}
+			}
+		},
+		"list": "Supernatural",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-creature-sense",
+		"name": "Creature Sense",
+		"description": "You intuit a creature's keywords.",
+		"type": "Ability",
+		"data": {
+			"ability": {
+				"id": "perk-creature-sense-1",
+				"name": "Creature Sense",
+				"description": "You intuit a creature's keywords.",
+				"type": {
+					"usage": "Maneuver",
+					"free": false,
+					"trigger": "",
+					"time": "",
+					"qualifiers": [],
+					"freeStrike": false
+				},
+				"keywords": [],
+				"distance": [
+					{
+						"type": "Self",
+						"value": 0,
+						"value2": 0,
+						"within": 0,
+						"special": "",
+						"qualifier": ""
+					}
+				],
+				"target": "Self",
+				"cost": 0,
+				"repeatable": false,
+				"minLevel": 1,
+				"sections": [
+					{
+						"type": "text",
+						"text": "Choose a creature within 10 squares. If that creature is your level or lower, you learn the keywords in their stat block (Demon, Humanoid, Undead, and so forth)"
+					}
+				],
+				"_fmt": {
+					"keywords": [],
+					"distance": [
+						"Self"
+					]
+				}
+			}
+		},
+		"list": "Supernatural",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-familiar",
+		"name": "Familiar",
+		"description": "",
+		"type": "Summon",
+		"data": {
+			"summons": [
+				{
+					"id": "familiar",
+					"name": "Familiar",
+					"description": "\nA supernatural spirit who has taken the form of a specific small animal or animated object has chosen to be your familiar—or to adopt you as their familiar.\n\nThe familiar can hold small objects in their mouth or claws, but can’t perform activities that would typically require hands (opening a door, unrolling a scroll, and so forth).\n\nThey can’t harm other creatures or objects. They can flank in combat, but only with you.\n\nIf your familiar is destroyed, you can restore them as a respite activity, or by spending a Recovery as a main action to bring them back into existence in an unoccupied space adjacent to you.",
+					"monster": {
+						"id": "familiar",
+						"name": "Familiar",
+						"description": "\nA supernatural spirit who has taken the form of a specific small animal or animated object has chosen to be your familiar—or to adopt you as their familiar.\n\nThe familiar can hold small objects in their mouth or claws, but can’t perform activities that would typically require hands (opening a door, unrolling a scroll, and so forth).\n\nThey can’t harm other creatures or objects. They can flank in combat, but only with you.\n\nIf your familiar is destroyed, you can restore them as a respite activity, or by spending a Recovery as a main action to bring them back into existence in an unoccupied space adjacent to you.",
+						"picture": null,
+						"level": 0,
+						"role": {
+							"type": "No Role",
+							"organization": "No Organization"
+						},
+						"keywords": [],
+						"encounterValue": 0,
+						"size": {
+							"value": 1,
+							"mod": "T"
+						},
+						"speed": {
+							"value": 5,
+							"modes": []
+						},
+						"stamina": 0,
+						"stability": 0,
+						"freeStrikeDamage": 0,
+						"freeStrikeType": "Damage",
+						"characteristics": [
+							{
+								"characteristic": "Might",
+								"value": -3
+							},
+							{
+								"characteristic": "Agility",
+								"value": 2
+							},
+							{
+								"characteristic": "Reason",
+								"value": 0
+							},
+							{
+								"characteristic": "Intuition",
+								"value": 0
+							},
+							{
+								"characteristic": "Presence",
+								"value": 1
+							}
+						],
+						"features": [
+							{
+								"id": "familiar-1",
+								"name": "Stamina",
+								"description": "",
+								"type": "Bonus",
+								"data": {
+									"field": "Stamina",
+									"value": 2,
+									"valueFromController": null,
+									"valueCharacteristics": [],
+									"valueCharacteristicMultiplier": 1,
+									"valuePerLevel": 2,
+									"valuePerEchelon": 0
+								}
+							},
+							{
+								"id": "familiar-2",
+								"name": "Telepathic",
+								"description": "While you and your familiar are within 10 squares of each other, you can communicate telepathically and share each other’s senses. While sharing senses, each of you also benefits from your own senses at the same time.",
+								"type": "Text",
+								"data": null
+							}
+						],
+						"withCaptain": "",
+						"retainer": null,
+						"state": {
+							"staminaDamage": 0,
+							"staminaTemp": 0,
+							"recoveriesUsed": 0,
+							"conditions": [],
+							"reactionUsed": false,
+							"hidden": false,
+							"defeated": false
+						}
+					},
+					"info": {
+						"isSignature": false,
+						"cost": 0,
+						"count": 1,
+						"level": 1,
+						"level3": [],
+						"level6": [],
+						"level10": []
+					}
+				}
+			]
+		},
+		"list": "Supernatural",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-invisible-force",
+		"name": "Invisible Force",
+		"description": "You manipulate a tiny object with your mind.",
+		"type": "Ability",
+		"data": {
+			"ability": {
+				"id": "perk-invisible-force-1",
+				"name": "Invisible Force",
+				"description": "You manipulate a tiny object with your mind.",
+				"type": {
+					"usage": "Maneuver",
+					"free": false,
+					"trigger": "",
+					"time": "",
+					"qualifiers": [],
+					"freeStrike": false
+				},
+				"keywords": [
+					"Psionic",
+					"Ranged"
+				],
+				"distance": [
+					{
+						"type": "Ranged",
+						"value": 10,
+						"value2": 0,
+						"within": 0,
+						"special": "",
+						"qualifier": ""
+					}
+				],
+				"target": "1 size 1T unattended object",
+				"cost": 0,
+				"repeatable": false,
+				"minLevel": 1,
+				"sections": [
+					{
+						"type": "text",
+						"text": "You can grab or manipulate the target object with your mind, moving the object up to a number of squares equal to your Reason, Intuition, or Presence score (your choice). You can use this ability to turn doorknobs, pull levers, and so forth. You can manipulate any small movable piece of a larger object as long as the piece is unattended and size 1T. You can’t use this ability to break a smaller piece off a larger object."
+					}
+				],
+				"_fmt": {
+					"keywords": [
+						"Psionic",
+						"Ranged"
+					],
+					"distance": [
+						"Ranged 10"
+					]
+				}
+			}
+		},
+		"list": "Supernatural",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-psychic-whisper",
+		"name": "Psychic Whisper",
+		"description": "You send a one-way telepathic message to a friend.",
+		"type": "Ability",
+		"data": {
+			"ability": {
+				"id": "perk-psychic-whisper-1",
+				"name": "Psychic Whisper",
+				"description": "You send a one-way telepathic message to a friend.",
+				"type": {
+					"usage": "Maneuver",
+					"free": false,
+					"trigger": "",
+					"time": "",
+					"qualifiers": [],
+					"freeStrike": false
+				},
+				"keywords": [
+					"Psionic",
+					"Ranged"
+				],
+				"distance": [
+					{
+						"type": "Ranged",
+						"value": 10,
+						"value2": 0,
+						"within": 0,
+						"special": "",
+						"qualifier": ""
+					}
+				],
+				"target": "1 ally who understands at least one language",
+				"cost": 0,
+				"repeatable": false,
+				"minLevel": 1,
+				"sections": [
+					{
+						"type": "text",
+						"text": "You send a telepathic message to them that takes 10 seconds or less to speak. The target knows who the message is from and can decide to ignore it and subsequent messages."
+					}
+				],
+				"_fmt": {
+					"keywords": [
+						"Psionic",
+						"Ranged"
+					],
+					"distance": [
+						"Ranged 10"
+					]
+				}
+			}
+		},
+		"list": "Supernatural",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-thingspeaker",
+		"name": "Thingspeaker",
+		"description": "\nWhen you hold an object in your hand for 1 uninterrupted minute, you can sense whether it bears emotional resonance. Objects with emotional resonance could include treasured gifts, murder weapons, or personal keepsakes.\nIf the Director determines that the object bears emotional resonance, you learn the most dominant emotion associated with the object, then receive a vision that answers one of the following questions:\n\n* What was the name of the person whose emotion is imprinted on this object?\n* Why does this emotion linger on the object?\n* How long has it been since the object was held by the person whose emotion lingers on it?\n\nAfter asking one question, you can choose to delve deeper by asking one additional question from the list, but you are then overcome with emotions that do not belong to you.\nYou take a bane on Intuition and Presence tests until you finish a respite, and you can’t use this perk again while you suffer this bane.",
+		"type": "Text",
+		"data": null,
+		"list": "Supernatural",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-ritualist",
+		"name": "Ritualist",
+		"description": "You can spend 1 uninterrupted minute to perform a magic ritual of blessing, targeting yourself or one willing creature you touch. The target has a double edge on the next test they make within the next minute. A target can’t use this benefit on an activity that takes longer than 1 minute.",
+		"type": "Text",
+		"data": null,
+		"list": "Supernatural",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-born-tracker",
+		"name": "Born Tracker",
+		"description": "(Beastheart only) You and your companion have an edge on tests made to track creatures, find your way, or search for hidden creatures.",
+		"type": "Text",
+		"data": null,
+		"list": "Exploration",
+		"_source": "The Beastheart",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-people-sense",
+		"name": "People Sense",
+		"description": "(Beastheart only) Whenever you or your companion makes a test to determine a creature’s motives, emotions, or body language while within 5 squares of each other, your partner can make the same test as a free triggered action. You both use the higher result.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "The Beastheart",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-ride-along",
+		"name": "Ride Along",
+		"description": "(Beastheart only)",
+		"type": "Ability",
+		"data": {
+			"ability": {
+				"id": "perk-ride-along-1",
+				"name": "Ride Along",
+				"description": "You ride behind your companion’s eyes.",
+				"type": {
+					"usage": "Maneuver",
+					"free": false,
+					"trigger": "",
+					"time": "",
+					"qualifiers": [],
+					"freeStrike": false
+				},
+				"keywords": [],
+				"distance": [
+					{
+						"type": "Melee",
+						"value": 1,
+						"value2": 0,
+						"within": 0,
+						"special": "",
+						"qualifier": ""
+					}
+				],
+				"target": "Companion",
+				"cost": 0,
+				"repeatable": false,
+				"minLevel": 1,
+				"sections": [
+					{
+						"type": "text",
+						"text": "\nYour body disappears, and your consciousness rides along in your companion’s body. While you are riding along, you can sense what your companion senses and communicate with them telepathically, but you can’t control them. You can’t be detected, targeted, or affected by any effect. Any condition or effect on you is temporarily negated until you regain your body.\n\nWhenever your companion takes damage while you are riding along, you take the same amount of damage, which can’t be reduced in any way. You are unaffected by any effects that don’t deal damage that affect your companion.\n\nWhile you are riding along, your companion continues to benefit from any magic treasure you are wearing.\n\nWhile you are riding along, you can’t act except to spend a free maneuver to regain your body. You also regain your body if your companion dies or chooses to eject you. When you regain your body, you reappear in a space adjacent to your companion."
+					}
+				],
+				"_fmt": {
+					"keywords": [],
+					"distance": [
+						"Melee 1"
+					]
+				}
+			}
+		},
+		"list": "Exploration",
+		"_source": "The Beastheart",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-trained-thief",
+		"name": "Trained Thief",
+		"description": "(Beastheart only) You have the Conceal Object or Pick Pocket skill. Your companion can make a test using that skill as a maneuver.",
+		"type": "Text",
+		"data": null,
+		"list": "Intrigue",
+		"_source": "The Beastheart",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-wild-rumpus",
+		"name": "Wild Rumpus",
+		"description": "(Beastheart only)",
+		"type": "Ability",
+		"data": {
+			"ability": {
+				"id": "perk-wild-rumpus-1",
+				"name": "Wild Rumpus",
+				"description": "The ability to glide like a condor or race like a wolf is intoxicating—but beware the temptation to run yourself to death.",
+				"type": {
+					"usage": "Maneuver",
+					"free": true,
+					"trigger": "",
+					"time": "",
+					"qualifiers": [],
+					"freeStrike": false
+				},
+				"keywords": [],
+				"distance": [
+					{
+						"type": "Self",
+						"value": 0,
+						"value2": 0,
+						"within": 0,
+						"special": "",
+						"qualifier": ""
+					}
+				],
+				"target": "Self",
+				"cost": 0,
+				"repeatable": false,
+				"minLevel": 1,
+				"sections": [
+					{
+						"type": "text",
+						"text": "For one minute or until you or your companion takes damage, you and your companion gain each other’s movement types in addition to your own. You and your companion both use your speed or your companion’s speed, whichever is higher. Each additional time you use this ability after the first, you take damage equal to your level until you finish a respite or gain 1 or more Victories. This damage can’t be reduced in any way and doesn’t end this ability’s effect."
+					}
+				],
+				"_fmt": {
+					"keywords": [],
+					"distance": [
+						"Self"
+					]
+				}
+			}
+		},
+		"list": "Exploration",
+		"_source": "The Beastheart",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-wilds-explorer",
+		"name": "Wilds Explorer",
+		"description": "(Beastheart only) You and your companion gain an edge on tests made to overcome environmental cold, heat, weather, unsteady ground, or challenging terrain. During your turn, you and your companion can ignore the first square of difficult terrain you each enter.",
+		"type": "Text",
+		"data": null,
+		"list": "Exploration",
+		"_source": "The Beastheart",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-voice-of-the-wild",
+		"name": "Voice of the Wild",
+		"description": "(Beastheart only) Your companion can speak any language you can speak.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "The Beastheart",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "perk-you-can-pet-them",
+		"name": "You Can Pet Them, They're Friendly",
+		"description": "(Beastheart only) Whenever you make a Presence test to interact with a creature while you are within 5 squares of your companion, you can use your companion’s Presence instead of your own.",
+		"type": "Text",
+		"data": null,
+		"list": "Interpersonal",
+		"_source": "The Beastheart",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "5wkxbUTj0F8JUfO2",
+		"name": "A Conversation With Fire",
+		"description": "\n*Kilns only*\n\nWhen you spend 1 uninterrupted minute in front of a fire, you can speak the name of another creature. If that creature is willing to speak to you, their image appears in the fire, and they can see you before them in a shimmering ball of light. The two of you can speak to each other through these images as if you were together in person. As a maneuver, you or the creature can end the conversation.",
+		"type": "Text",
+		"data": null,
+		"list": "Special",
+		"_source": "Look Out Behind You Studios",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "dHjsVbGZQUGgDJdS",
+		"name": "Burnt Out Artisan",
+		"description": "\n*Kilns only*\n\nWhen you make a project roll using a skill from the crafting skill group, you can choose to gain 30 project points instead of the total of your roll. After doing this, you cannot achieve a breakthrough on any subsequent project roll (ever!) until you complete the Spend Time With Loved Ones activity (see <u>Downtime Activities</u> in the Core Rules).",
+		"type": "Text",
+		"data": null,
+		"list": "Special",
+		"_source": "Look Out Behind You Studios",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "6IWjRGECdMfbsvFo",
+		"name": "Hot Box",
+		"description": "\n*Kilns only*\n\nYou can quickly fill a room with the smoke of an incense that dulls the mind and lifts the spirit. When interacting with a living humanoid or animal in an enclosed space no larger than a small room, you treat your Renown as 1 higher than usual, you gain an edge on Reason tests made to interact with them, and without the use of magic, they cannot tell when you are lying.",
+		"type": "Text",
+		"data": null,
+		"list": "Special",
+		"_source": "Look Out Behind You Studios",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "tmATKmf0NIKZHFKU",
+		"name": "If You Can’t Stand the Heat",
+		"description": "\n*Kilns only*\n\nYou gain a +2 bonus to the Perfect New Recipe project roll (see Downtime Activities in the Core Rules). You additionally know the following recipes:\n\n| Type of Recipe | Item Prerequisites | Benefits |\n| :--- | :--- | :--- |\n| Flame Broiled | Aromatic ingredients (onions, ginger, garlic, mustard seeds, and so forth) | Soulful |\n| Spiced Up | Spicy ingredients (dragon chilis, cumin, khemharan peppercorns, and so forth) | Warming |\n\n**Soulful:** The creature can choose to have their abilities deal psychic damage instead of any other type of damage. Additionally, when the creature uses a damage dealing ability while they are dying, they deal bonus damage equal to their level.\n**Warming:** The creature has cold immunity equal to their level. Additionally, when the creature obtains a tier 3 outcome on the power roll of a damage-dealing ability, they can deal an extra 1d3 rolled fire damage.",
+		"type": "Text",
+		"data": null,
+		"list": "Special",
+		"_source": "Look Out Behind You Studios",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "Ycnl3YBDuUFg7uar",
+		"name": "It Is the Soul Which Hears",
+		"description": "\n*Kilns only*\n\nYou can speak with and understand animals, beasts, and plant creatures, even if they don’t share a language with you. Your ability to communicate with these creatures doesn’t make them inherently more intelligent, but you can use Reason instead of Presence while making tests to influence them.\n\nAdditionally, you can touch a living plant that is not a plant creature to communicate with it telepathically. You can use words to communicate with the plant, but it communicates with you only by transmitting feelings and sensations that can’t be overly specific.",
+		"type": "Text",
+		"data": null,
+		"list": "Special",
+		"_source": "Look Out Behind You Studios",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "kBb2ohe3iTiaQTn0",
+		"name": "Sift Through the Ashes of Memory",
+		"description": "\n*Kilns only*\n\nYou gain the following downtime activity (see <u>Downtime Activities</u> in the Core Rules).\n\n### Sift Through the Ashes of Memory\n\n**Item Prerequisite:** None\n**Project Source:** None\n**Project Roll Characteristic:** Reason, Intuition, or Presence\n**Project Goal:** Varies\n\nYou and an ally you are respiting with both do this downtime activity together. You meditate upon the soul of a late ancestor of either of you, reflecting upon their remnant memories stored in the Undermind’s roots. You must be able to touch a tree rooted in the manifold the ancestor dies in to access their memories. The project roll for this project has the following changes:\n\n* The project points earned by your roll represent the depth to which you are able to dive into the ancestor’s memories.\n* During each respite when you and an ally undertake this activity, you both continue making alternating project rolls until one of you rolls a tier 1 outcome (indicating you stumbled into a corrupted memory, earning you no points). The other hero can make one final roll and if they roll a breakthrough, you both can continue (indicating they pulled you out of the corrupted memory).\n* When you’ve made your last Sift Through the Ashes of Memory project roll for the respite, you both spend your shared project points you accrued on a reward from the Ancestral Experience table. Any points you don’t spend during the current respite are lost.\n\n### Ancestral Experience\n\n| Reward | Cost | Effect |\n| :--- | :--- | :--- |\n| The Little Moments | 80 | One of you gains the **A Day in the Life** benefit. |\n| Sword Arm of an Ancestor | 130 | One of you gains the **Muscle Memory** benefit. |\n| How Long Were We Out? | 150 | One of you gains the **Deep Dreamer** title and benefit. |\n| Souls Melded | 330 | You both gain the **Of A Single Soul** title and benefit. |\n\n**A Day in the Life:** Until your next respite, gain the skills and edges on tests made with those skills of one of the careers of the ancestor whose memory you meditated on.\n\n**Muscle Memory:** Until your next respite, you can use and gain the benefits of kits. If you can already use kits, you can gain an extra signature ability and the use of the equipment from one additional kit (you do not gain the kit’s bonuses, except as they are already applied to the signature ability).\n\n**Deep Dreamer:** You gain an edge on Sifting Through the Ashes of Memory project rolls.\n\n**Of A Single Soul:** You can use the surges belonging to any ally who has this title as if they were your own.",
+		"type": "Text",
+		"data": null,
+		"list": "Special",
+		"_source": "Look Out Behind You Studios",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "gxz88O3tENyXCkJB",
+		"name": "Smokemellier",
+		"description": "\n*Kilns only*\n\nYou can detect smoke from all fires within 1 mile of you, and with some concentration, you can infer the material of every thing that each fire has burned so far, no matter how long the fire has been burning. The exact level of detail is left to your Director. You cannot determine which smoke belongs to which fire unless you can see the fire in person.",
+		"type": "Text",
+		"data": null,
+		"list": "Special",
+		"_source": "Look Out Behind You Studios",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "pgCtSVhZsjC7I6dE",
+		"name": "Soulsworn",
+		"description": "\n*Kilns only*\n\nEach time you finish a respite, you can choose one ally to be your soulsworn. If you spend at least 10 minutes focusing, you can teleport your soulsworn to your side from anywhere within a mile, as long as neither you nor your soulsworn are in combat.",
+		"type": "Text",
+		"data": null,
+		"list": "Special",
+		"_source": "Look Out Behind You Studios",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "ZM9JhmiD9C2aNJNO",
+		"name": "Tendrils of the Undermind",
+		"description": "\n*Kilns only*\n\nYour connection with the Undermind lets you share senses with it. You can search for hidden creatures as a free maneuver once on each of your turns. Creatures within distance of your Stoke the Flame ability are automatically found when you search. Additionally, you gain the following ability.",
+		"type": "Multiple Features",
+		"data": {
+			"features": [
+				{
+					"id": "5lGBjTkoXelkOmYd",
+					"name": "Tendrils of the Undermind",
+					"description": "Your connection with the Undermind lets you share senses with it. You can search for hidden creatures as a free maneuver once on each of your turns. Creatures within distance of your Stoke the Flame ability are automatically found when you search.",
+					"type": "Text",
+					"data": null
+				},
+				{
+					"id": "J9Q4GZyz56Qqxw1e",
+					"name": "Tendrils of the Undermind",
+					"description": "",
+					"type": "Ability",
+					"data": {
+						"ability": {
+							"id": "J9Q4GZyz56Qqxw1e",
+							"name": "Tendrils of the Undermind",
+							"description": "",
+							"type": {
+								"usage": "Main Action",
+								"free": false,
+								"trigger": "",
+								"time": "",
+								"qualifiers": [],
+								"freeStrike": false
+							},
+							"keywords": [
+								"Magic"
+							],
+							"distance": [
+								{
+									"type": "Self",
+									"value": 0,
+									"value2": 0,
+									"within": 0,
+									"special": "",
+									"qualifier": ""
+								}
+							],
+							"target": "Self",
+							"cost": 0,
+							"repeatable": false,
+							"minLevel": 1,
+							"sections": [
+								{
+									"type": "text",
+									"text": "Until the end of the round, your Stoke the Flame ability gains a distance bonus of +5 and you don’t need line of effect to target allies with your Stoke the Flame ability."
+								}
+							],
+							"_fmt": {
+								"keywords": [
+									"Magic"
+								],
+								"distance": [
+									"Self"
+								]
+							}
+						}
+					}
+				}
+			]
+		},
+		"list": "Special",
+		"_source": "Look Out Behind You Studios",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "WKBv7e1HgHgB4Ngc",
+		"name": "Undermind Task",
+		"description": "\n*Kilns only*\n\nYou've chosen to take on a task from the Undermind. Once you complete the task, gain a kiln perk of your choice.",
+		"type": "Text",
+		"data": null,
+		"list": "Special",
+		"_source": "Look Out Behind You Studios",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "boRZ9rIWGa6h2DNJ",
+		"name": "Wooden Familiar",
+		"description": "\n*Kilns only*\n\nYou instill the embers of a friendly creature’s soul into a carving. As a respite activity, given a sufficient supply of wood, you can create a wooden familiar. You can only have one wooden familiar at a time.\n\nCreate the stat block of your familiar yourself by beginning with the Animal, Big Animal A, or Predator A stat block (see the Monsters book of the Core Rules) and adding traits that total in cost up to a number of points equal to 2 plus your Reason score. The familiar also has fire weakness 3. You can change the stat block of your familiar as a respite activity.\n\nYour new wooden familiar is your retainer, but has no Recoveries and cannot regain Stamina by any means except by taking a respite. Additionally, your wooden familiar loses all its Stamina if it is submerged in water, as its inner flame is snuffed out.",
+		"type": "Text",
+		"data": null,
+		"list": "Special",
+		"_source": "Look Out Behind You Studios",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "perk-deceptive-appearance",
+		"name": "Deceptive Appearance",
+		"list": "Special",
+		"description": "\n*Vampires only*\n\nAn illusory glamor makes you attractive and easy on the eyes of the beholder. It is up to you if you still look like a vampire, a non-vampire member of your ancestry, or a member of another ancestry of the same size and general shape as yours. You can change your appearance as a maneuver. You gain an edge on Presence tests using the Flirt or Persuade skills. You gain a double edge on tests using the Disguise skill while pretending to be someone else.",
+		"type": "Text",
+		"data": null,
+		"_source": "Triglav Games",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "perk-insidious-mist",
+		"name": "Insidious Mist",
+		"list": "Special",
+		"description": "\n*Vampires only*\n\nAs a maneuver, you can turn into a cloud of sentient mist. In this form, you gain the following benefits and drawbacks:\n\n* You can fly and hover. Your speed is equal to your highest characteristic score, and can't be increased or decreased in any way.\n* You can't be made prone, restrained, or grabbed, and those conditions end for you when you transform. If you were suffering from any other conditions beforehand, those conditions are suppressed until you revert back to your true form.\n* You can't be force moved unless the forced movement comes from a gust of wind or similar source, in which case the forced movement is doubled, or can explicitly affect gaseous objects. You don't take damage from forced movement.\n* You can move through very small spaces, but the smaller the space, the more time it takes to move through it, up to 1 minute to get through a keyhole-sized opening.\n* You have damage immunity equal to your level.\n* You can't use main actions, triggered actions, or free triggered actions, and the only maneuver you can use is a maneuver to revert back to your true, solid form.\n* When you are dying, you revert back to your true, solid form and can't use your mist form until you are no longer dying.",
+		"type": "Text",
+		"data": null,
+		"_source": "Triglav Games",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "perk-night-speech",
+		"name": "Night Speech",
+		"list": "Special",
+		"description": "\n*Vampires only*\n\nYou can speak with and understand animals that are associated with night or evil in your culture, typically bats, rats, ravens, wolves, and spiders. The animals don't have to share a language with you to be able to communicate with you, and this ability doesn't make them inherently more intelligent, but you can make simple requests and they will do your bidding.",
+		"type": "Text",
+		"data": null,
+		"_source": "Triglav Games",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "perk-one-with-the-shadows",
+		"name": "One with the Shadows",
+		"list": "Special",
+		"description": "\n*Vampires only*\n\nAs a nocturnal predator, you embrace the shadows as they embrace you. You have a double edge on tests using the Hide and Sneak skills, but only when it's sufficiently dark (as determined by the Director). Additionally, at the start of an encounter, if you are in shadows or if it's sufficiently dark (as determined by the Director), you can use the Hide maneuver as a free triggered action.",
+		"type": "Text",
+		"data": null,
+		"_source": "Triglav Games",
+		"_sourceType": "Third Party"
+	},
+	{
+		"id": "perk-custom-modifications",
+		"name": "Custom Modifications",
+		"description": "\n*This perk can only be taken by Magewright heroes*\n\nYou are able to craft small gadgets and specialized gear to aid you on your adventures. As a respite activity, choose one skill from the exploration or intrigue skill group that you don’t have. You have that skill until you finish your next respite. Alternatively, you can choose one ally that takes a respite with you to gain this benefit instead.",
+		"type": "Text",
+		"data": null,
+		"list": "Supernatural",
+		"_source": "Community",
+		"_sourceType": "Community"
+	},
+	{
+		"id": "perk-living-machinery",
+		"name": "Living Machinery",
+		"description": "\n*This perk can only be taken by Magewright heroes*\n\nYou gain the Heal skill, and it is considered a crafting skill for you instead of an exploration skill for you. Whenever you make a test to inspect a dead creature, or harvest ingredients from it, you have an edge on that attempt.",
+		"type": "Text",
+		"data": null,
+		"list": "Supernatural",
+		"_source": "Community",
+		"_sourceType": "Community"
+	},
+	{
+		"id": "perk-non-linear-thinking",
+		"name": "Non-linear Thinking",
+		"description": "\n*This perk can only be taken by Magewright heroes*\n\nWhen an ally within 5 squares fails a Reason test, you can make a Reason test that takes a bane, with your roll replacing the ally’s roll. This perk can be used only once per test, even if more than one character has it.",
+		"type": "Text",
+		"data": null,
+		"list": "Lore",
+		"_source": "Community",
+		"_sourceType": "Community"
+	},
+	{
+		"id": "perk-project-manager",
+		"name": "Project Manager",
+		"description": "\n*This perk can only be taken by Magewright heroes*\n\nWhen you take a respite activity, you can make a roll to assist a test of any number of allies or followers that make a crafting project roll, as long as you’re in the same settlement. Additionally, when you take a respite, choose one ally or retainer. They gain the benefit of any feature or perk related to crafting project rolls during that respite.",
+		"type": "Text",
+		"data": null,
+		"list": "Crafting",
+		"_source": "Community",
+		"_sourceType": "Community"
+	},
+	{
+		"id": "perk-reverse-engineering",
+		"name": "Reverse Engineering",
+		"description": "\n*This perk can only be taken by Magewright heroes*\n\nAs a respite activity, you can take apart any complex mundane object or non-artifact treasure, destroying it. If you do, you immediately gain the project source for that object, and you gain project points equal to half the treasure’s goal that you can apply to any other crafting project.",
+		"type": "Text",
+		"data": null,
+		"list": "Crafting",
+		"_source": "Community",
+		"_sourceType": "Community"
+	},
+	{
+		"id": "perk-technobabble",
+		"name": "Technobabble",
+		"description": "\n*This perk can only be taken by Magewright heroes*\n\nWhen you make a test that uses the Brag, Intimidate, or Lie skill, you can use Reason instead of any other characteristic the test calls for.",
+		"type": "Text",
+		"data": null,
+		"list": "Lore",
+		"_source": "Community",
+		"_sourceType": "Community"
+	}
+]

@@ -1,0 +1,29 @@
+{
+  "name": "drawsteel-srd",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "A static, mobile-friendly SRD / rules reference for the Draw Steel TTRPG, generated from the forgesteel dataset.",
+  "engines": {
+    "node": ">=20.17.0"
+  },
+  "scripts": {
+    "extract": "tsx --tsconfig tsconfig.extract.json scripts/extract.ts",
+    "refresh": "git submodule update --remote vendor/forgesteel && npm run extract",
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.6.1",
+    "markdown-it": "^14.1.0"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
+    "@types/node": "^22.13.0",
+    "pagefind": "^1.3.0",
+    "tsx": "^4.19.2",
+    "uuid": "^11.0.5"
+  }
+}

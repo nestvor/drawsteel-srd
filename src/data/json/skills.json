@@ -1,0 +1,401 @@
+[
+	{
+		"name": "Alchemy",
+		"description": "Make bombs and potions.",
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Architecture",
+		"description": "Create buildings and vehicles.",
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Blacksmithing",
+		"description": "Forge metal armor and weapons.",
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Carpentry",
+		"description": "Create items out of wood.",
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Cooking",
+		"description": "Create delicious dishes.",
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Fletching",
+		"description": "Make ranged weapons and ammunition.",
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Forgery",
+		"description": "Create false badges, documents, and other items.",
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Jewelry",
+		"description": "Create bracelets, crowns, rings, and other jewelry.",
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Mechanics",
+		"description": "Build machines and clockwork items.",
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Tailoring",
+		"description": "Craft cloth and leather clothing.",
+		"list": "Crafting",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Climb",
+		"description": "Move up vertical surfaces.",
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Drive",
+		"description": "Control vehicles.",
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Endurance",
+		"description": "Remain engaged in strenuous activity over a long period of time.",
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Gymnastics",
+		"description": "Move across unsteady or narrow surfaces, and tumble.",
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Heal",
+		"description": "Use mundane first aid.",
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Jump",
+		"description": "Leap vertical and horizontal distances.",
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Lift",
+		"description": "Pick up, carry, and throw heavy objects.",
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Navigate",
+		"description": "Read a map and travel without becoming lost.",
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Ride",
+		"description": "Ride and control a mount who isn’t sapient, such as a horse.",
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Swim",
+		"description": "Move through deep liquid.",
+		"list": "Exploration",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Brag",
+		"description": "Impress others with stories of your deeds.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Empathize",
+		"description": "Relate to someone on a personal level.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Flirt",
+		"description": "Attract romantic attention from someone.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Gamble",
+		"description": "Make bets with others.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Handle Animals",
+		"description": "Interact with animal wildlife that isn’t sapient.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Interrogate",
+		"description": "Obtain information from a creature withholding it.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Intimidate",
+		"description": "Awe or scare a creature.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Lead",
+		"description": "Inspire people to action.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Lie",
+		"description": "Convince someone that a falsehood is true.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Music",
+		"description": "Perform music vocally or with an instrument.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Perform",
+		"description": "Engage in dance, oratory, acting, or some other physical performance.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Persuade",
+		"description": "Convince someone to agree with you through use of your charms and grace.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Read Person",
+		"description": "Read the emotions and body language of other creatures.",
+		"list": "Interpersonal",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Alertness",
+		"description": "Intuitively sense the details of your surroundings.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Conceal Object",
+		"description": "Hide an object on your person or in your environment.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Disguise",
+		"description": "Change your appearance to look like a different person.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Eavesdrop",
+		"description": "Actively listen to something that is hard to hear, such as a whispered conversation through a door.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Escape Artist",
+		"description": "Escape from bonds such as rope or manacles.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Hide",
+		"description": "Conceal yourself from others’ observation.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Pick Lock",
+		"description": "Open a lock without using the key.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Pick Pocket",
+		"description": "Steal an item that another person wears or carries without them noticing.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Sabotage",
+		"description": "Disable a mechanical device such as a trap.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Search",
+		"description": "Actively search an environment for important details and items.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Sneak",
+		"description": "Move silently.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Track",
+		"description": "Follow a trail that another creature has left behind.",
+		"list": "Intrigue",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Culture",
+		"description": "Knowing about a culture’s customs, folktales, and taboos.",
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Criminal Underworld",
+		"description": "Knowing about criminal organizations, their crimes, their relationships, and their leaders.",
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "History",
+		"description": "Knowing about significant past events.",
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Magic",
+		"description": "Knowing about magical places, spells, rituals, items, and phenomena.",
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Monsters",
+		"description": "Knowing monster ecology, strengths, and weaknesses.",
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Nature",
+		"description": "Knowing about natural flora, fauna, and weather.",
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Psionics",
+		"description": "Knowing about psionic places, spells, rituals, items, and phenomena.",
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Religion",
+		"description": "Knowing about religious mythology, practices, and rituals.",
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Rumors",
+		"description": "Knowing gossip, legends, and uncertain truths.",
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Society",
+		"description": "Knowing noble etiquette and the leadership and power dynamics of noble families.",
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Strategy",
+		"description": "Knowing about battle tactics and logistics.",
+		"list": "Lore",
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"name": "Timescape",
+		"description": "Knowing about the various planets of the timescape",
+		"list": "Lore",
+		"_source": "Orden",
+		"_sourceType": "Official"
+	}
+]

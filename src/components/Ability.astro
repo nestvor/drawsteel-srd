@@ -1,0 +1,63 @@
+---
+import { renderMarkdown, renderInline } from '~/lib/markdown';
+
+const { ability } = Astro.props;
+const a = ability ?? {};
+const usage: string = a.type?.usage ?? '';
+const cost = a.cost;
+const keywords: string[] = a._fmt?.keywords ?? a.keywords ?? [];
+const distance: string = (a._fmt?.distance ?? []).join(' or ');
+const trigger: string = a.type?.trigger ?? '';
+const sections = a.sections ?? [];
+
+const costLabel =
+	cost === 'signature' ? 'Signature' : typeof cost === 'number' && cost > 0 ? `${cost} ${cost === 1 ? 'point' : 'points'}` : '';
+
+const tierLabels = ['11 or lower', '12–16', '17+'];
+const charAbbrev: Record<string, string> = { Might: 'M', Agility: 'A', Reason: 'R', Intuition: 'I', Presence: 'P' };
+const rollHead = (chars: string[] = []) =>
+	chars.length ? `Power Roll + ${chars.map(c => charAbbrev[c] ?? c).join(' or ')}` : 'Power Roll';
+---
+<div class="ability">
+	<div class="ability-head">
+		<span class="ability-name">{a.name}</span>
+		{costLabel && <span class="ability-cost">{costLabel}</span>}
+	</div>
+
+	{(usage || keywords.length > 0) && (
+		<div class="pills">
+			{usage && <span class="pill pill-usage">{usage}</span>}
+			{keywords.map(k => <span class="pill">{k}</span>)}
+		</div>
+	)}
+
+	{a.description && <p class="ability-flavor" set:html={renderInline(a.description)} />}
+	{trigger && <p class="kv"><strong>Trigger</strong> {trigger}</p>}
+
+	{(distance || a.target) && (
+		<p class="kv">
+			{distance && <span><strong>Distance</strong> {distance}&nbsp;&nbsp;</span>}
+			{a.target && <span><strong>Target</strong> {a.target}</span>}
+		</p>
+	)}
+
+	{sections.map((s: any) => {
+		if (s.type === 'text') return <div class="md" set:html={renderMarkdown(s.text)} />;
+		if (s.type === 'field')
+			return <p class="kv"><strong>{s.name}{s.value ? ` ${s.value}` : ''}</strong> <span set:html={renderInline(s.effect)} /></p>;
+		if (s.type === 'roll') {
+			const r = s.roll ?? {};
+			return (
+				<table class="power-roll">
+					<caption>{rollHead(r.characteristic)}</caption>
+					<tbody>
+						<tr><td class="tier">{tierLabels[0]}</td><td set:html={renderInline(r.tier1)} /></tr>
+						<tr><td class="tier">{tierLabels[1]}</td><td set:html={renderInline(r.tier2)} /></tr>
+						<tr><td class="tier">{tierLabels[2]}</td><td set:html={renderInline(r.tier3)} /></tr>
+					</tbody>
+				</table>
+			);
+		}
+		return null;
+	})}
+</div>

@@ -1,0 +1,17 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+vendor/forgesteel/node_modules/
+
+# logs / env
+*.log
+.env
+.env.*
+.DS_Store
+
+# editor
+.vscode/
+.idea/

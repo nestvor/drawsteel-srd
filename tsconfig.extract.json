@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "types": ["node"],
+    "paths": {
+      "@/*": ["./vendor/forgesteel/src/*"],
+      "showdown": ["./scripts/stubs/empty.ts"],
+      "modern-screenshot": ["./scripts/stubs/empty.ts"],
+      "html2canvas": ["./scripts/stubs/empty.ts"],
+      "jspdf": ["./scripts/stubs/empty.ts"]
+    }
+  },
+  "include": ["scripts/**/*.ts", "vendor/forgesteel/src/**/*.ts"]
+}

@@ -1,0 +1,39 @@
+---
+import Feature from './Feature.astro';
+
+const { monster } = Astro.props;
+const m = monster ?? {};
+const sizeLabel = m.size ? `${m.size.value ?? ''}${m.size.mod ?? ''}` : '';
+const speedLabel = m.speed ? `${m.speed.value ?? ''}${m.speed.modes?.length ? ` (${m.speed.modes.join(', ')})` : ''}` : '';
+const roleLabel = [m.role?.organization, m.role?.type].filter(Boolean).join(' ');
+const chars = m.characteristics ?? [];
+const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
+---
+<div class="statblock">
+	<div class="sb-head">
+		<span class="sb-name">{m.name}</span>
+		<span class="sb-sub">Level {m.level}{roleLabel ? ` ${roleLabel}` : ''}</span>
+	</div>
+	{m.keywords?.length > 0 && <p class="sb-keywords">{m.keywords.join(', ')}</p>}
+
+	<div class="sb-stats">
+		<span><strong>Stamina</strong> {m.stamina}</span>
+		<span><strong>Speed</strong> {speedLabel}</span>
+		<span><strong>Size</strong> {sizeLabel}</span>
+		<span><strong>Stability</strong> {m.stability}</span>
+		<span><strong>EV</strong> {m.encounterValue}</span>
+		{m.freeStrikeDamage != null && <span><strong>Free Strike</strong> {m.freeStrikeDamage}</span>}
+	</div>
+
+	{chars.length > 0 && (
+		<div class="sb-chars">
+			{chars.map((c: any) => <span><strong>{(c.characteristic || '').slice(0, 3)}</strong> {sign(c.value)}</span>)}
+		</div>
+	)}
+
+	{m.features?.length > 0 && (
+		<div class="sb-features">
+			{m.features.map((f: any) => <Feature feature={f} />)}
+		</div>
+	)}
+</div>

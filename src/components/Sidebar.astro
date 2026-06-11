@@ -1,0 +1,34 @@
+---
+import { GROUPS, byGroup } from '~/lib/categories';
+import { href } from '~/lib/url';
+
+const current = Astro.url.pathname;
+const isActive = (key: string) => current.includes(`/${key}`);
+---
+<nav class="sidebar" data-pagefind-ignore aria-label="Site sections">
+	<a class="brand" href={href('/')}>
+		<span class="brand-mark">⚔️</span>
+		<span class="brand-text">Draw Steel <span>SRD</span></span>
+	</a>
+
+	<div id="search" class="search" aria-label="Search"></div>
+
+	<div class="nav-groups">
+		{GROUPS.map(group => (
+			<div class="nav-group">
+				<p class="nav-group-title">{group}</p>
+				<ul>
+					{byGroup(group).map(c => (
+						<li>
+							<a href={href(`/${c.key}`)} class:list={['nav-link', { active: isActive(c.key) }]}>{c.title}</a>
+						</li>
+					))}
+				</ul>
+			</div>
+		))}
+		<div class="nav-group">
+			<p class="nav-group-title">About</p>
+			<ul><li><a href={href('/about')} class:list={['nav-link', { active: isActive('about') }]}>About &amp; Credits</a></li></ul>
+		</div>
+	</div>
+</nav>

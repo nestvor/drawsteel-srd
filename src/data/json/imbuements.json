@@ -1,0 +1,3959 @@
+[
+	{
+		"id": "imbuement-awe-charming",
+		"name": "Awe: Charming",
+		"description": "You gain an edge on Presence tests made to win other creatures over or make a good impression.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "3b6e0d31-75df-46fe-86b4-f8ec93c686df",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A lock of hair from a fey, taken in amicable bargain",
+			"source": "Texts or lore in Khelt",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-awe-charming",
+			"name": "Awe: Charming",
+			"description": "You gain an edge on Presence tests made to win other creatures over or make a good impression.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-awe-threatening",
+		"name": "Awe: Threatening",
+		"description": "You gain an edge on Presence tests made to intimidate, coerce, or bully.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "0e25e0b2-9ebb-47a6-9702-8d849082843d",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A lock of hair from a fey, taken in violence",
+			"source": "Texts or lore in Khelt",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-awe-threatening",
+			"name": "Awe: Threatening",
+			"description": "You gain an edge on Presence tests made to intimidate, coerce, or bully.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-damage-immunity-i",
+		"name": "Damage Immunity I",
+		"description": "Select three damage types. You have immunity 5 to those damage types.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "8a03000e-4915-4bb4-97c4-eb0fb0a11808",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Elemental sand left behind when an elemental enters Orden from Quintessence",
+			"source": "Texts or lore in Zaliac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-damage-immunity-i",
+			"name": "Damage Immunity I",
+			"description": "Select three damage types. You have immunity 5 to those damage types.",
+			"type": "Choice",
+			"data": {
+				"options": [
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-i-a",
+							"name": "Damage Immunity I (Acid)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Acid",
+										"type": "Immunity",
+										"value": 5,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-i-b",
+							"name": "Damage Immunity I (Cold)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Cold",
+										"type": "Immunity",
+										"value": 5,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-i-c",
+							"name": "Damage Immunity I (Corruption)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Corruption",
+										"type": "Immunity",
+										"value": 5,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-i-d",
+							"name": "Damage Immunity I (Fire)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Fire",
+										"type": "Immunity",
+										"value": 5,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-i-e",
+							"name": "Damage Immunity I (Holy)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Holy",
+										"type": "Immunity",
+										"value": 5,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-i-f",
+							"name": "Damage Immunity I (Lightning)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Lightning",
+										"type": "Immunity",
+										"value": 5,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-i-g",
+							"name": "Damage Immunity I (Poison)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Poison",
+										"type": "Immunity",
+										"value": 5,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-i-h",
+							"name": "Damage Immunity I (Psychic)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Psychic",
+										"type": "Immunity",
+										"value": 5,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-i-i",
+							"name": "Damage Immunity I (Sonic)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Sonic",
+										"type": "Immunity",
+										"value": 5,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					}
+				],
+				"count": 3,
+				"selectAt": "build",
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-disguise",
+		"name": "Disguise",
+		"description": "",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "47828802-aea8-4b9c-9884-529edd364d29",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The blood of a lycanthrope",
+			"source": "Texts or lore in Khelt",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-disguise",
+			"name": "Disguise",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-disguise",
+					"name": "Disguise",
+					"description": "",
+					"type": {
+						"usage": "Maneuver",
+						"free": false,
+						"trigger": "",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "You cause this armor to take the form of any type of clothing that you have been in the presence of—a noble’s dress, a guard’s uniform, a cultist’s robes, and so forth. The armor loses none of its protective qualities while transformed into other clothing."
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-iridescent",
+		"name": "Iridescent",
+		"description": "",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "0efefb4b-4201-47a1-8022-f7fd3d20dea4",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Fur from a lightbender",
+			"source": "Texts or lore in Hyrallic",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-iridescent",
+			"name": "Iridescent",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-iridescent",
+					"name": "Iridescent",
+					"description": "",
+					"type": {
+						"usage": "Triggered Action",
+						"free": true,
+						"trigger": "You are the sole target of an ability",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "You reveal that the ability was targeting an afterimage of you in the same space as you. The power roll for the ability is treated as an 11. You can’t use this enhancement again until you earn 1 or more Victories."
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-magic-resistance-i",
+		"name": "Magic Resistance I",
+		"description": "Your characteristic scores are treated as 1 higher (to a maximum of 2) for the purpose of resisting the potencies of magic abilities.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "6a058e83-b34f-44a5-b986-645d916ff216",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A scale from a dragon",
+			"source": "Texts or lore in The First Language",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-magic-resistance-i",
+			"name": "Magic Resistance I",
+			"description": "Your characteristic scores are treated as 1 higher (to a maximum of 2) for the purpose of resisting the potencies of magic abilities.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-nettlebloom",
+		"name": "Nettlebloom",
+		"description": "Whenever you are grabbed by an adjacent creature, your armor sprouts toxic nettles. While that creature has you grabbed, they are weakened.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "a0cbeaba-851b-4d08-8874-e66cf79bbb80",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A rose from the magical hedge of a hag",
+			"source": "Texts or lore in Khelt",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-nettlebloom",
+			"name": "Nettlebloom",
+			"description": "Whenever you are grabbed by an adjacent creature, your armor sprouts toxic nettles. While that creature has you grabbed, they are weakened.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-phasing-i",
+		"name": "Phasing I",
+		"description": "Once per turn, you can move through 1 square of solid matter. If you end your turn inside solid matter, you are forced out into the space from which you entered it and you take 5 damage that can’t be reduced in any way.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "609f6a78-0133-4d6f-bf6e-c85c00429125",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Ichor from a destroyed wraith",
+			"source": "Texts or lore in Szetch",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-phasing-i",
+			"name": "Phasing I",
+			"description": "Once per turn, you can move through 1 square of solid matter. If you end your turn inside solid matter, you are forced out into the space from which you entered it and you take 5 damage that can’t be reduced in any way.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-psionic-resistance-i",
+		"name": "Psionic Resistance I",
+		"description": "Your characteristic scores are treated as 1 higher (to a maximum of 2) for the purpose of resisting the potencies of psionic abilities.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "4fc1b5a4-5b04-49f4-aa1b-12aa90da2389",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Rare crystals that resonate with psionic energy, often found at sites of psionic experimentation",
+			"source": "Texts or lore in Voll",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-psionic-resistance-i",
+			"name": "Psionic Resistance I",
+			"description": "Your characteristic scores are treated as 1 higher (to a maximum of 2) for the purpose of resisting the potencies of psionic abilities.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-swift",
+		"name": "Swift",
+		"description": "",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "013ad24c-ac6c-43d0-bc8a-e2a49cf091e8",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The feather of a falcon slain as it was diving",
+			"source": "Texts or lore in Yllyric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-swift",
+			"name": "Swift",
+			"description": "",
+			"type": "Bonus",
+			"data": {
+				"field": "Speed",
+				"value": 1,
+				"valueFromController": null,
+				"valueCharacteristics": [],
+				"valueCharacteristicMultiplier": 1,
+				"valuePerLevel": 0,
+				"valuePerEchelon": 0
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-tempest-i",
+		"name": "Tempest I",
+		"description": "You infuse you armor with the essence of a storm.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "fa43a1ab-6759-4f1c-b9f5-c2c923c08ca8",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A strip of starmetal struck by lightning",
+			"source": "Texts or lore in Ullorvic",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-tempest-i",
+			"name": "Tempest I",
+			"description": "You infuse you armor with the essence of a storm.",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-tempest-i",
+					"name": "Tempest I",
+					"description": "You infuse you armor with the essence of a storm.",
+					"type": {
+						"usage": "Maneuver",
+						"free": false,
+						"trigger": "",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "The first time an adjacent creature deals damage to you before the end of your next turn, they take lightning damage equal to your highest characteristic score and you can push them 1 square."
+						},
+						{
+							"type": "package",
+							"tag": "tempest-tag"
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-absorption",
+		"name": "Absorption",
+		"description": "",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "040b3dc2-febd-4f95-8297-33356488a986",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A mirror blessed by a priest of a god of magic",
+			"source": "Texts or lore in The First Language",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-absorption",
+			"name": "Absorption",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-absorption",
+					"name": "Absorption",
+					"description": "",
+					"type": {
+						"usage": "Triggered Action",
+						"free": true,
+						"trigger": "You are targeted by a magic or psionic ability that targets only one creature",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "\nYou cause this armor to absorb the ability after the ability’s effects resolve. While the armor has an ability absorbed, you can’t absorb another.\n\nYou can use an absorbed ability as if you knew it, making power rolls for the ability using your choice of Reason, Intuition, or Presence. You don’t need to spend any Heroic Resource to activate the ability. Once you use the ability, the armor loses it, and you can absorb another."
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-damage-immunity-ii",
+		"name": "Damage Immunity II",
+		"description": "The damage immunity conveyed by the armor increases to 10. (Select the same damage types below)",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "9ebf801c-8907-4e5d-b54f-c44564d947ff",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The essence of an elemental who is still alive",
+			"source": "Texts or lore in Zaliac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-damage-immunity-ii",
+			"name": "Damage Immunity II",
+			"description": "The damage immunity conveyed by the armor increases to 10. (Select the same damage types below)",
+			"type": "Choice",
+			"data": {
+				"options": [
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-ii-a",
+							"name": "Damage Immunity II (Acid)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Acid",
+										"type": "Immunity",
+										"value": 10,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-ii-b",
+							"name": "Damage Immunity II (Cold)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Cold",
+										"type": "Immunity",
+										"value": 10,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-ii-c",
+							"name": "Damage Immunity II (Corruption)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Corruption",
+										"type": "Immunity",
+										"value": 10,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-ii-d",
+							"name": "Damage Immunity II (Fire)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Fire",
+										"type": "Immunity",
+										"value": 10,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-ii-e",
+							"name": "Damage Immunity II (Holy)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Holy",
+										"type": "Immunity",
+										"value": 10,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-ii-f",
+							"name": "Damage Immunity II (Lightning)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Lightning",
+										"type": "Immunity",
+										"value": 10,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-ii-g",
+							"name": "Damage Immunity II (Poison)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Poison",
+										"type": "Immunity",
+										"value": 10,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-ii-h",
+							"name": "Damage Immunity II (Psychic)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Psychic",
+										"type": "Immunity",
+										"value": 10,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					},
+					{
+						"feature": {
+							"id": "imbuement-damage-immunity-ii-i",
+							"name": "Damage Immunity II (Sonic)",
+							"description": "",
+							"type": "Damage Modifier",
+							"data": {
+								"modifiers": [
+									{
+										"damageType": "Sonic",
+										"type": "Immunity",
+										"value": 10,
+										"valueFromController": null,
+										"valueCharacteristics": [],
+										"valueCharacteristicMultiplier": 1,
+										"valuePerLevel": 0,
+										"valuePerEchelon": 0
+									}
+								]
+							}
+						},
+						"value": 1
+					}
+				],
+				"count": 3,
+				"selectAt": "build",
+				"selected": []
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-dragon-soul-i",
+		"name": "Dragon Soul I",
+		"description": "",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "173d3622-1af3-4683-a067-3d35081a3692",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A scale from a dead dragon",
+			"source": "Texts or lore in Vastariax",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-dragon-soul-i",
+			"name": "Dragon Soul I",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-dragon-soul-i",
+					"name": "Dragon Soul I",
+					"description": "",
+					"type": {
+						"usage": "Triggered Action",
+						"free": true,
+						"trigger": "Another creature causes you to be winded or dying",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "You cause the soul of a dragon to emerge from the armor and hurtle toward the creature"
+						},
+						{
+							"type": "roll",
+							"roll": {
+								"characteristic": [
+									"Might",
+									"Agility",
+									"Reason",
+									"Intuition",
+									"Presence"
+								],
+								"bonus": 0,
+								"tier1": "8 damage; push 3",
+								"tier2": "12 damage; push 4",
+								"tier3": "15 damage; push 5"
+							}
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-levitating",
+		"name": "Levitating",
+		"description": "On your turn, you can treat up to 5 consecutive squares of movement as flying movement. If you are still in midair at the end of your turn, you fall prone.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "8daf0534-a8e8-4eda-9b75-8e114e50942e",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A palm-sized crystal grown in the subterranean lair of an overmind",
+			"source": "Texts or lore in Zaliac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-levitating",
+			"name": "Levitating",
+			"description": "On your turn, you can treat up to 5 consecutive squares of movement as flying movement. If you are still in midair at the end of your turn, you fall prone.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-magic-resistance-ii",
+		"name": "Magic Resistance II",
+		"description": "Your characteristic scores are treated as 2 higher (to a maximum of 3) for the purpose of resisting the potencies of magic abilities. This benefit replaces Magic Resistance I.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "d042e8ff-a090-4388-9082-f3693e525af8",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A scale from a mature dragon",
+			"source": "Texts or lore in The First Language",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-magic-resistance-ii",
+			"name": "Magic Resistance II",
+			"description": "Your characteristic scores are treated as 2 higher (to a maximum of 3) for the purpose of resisting the potencies of magic abilities. This benefit replaces Magic Resistance I.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-phasing-ii",
+		"name": "Phasing II",
+		"description": "When you use the armor’s Phasing I enhancement, you can move through 3 squares of solid matter per turn.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "238fa6aa-ddb5-4783-b7d6-344b48151898",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The remnants of a slain ooze",
+			"source": "Texts or lore in Szetch",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-phasing-ii",
+			"name": "Phasing II",
+			"description": "When you use the armor’s Phasing I enhancement, you can move through 3 squares of solid matter per turn.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-psionic-resistance-ii",
+		"name": "Psionic Resistance II",
+		"description": "Your characteristic scores are treated as 2 higher (to a maximum of 3) for the purpose of resisting the potencies of psionic abilities. This benefit replaces Psionic Resistance I.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "145b80f2-fb34-46fe-b016-e3c436083a76",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A fresh crystalline scale from a gemstone dragon",
+			"source": "Texts or lore in Voll",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-psionic-resistance-ii",
+			"name": "Psionic Resistance II",
+			"description": "Your characteristic scores are treated as 2 higher (to a maximum of 3) for the purpose of resisting the potencies of psionic abilities. This benefit replaces Psionic Resistance I.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-reactive",
+		"name": "Reactive",
+		"description": "Whenever you take damage, you have damage immunity 2 until the end of your next turn after the triggering damage is resolved.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "0a833767-cbb3-4b30-b07e-b2f00fbf77a8",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A complex, hand-engineered set of brass gears inscribed with runes in silver dust",
+			"source": "Texts or lore in Zaliac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-reactive",
+			"name": "Reactive",
+			"description": "Whenever you take damage, you have damage immunity 2 until the end of your next turn after the triggering damage is resolved.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-second-wind",
+		"name": "Second Wind",
+		"description": "",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "51f181d5-a56c-4b60-ac99-67213733b0b5",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The sweat of a troll",
+			"source": "Texts or lore in Kalliak",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-second-wind",
+			"name": "Second Wind",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-second-wind",
+					"name": "Second Wind",
+					"description": "",
+					"type": {
+						"usage": "Triggered Action",
+						"free": true,
+						"trigger": "You become winded",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "Spend a recovery."
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-shattering",
+		"name": "Shattering",
+		"description": "Whenever an enemy scores a critical hit against you, they take 10 sonic damage.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "dd0794ed-8e1d-4b5e-88e5-428b8e20f453",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A pound of volcanic obsidian, formed naturally as a single piece",
+			"source": "Texts or lore in Zaliac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-shattering",
+			"name": "Shattering",
+			"description": "Whenever an enemy scores a critical hit against you, they take 10 sonic damage.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-tempest-ii",
+		"name": "Tempest II",
+		"description": "The target takes 8 lightning damage and you push them up to 3 squares.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "8bc4239e-576e-4ac7-9e2b-a27448d5af32",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The armor must be laid out under a clear sky as a comet passes over",
+			"source": "Texts or lore in Ullorvic",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-tempest-ii",
+			"name": "Tempest II",
+			"description": "The target takes 8 lightning damage and you push them up to 3 squares.",
+			"type": "Package Content",
+			"data": {
+				"tag": "tempest-tag"
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-devils-bargain",
+		"name": "Devil's Bargain",
+		"description": "You can fly. Additionally, if an effect would make you prone while flying, you can choose to not go prone by losing Stamina equal to the distance you would have fallen from becoming prone.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "4a4672ca-8b50-4a4a-aaa8-a66296255267",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The wing of an archdevil",
+			"source": "Texts or lore in Anjali",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-devils-bargain",
+			"name": "Devil's Bargain",
+			"description": "You can fly. Additionally, if an effect would make you prone while flying, you can choose to not go prone by losing Stamina equal to the distance you would have fallen from becoming prone.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-dragon-soul-ii",
+		"name": "Dragon Soul II",
+		"description": "You open your maw and unleash hell.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "85a9e8d4-b4a3-4506-bc03-df6378ac8860",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "An offering of gems, coins, and art stolen from a dragon’s hoard, sacrificed in ritual fire",
+			"source": "Texts or lore in Vastariax",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-dragon-soul-ii",
+			"name": "Dragon Soul II",
+			"description": "You open your maw and unleash hell.",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-dragon-soul-ii",
+					"name": "Dragon Soul II",
+					"description": "You open your maw and unleash hell.",
+					"type": {
+						"usage": "Main Action",
+						"free": false,
+						"trigger": "",
+						"time": "",
+						"qualifiers": [
+							"You are winded"
+						],
+						"freeStrike": false
+					},
+					"keywords": [
+						"Area",
+						"Magic"
+					],
+					"distance": [
+						{
+							"type": "Line",
+							"value": 5,
+							"value2": 1,
+							"within": 1,
+							"special": "",
+							"qualifier": ""
+						}
+					],
+					"target": "Each enemy in the area",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "roll",
+							"roll": {
+								"characteristic": [
+									"Might",
+									"Agility",
+									"Reason",
+									"Intuition",
+									"Presence"
+								],
+								"bonus": 0,
+								"tier1": "5 fire damage",
+								"tier2": "8 fire damage",
+								"tier3": "11 fire damage"
+							}
+						}
+					],
+					"_fmt": {
+						"keywords": [
+							"Area",
+							"Magic"
+						],
+						"distance": [
+							"5 x 1 Line within 1"
+						]
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-invulnerable",
+		"name": "Invulnerable",
+		"description": "When an ability roll made against you obtains a tier 1 outcome, you can ignore its damage and effects.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "cdedfee9-a457-4501-b4c9-63f4106f6e79",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Repurposed metal plates from a servok war engine",
+			"source": "Texts or lore in Rallarian",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-invulnerable",
+			"name": "Invulnerable",
+			"description": "When an ability roll made against you obtains a tier 1 outcome, you can ignore its damage and effects.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-leyline-walker",
+		"name": "Leyline Walker",
+		"description": "",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "3e79ef10-6656-4a2f-966e-f5e8e882eaea",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A cutting from an ethereal tree that manifests in the mundane world only once a year",
+			"source": "Texts or lore in Yllyric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-leyline-walker",
+			"name": "Leyline Walker",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-leyline-walker",
+					"name": "Leyline Walker",
+					"description": "",
+					"type": {
+						"usage": "Move Action",
+						"free": false,
+						"trigger": "",
+						"time": "",
+						"qualifiers": [
+							"Once per turn"
+						],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "You can spend any amount of your movement to instead teleport that distance."
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-life",
+		"name": "Life",
+		"description": "Whenever you would die, you can spend a Recovery to regain Stamina instead. If you have no Recoveries to spend, you die.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "90689488-7669-4ba4-8e4b-fe82385ee4b8",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The tear of a saint",
+			"source": "Texts or lore in High Kuric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-life",
+			"name": "Life",
+			"description": "Whenever you would die, you can spend a Recovery to regain Stamina instead. If you have no Recoveries to spend, you die.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-magic-resistance-iii",
+		"name": "Magic Resistance III",
+		"description": "The benefit of the armor’s Magic Resistance II enhancement extends to each ally within 3 squares of you.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "f4bf5aa3-43a9-4b88-a90e-442eb9c58219",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A scale from an ancient dragon",
+			"source": "Texts or lore in The First Language",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-magic-resistance-iii",
+			"name": "Magic Resistance III",
+			"description": "The benefit of the armor’s Magic Resistance II enhancement extends to each ally within 3 squares of you.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-phasing-iii",
+		"name": "Phasing III",
+		"description": "Your movement doesn’t provoke opportunity attacks, and you can move through the space of any enemy as if they were an ally. You can’t end your turn in an enemy’s space.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "4cf743e0-2c4d-4219-b159-26f9ca559453",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Perfectly clear glass from a house that disappeared into the Ethereal Plane",
+			"source": "Texts or lore in Szetch",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-phasing-iii",
+			"name": "Phasing III",
+			"description": "Your movement doesn’t provoke opportunity attacks, and you can move through the space of any enemy as if they were an ally. You can’t end your turn in an enemy’s space.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-psionic-resistance-iii",
+		"name": "Psionic Resistance III",
+		"description": "The benefit of the armor’s Psionic Resistance II enhancement extends to each ally within 3 squares of you.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "43b62378-8218-4661-b404-276e577fc22e",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The skull of a voiceless talker at least a century old",
+			"source": "Texts or lore in Voll",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-psionic-resistance-iii",
+			"name": "Psionic Resistance III",
+			"description": "The benefit of the armor’s Psionic Resistance II enhancement extends to each ally within 3 squares of you.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-temporal-flux",
+		"name": "Temporal Flux",
+		"description": "Whenever you move out of a square, you can choose to leave an imprint behind that lasts until the end of the encounter, until your imprint takes 20 or more damage, or until you create a new imprint. The square is occupied by your imprint, and you can share that space with it.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "ca780b3e-cf65-4bcf-8053-210211fd409d",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "An experimental temporal capacitor invented by the kuran’zoi",
+			"source": "Texts or lore in Voll",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-temporal-flux",
+			"name": "Temporal Flux",
+			"description": "Whenever you move out of a square, you can choose to leave an imprint behind that lasts until the end of the encounter, until your imprint takes 20 or more damage, or until you create a new imprint. The square is occupied by your imprint, and you can share that space with it.",
+			"type": "Multiple Features",
+			"data": {
+				"features": [
+					{
+						"id": "temporal-flux-a",
+						"name": "Temporal Flux",
+						"description": "",
+						"type": "Ability",
+						"data": {
+							"ability": {
+								"id": "temporal-flux-a",
+								"name": "Temporal Flux",
+								"description": "",
+								"type": {
+									"usage": "Maneuver",
+									"free": true,
+									"trigger": "",
+									"time": "",
+									"qualifiers": [],
+									"freeStrike": false
+								},
+								"keywords": [],
+								"distance": [],
+								"target": "",
+								"cost": 0,
+								"repeatable": false,
+								"minLevel": 1,
+								"sections": [
+									{
+										"type": "text",
+										"text": "You teleport to the imprint’s space"
+									}
+								],
+								"_fmt": {
+									"keywords": [],
+									"distance": []
+								}
+							}
+						}
+					},
+					{
+						"id": "temporal-flux-b",
+						"name": "Temporal Flux",
+						"description": "",
+						"type": "Ability",
+						"data": {
+							"ability": {
+								"id": "temporal-flux-b",
+								"name": "Temporal Flux",
+								"description": "",
+								"type": {
+									"usage": "Triggered Action",
+									"free": true,
+									"trigger": "You are targeted by an ability",
+									"time": "",
+									"qualifiers": [],
+									"freeStrike": false
+								},
+								"keywords": [],
+								"distance": [
+									{
+										"type": "Special",
+										"value": 0,
+										"value2": 0,
+										"within": 0,
+										"special": "",
+										"qualifier": ""
+									}
+								],
+								"target": "Self",
+								"cost": 0,
+								"repeatable": false,
+								"minLevel": 1,
+								"sections": [
+									{
+										"type": "text",
+										"text": "You teleport to your imprint, and the power roll for the ability is an automatic tier 1 result."
+									}
+								],
+								"_fmt": {
+									"keywords": [],
+									"distance": [
+										"Special"
+									]
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-unbending",
+		"name": "Unbending",
+		"description": "You can’t be subjected to forced movement unless you choose to be. Effects that ignore Stability also ignore this enhancement.",
+		"type": "Imbued Armor",
+		"crafting": {
+			"id": "9ced69a6-9ab5-497e-a7db-7d7b39826495",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A spearhead or other weapon broken off in the body of a stone giant, and ossified for a year or more",
+			"source": "Texts or lore in High Kuric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-unbending",
+			"name": "Unbending",
+			"description": "You can’t be subjected to forced movement unless you choose to be. Effects that ignore Stability also ignore this enhancement.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-berserking",
+		"name": "Berserking",
+		"description": "Whenever you damage a creature using a magic or psionic ability and obtain a tier 3 outcome, that creature must make an opportunity attack against their nearest ally if possible after the ability’s effects resolve. This strike deals extra damage equal to the highest of your Reason, Intuition, or Presence scores.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "bb47b801-812d-4750-a6d9-956f1b538419",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The tusk of a feral boar",
+			"source": "Texts or lore in Kalliak",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-berserking",
+			"name": "Berserking",
+			"description": "Whenever you damage a creature using a magic or psionic ability and obtain a tier 3 outcome, that creature must make an opportunity attack against their nearest ally if possible after the ability’s effects resolve. This strike deals extra damage equal to the highest of your Reason, Intuition, or Presence scores.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-displacing-i",
+		"name": "Displacing I",
+		"description": "Whenever you damage a creature using a magic or psionic ability and obtain a tier 3 outcome, you can teleport that creature up to 2 squares after the ability’s effects resolve. If the creature started on a horizontal surface, they must end on a horizontal surface.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "d43298fb-e149-48f0-b3e0-08a242fc2da3",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Slime from an ooze",
+			"source": "Texts or lore in Khelt",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-displacing-i",
+			"name": "Displacing I",
+			"description": "Whenever you damage a creature using a magic or psionic ability and obtain a tier 3 outcome, you can teleport that creature up to 2 squares after the ability’s effects resolve. If the creature started on a horizontal surface, they must end on a horizontal surface.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-elemental",
+		"name": "Elemental",
+		"description": "Whenever you use an ability with the Air, Earth, Fire, Green, Rot, Void, or Water keyword, you can attune this implement to that element until the end of the encounter. While the implement is attuned, you gain an edge on power rolls with that elemental keyword. The implement can be attuned to only one element at a time.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "2e8ba053-fbda-4562-8ccd-c31c0941891b",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Ashes or other leavings from a natural disaster",
+			"source": "Texts or lore in The First Language",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-elemental",
+			"name": "Elemental",
+			"description": "Whenever you use an ability with the Air, Earth, Fire, Green, Rot, Void, or Water keyword, you can attune this implement to that element until the end of the encounter. While the implement is attuned, you gain an edge on power rolls with that elemental keyword. The implement can be attuned to only one element at a time.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-forceful-i",
+		"name": "Forceful I",
+		"description": "Whenever you use a magic or psionic ability to push or pull a creature, you can move that creature an additional 2 squares.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "b1327d11-ec91-4155-a638-7623219bbbfa",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A lead slingstone that killed a giant",
+			"source": "Texts or lore in High Kuric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-forceful-i",
+			"name": "Forceful I",
+			"description": "Whenever you use a magic or psionic ability to push or pull a creature, you can move that creature an additional 2 squares.",
+			"type": "Multiple Features",
+			"data": {
+				"features": [
+					{
+						"id": "imbuement-forceful-i-push",
+						"name": "Forced Movement: Push",
+						"description": "",
+						"type": "Bonus",
+						"data": {
+							"field": "Forced Movement: Push",
+							"value": 2,
+							"valueFromController": null,
+							"valueCharacteristics": [],
+							"valueCharacteristicMultiplier": 1,
+							"valuePerLevel": 0,
+							"valuePerEchelon": 0
+						}
+					},
+					{
+						"id": "imbuement-forceful-i-pull",
+						"name": "Forced Movement: Pull",
+						"description": "",
+						"type": "Bonus",
+						"data": {
+							"field": "Forced Movement: Pull",
+							"value": 2,
+							"valueFromController": null,
+							"valueCharacteristics": [],
+							"valueCharacteristicMultiplier": 1,
+							"valuePerLevel": 0,
+							"valuePerEchelon": 0
+						}
+					}
+				]
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-rat-form",
+		"name": "Rat Form",
+		"description": "",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "39cae4df-6a66-4d62-bbb6-0f2cd3382e6e",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "One hundred rat pelts",
+			"source": "Texts or lore in Khamish",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-rat-form",
+			"name": "Rat Form",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-rat-form",
+					"name": "Rat Form",
+					"description": "",
+					"type": {
+						"usage": "Maneuver",
+						"free": false,
+						"trigger": "",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "You transform into a rat. Your equipment transforms with you. As a rat, you have speed 5 and can automatically climb at full speed while moving, your size is 1T, and you can see in the dark. You can speak and keep your skills while in rat form, but your Might is −5 and you lose all your regular abilities, features, and benefits. You can revert to your natural form as a maneuver, and do so automatically if you take any damage."
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-rejuvenating-i",
+		"name": "Rejuvenating I",
+		"description": "Whenever you use an ability that costs 1 or more of your Heroic Resource, roll a d10. On a 9 or higher, you gain 1 Heroic Resource.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "64636c1f-2770-4618-b9d2-11c656fd98e4",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A singing quartz crystal",
+			"source": "Texts or lore in The First Language",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-rejuvenating-i",
+			"name": "Rejuvenating I",
+			"description": "Whenever you use an ability that costs 1 or more of your Heroic Resource, roll a d10. On a 9 or higher, you gain 1 Heroic Resource.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-seeking",
+		"name": "Seeking",
+		"description": "Your ranged magic or psionic abilities gain a +2 distance bonus. Additionally, if you think the name of a specific creature, place, or object to the implement, the implement points toward that target, provided you are on the same world.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "b8222110-9f1f-4c47-aa1d-9c86fd846868",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "An inch-long needle carved from a diamond",
+			"source": "Texts or lore in Caelian",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-seeking",
+			"name": "Seeking",
+			"description": "Your ranged magic or psionic abilities gain a +2 distance bonus. Additionally, if you think the name of a specific creature, place, or object to the implement, the implement points toward that target, provided you are on the same world.",
+			"type": "Multiple Features",
+			"data": {
+				"features": [
+					{
+						"id": "imbuement-seeking-magic",
+						"name": "Seeking (Magic)",
+						"description": "Your ranged magic abilities gain a +2 distance bonus.",
+						"type": "Ability Distance",
+						"data": {
+							"keywords": [
+								"Ranged",
+								"Magic"
+							],
+							"value": 2,
+							"valueFromController": null,
+							"valueCharacteristics": [],
+							"valueCharacteristicMultiplier": 0,
+							"valuePerLevel": 0,
+							"valuePerEchelon": 0
+						}
+					},
+					{
+						"id": "imbuement-seeking-psionic",
+						"name": "Seeking (Psionic)",
+						"description": "Your ranged psionic abilities gain a +2 distance bonus.",
+						"type": "Ability Distance",
+						"data": {
+							"keywords": [
+								"Ranged",
+								"Psionic"
+							],
+							"value": 2,
+							"valueFromController": null,
+							"valueCharacteristics": [],
+							"valueCharacteristicMultiplier": 0,
+							"valuePerLevel": 0,
+							"valuePerEchelon": 0
+						}
+					},
+					{
+						"id": "imbuement-seeking-text",
+						"name": "Seeking",
+						"description": "If you think the name of a specific creature, place, or object to the implement, the implement points toward that target, provided you are on the same world.",
+						"type": "Text",
+						"data": null
+					}
+				]
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-thought-sending",
+		"name": "Thought Sending",
+		"description": "Your ranged magic and psionic abilities gain a +2 distance bonus. Additionally, you can telepathically communicate with any willing creature who knows a language and whose name you know, provided they are on the same world as you. You must initiate the conversation, but once you do, the creature can respond until you end the conversation.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "d5a5b1af-0597-4d88-8529-9d5b9b623ea3",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The brain of a psionic creature",
+			"source": "Texts or lore in Variac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-thought-sending",
+			"name": "Thought Sending",
+			"description": "Your ranged magic and psionic abilities gain a +2 distance bonus. Additionally, you can telepathically communicate with any willing creature who knows a language and whose name you know, provided they are on the same world as you. You must initiate the conversation, but once you do, the creature can respond until you end the conversation.",
+			"type": "Multiple Features",
+			"data": {
+				"features": [
+					{
+						"id": "imbuement-thought-sending-magic",
+						"name": "Thought Sending (Magic)",
+						"description": "Your ranged magic abilities gain a +2 distance bonus.",
+						"type": "Ability Distance",
+						"data": {
+							"keywords": [
+								"Ranged",
+								"Magic"
+							],
+							"value": 2,
+							"valueFromController": null,
+							"valueCharacteristics": [],
+							"valueCharacteristicMultiplier": 0,
+							"valuePerLevel": 0,
+							"valuePerEchelon": 0
+						}
+					},
+					{
+						"id": "imbuement-thought-sending-psionic",
+						"name": "Thought Sending (Psionic)",
+						"description": "Your ranged psionic abilities gain a +2 distance bonus.",
+						"type": "Ability Distance",
+						"data": {
+							"keywords": [
+								"Ranged",
+								"Psionic"
+							],
+							"value": 2,
+							"valueFromController": null,
+							"valueCharacteristics": [],
+							"valueCharacteristicMultiplier": 0,
+							"valuePerLevel": 0,
+							"valuePerEchelon": 0
+						}
+					},
+					{
+						"id": "imbuement-thought-sending-text",
+						"name": "Thought Sending",
+						"description": "You can telepathically communicate with any willing creature who knows a language and whose name you know, provided they are on the same world as you. You must initiate the conversation, but once you do, the creature can respond until you end the conversation.",
+						"type": "Text",
+						"data": null
+					}
+				]
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-warding-i",
+		"name": "Warding I",
+		"description": "",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "993c215e-f2fd-4148-a8b9-6c98b8173118",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Three skulls from the same chimera",
+			"source": "Texts or lore in Variac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-warding-i",
+			"name": "Warding I",
+			"description": "",
+			"type": "Bonus",
+			"data": {
+				"field": "Stamina",
+				"value": 6,
+				"valueFromController": null,
+				"valueCharacteristics": [],
+				"valueCharacteristicMultiplier": 1,
+				"valuePerLevel": 0,
+				"valuePerEchelon": 0
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-celerity",
+		"name": "Celerity",
+		"description": "Immediately after using a magic or psionic ability that requires a main action, you can shift up to 3 squares, or you can use the Escape Grab maneuver as a free maneuver.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "f172573d-ca61-4f14-a01c-d44e66619314",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A dire falcon’s beak",
+			"source": "Texts or lore in Khelt",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-celerity",
+			"name": "Celerity",
+			"description": "Immediately after using a magic or psionic ability that requires a main action, you can shift up to 3 squares, or you can use the Escape Grab maneuver as a free maneuver.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-celestine",
+		"name": "Celestine",
+		"description": "",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "470b8b38-1908-45e7-9f74-43b22e43d523",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A still-warm piece of a meteorite",
+			"source": "Texts or lore in Ullorvic",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-celestine",
+			"name": "Celestine",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-celestine",
+					"name": "Celestine",
+					"description": "",
+					"type": {
+						"usage": "Main Action",
+						"free": false,
+						"trigger": "",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "You conjure up to three stars, which hover in unoccupied squares of your choice within 5 squares of you. The stars remain in place, and disappear if you create more stars. When an enemy enters any star’s space, the star detonates and is destroyed, and the enemy takes 10 fire damage. If you have line of effect to the enemy, you can also slide them 1 square. Otherwise, the enemy slides 1 square in a random direction."
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-displacing-ii",
+		"name": "Displacing II",
+		"description": "When you use the implement’s Displacing I enhancement, you can teleport the creature up to 4 squares. Additionally, the creature takes a bane on their next power roll made before the end of their next turn",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "90277a22-137e-45cf-9387-d4db079cab9f",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The wing of a pixie",
+			"source": "Texts or lore in Voll",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-displacing-ii",
+			"name": "Displacing II",
+			"description": "When you use the implement’s Displacing I enhancement, you can teleport the creature up to 4 squares. Additionally, the creature takes a bane on their next power roll made before the end of their next turn",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-erupting-i",
+		"name": "Erupting I",
+		"description": "Whenever you damage a creature using a magic or psionic ability that targets only a single creature and obtain a tier 3 outcome, each enemy within 2 squares of the creature takes 3 fire damage after the ability’s effects resolve.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "d644ec5c-73a7-4156-989f-617a48a52fa2",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Obsidian from an active volcano",
+			"source": "Texts or lore in Vastariax",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-erupting-i",
+			"name": "Erupting I",
+			"description": "Whenever you damage a creature using a magic or psionic ability that targets only a single creature and obtain a tier 3 outcome, each enemy within 2 squares of the creature takes 3 fire damage after the ability’s effects resolve.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-forceful-ii",
+		"name": "Forceful II",
+		"description": "Whenever you use a magic or psionic ability to push or pull a creature, you can move that creature an additional 3 squares. This replaces the benefit of Forceful I.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "f253934e-48b9-4ecb-841e-7989243f4084",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A marble stone giant’s fingernail",
+			"source": "Texts or lore in High Kuric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-forceful-ii",
+			"name": "Forceful II",
+			"description": "Whenever you use a magic or psionic ability to push or pull a creature, you can move that creature an additional 3 squares. This replaces the benefit of Forceful I.",
+			"type": "Multiple Features",
+			"data": {
+				"features": [
+					{
+						"id": "imbuement-forceful-ii-push",
+						"name": "Forced Movement: Push",
+						"description": "",
+						"type": "Bonus",
+						"data": {
+							"field": "Forced Movement: Push",
+							"value": 1,
+							"valueFromController": null,
+							"valueCharacteristics": [],
+							"valueCharacteristicMultiplier": 1,
+							"valuePerLevel": 0,
+							"valuePerEchelon": 0
+						}
+					},
+					{
+						"id": "imbuement-forceful-ii-pull",
+						"name": "Forced Movement: Pull",
+						"description": "",
+						"type": "Bonus",
+						"data": {
+							"field": "Forced Movement: Pull",
+							"value": 1,
+							"valueFromController": null,
+							"valueCharacteristics": [],
+							"valueCharacteristicMultiplier": 1,
+							"valuePerLevel": 0,
+							"valuePerEchelon": 0
+						}
+					}
+				]
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-hallucinatory",
+		"name": "Hallucinatory",
+		"description": "",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "6c498b53-e3d4-42d6-8f12-04e2007feb16",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A night hag’s hairpin",
+			"source": "Texts or lore in Variac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-hallucinatory",
+			"name": "Hallucinatory",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-hallucinatory",
+					"name": "Hallucinatory",
+					"description": "",
+					"type": {
+						"usage": "Maneuver",
+						"free": false,
+						"trigger": "",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "You create an area of sensory instability in a 2 aura centered on yourself. The area is difficult terrain for your enemies until the end of the encounter."
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-lingering-i",
+		"name": "Lingering I",
+		"description": "Whenever you damage a creature using a magic or psionic ability and obtain a tier 3 outcome, that creature takes 8 damage at the start of your next turn.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "68026b28-1863-4b60-ab02-0fbf15a1e2f8",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Slow-acting poison refined from rare fungi",
+			"source": "Texts or lore in Szetch",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-lingering-i",
+			"name": "Lingering I",
+			"description": "Whenever you damage a creature using a magic or psionic ability and obtain a tier 3 outcome, that creature takes 8 damage at the start of your next turn.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-rejuvenating-ii",
+		"name": "Rejuvenating II",
+		"description": "Whenever you use an ability that costs 1 or more of your Heroic Resource, roll a d10. On an 8 or higher, you gain 1 Heroic Resource and you can spend a Recovery. This replaces the benefit of Rejuvenating I.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "263185ff-8e3e-4b22-8110-653ee2250aaf",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A still-growing bonsai tree at least 30 years old",
+			"source": "Texts or lore in The First Language",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-rejuvenating-ii",
+			"name": "Rejuvenating II",
+			"description": "Whenever you use an ability that costs 1 or more of your Heroic Resource, roll a d10. On an 8 or higher, you gain 1 Heroic Resource and you can spend a Recovery. This replaces the benefit of Rejuvenating I.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-warding-ii",
+		"name": "Warding II",
+		"description": "Stamina, Warding II",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "dd7e63be-55dd-4d49-bb94-0186999c3af1",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A metallic dragon’s horn",
+			"source": "Texts or lore in Zaliac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-warding-ii",
+			"name": "Warding II",
+			"description": "Stamina, Warding II",
+			"type": "Multiple Features",
+			"data": {
+				"features": [
+					{
+						"id": "warding-ii-a",
+						"name": "Stamina",
+						"description": "",
+						"type": "Bonus",
+						"data": {
+							"field": "Stamina",
+							"value": 6,
+							"valueFromController": null,
+							"valueCharacteristics": [],
+							"valueCharacteristicMultiplier": 1,
+							"valuePerLevel": 0,
+							"valuePerEchelon": 0
+						}
+					},
+					{
+						"id": "warding-ii-b",
+						"name": "Warding II",
+						"description": "Your characteristic scores are considered 1 higher for the purpose of resisting potencies.",
+						"type": "Text",
+						"data": null
+					}
+				]
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-anathema",
+		"name": "Anathema",
+		"description": "Whenever you damage a creature using a magic or psionic ability and obtain a tier 3 outcome, that creature is also weakened (save ends). If the creature is within 10 squares when this weakened effect ends, you can use a free triggered action to make a free strike against them.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "92d9c6aa-590c-4e6e-a6af-1702bc0b2e19",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "An olothec tentacle",
+			"source": "Texts or lore in Variac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-anathema",
+			"name": "Anathema",
+			"description": "Whenever you damage a creature using a magic or psionic ability and obtain a tier 3 outcome, that creature is also weakened (save ends). If the creature is within 10 squares when this weakened effect ends, you can use a free triggered action to make a free strike against them.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-displacing-iii",
+		"name": "Displacing III",
+		"description": "When you use the implement’s Displacing I enhancement, you can teleport the creature up to 5 squares. Additionally, the creature takes a bane on their next power roll made before the end of their next turn.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "b8015088-75b7-4605-8ae5-e9bee53adb0f",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The keystone from a gate used for crossing between worlds",
+			"source": "Texts or lore in Voll",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-displacing-iii",
+			"name": "Displacing III",
+			"description": "When you use the implement’s Displacing I enhancement, you can teleport the creature up to 5 squares. Additionally, the creature takes a bane on their next power roll made before the end of their next turn.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-erupting-ii",
+		"name": "Erupting II",
+		"description": "The fire damage dealt by the implement’s Erupting I enhancement increases to 6.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "e68e20c8-0406-4510-9afb-99d4b473bea1",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A sealed geode containing explosive gas",
+			"source": "Texts or lore in Vastariax",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-erupting-ii",
+			"name": "Erupting II",
+			"description": "The fire damage dealt by the implement’s Erupting I enhancement increases to 6.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-forceful-iii",
+		"name": "Forceful III",
+		"description": "Whenever you use a magic or psionic ability to push or pull a creature, you can move that creature an additional 3 squares and that movement can be vertical. This replaces the benefit of Forceful II.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "86e92554-d32e-4641-8e7f-625257e21553",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A scale from the kraken",
+			"source": "Texts or lore in High Kuric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-forceful-iii",
+			"name": "Forceful III",
+			"description": "Whenever you use a magic or psionic ability to push or pull a creature, you can move that creature an additional 3 squares and that movement can be vertical. This replaces the benefit of Forceful II.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-lingering-ii",
+		"name": "Lingering II",
+		"description": "Whenever you damage a creature using a magic or psionic ability and obtain a tier 3 outcome, that creature takes 15 damage at the start of your next turn. This replaces the benefit of Lingering I.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "8a04cb40-7a03-4276-b2ce-6b8ac0580c10",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A venom gland from a mature dragon",
+			"source": "Texts or lore in Szetch",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-lingering-ii",
+			"name": "Lingering II",
+			"description": "Whenever you damage a creature using a magic or psionic ability and obtain a tier 3 outcome, that creature takes 15 damage at the start of your next turn. This replaces the benefit of Lingering I.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-piercing",
+		"name": "Piercing",
+		"description": "Your magic and psionic abilities ignore damage immunities.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "7aa3820b-6b38-495c-9146-06b146bcab62",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Black iron harvested from a slain blood elemental",
+			"source": "Texts or lore in Anjali",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-piercing",
+			"name": "Piercing",
+			"description": "Your magic and psionic abilities ignore damage immunities.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-psionic-siphon",
+		"name": "Psionic Siphon",
+		"description": "Once per turn when you damage one or more creatures using a magic or psionic ability and obtain a tier 3 outcome, you gain Stamina equal to your highest characteristic score, and one creature you damage takes an extra 5 damage.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "80cd1640-7d8e-46ab-be14-38635a522ff1",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The frontal lobe of an overmind",
+			"source": "Texts or lore in Variac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-psionic-siphon",
+			"name": "Psionic Siphon",
+			"description": "Once per turn when you damage one or more creatures using a magic or psionic ability and obtain a tier 3 outcome, you gain Stamina equal to your highest characteristic score, and one creature you damage takes an extra 5 damage.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-rejuvenating-iii",
+		"name": "Rejuvenating III",
+		"description": "Whenever you use an ability that costs 1 or more of your Heroic Resource, roll a d10. On a 7 or higher, you gain 1 Heroic Resource, and you or a creature of your choice within 3 squares can spend a Recovery. This replaces the benefit of Rejuvenating II.",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "5ccf0c70-0822-4e12-ad30-0d3846adc982",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A live flower that blooms only once a decade",
+			"source": "Texts or lore in The First Language",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-rejuvenating-iii",
+			"name": "Rejuvenating III",
+			"description": "Whenever you use an ability that costs 1 or more of your Heroic Resource, roll a d10. On a 7 or higher, you gain 1 Heroic Resource, and you or a creature of your choice within 3 squares can spend a Recovery. This replaces the benefit of Rejuvenating II.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-warding-iii",
+		"name": "Warding III",
+		"description": "Stamina, Warding III",
+		"type": "Imbued Implement",
+		"crafting": {
+			"id": "ce3003a7-44c7-49f0-91cf-4432d4ba37d6",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Heartwood from a two-century-old tree",
+			"source": "Texts or lore in Zaliac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-warding-iii",
+			"name": "Warding III",
+			"description": "Stamina, Warding III",
+			"type": "Multiple Features",
+			"data": {
+				"features": [
+					{
+						"id": "warding-iii-a",
+						"name": "Stamina",
+						"description": "",
+						"type": "Bonus",
+						"data": {
+							"field": "Stamina",
+							"value": 6,
+							"valueFromController": null,
+							"valueCharacteristics": [],
+							"valueCharacteristicMultiplier": 1,
+							"valuePerLevel": 0,
+							"valuePerEchelon": 0
+						}
+					},
+					{
+						"id": "warding-iii-b",
+						"name": "Warding III",
+						"description": "You and each ally within 3 squares of you has their characteristic scores considered 1 higher for the purpose of resisting potencies. This replaces the benefit of Warding II.",
+						"type": "Text",
+						"data": null
+					}
+				]
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-blood-bargain",
+		"name": "Blood Bargain",
+		"description": "",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "d1b74e72-3068-47c6-918b-bb06886f5474",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The blood of a devil",
+			"source": "Texts or lore in Anjali",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-blood-bargain",
+			"name": "Blood Bargain",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-blood-bargain",
+					"name": "Blood Bargain",
+					"description": "",
+					"type": {
+						"usage": "Maneuver",
+						"free": false,
+						"trigger": "",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "You harm yourself with the weapon, taking 1d6 damage that can’t be reduced in any way. An ally within 5 squares can then spend a Recovery."
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-chilling-i",
+		"name": "Chilling I",
+		"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 3 cold damage.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "44824095-3e03-45d1-9b6e-ea2e4a7fc10a",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A piece of ice from Quintessence that never melts",
+			"source": "Texts or lore in Yllyric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-chilling-i",
+			"name": "Chilling I",
+			"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 3 cold damage.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-disrupting-i",
+		"name": "Disrupting I",
+		"description": "Whenever you damage an undead using this weapon and leave that undead with 15 Stamina or less, they drop to 0 Stamina.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "4b110375-fb91-4c62-9260-6e52b7bf7197",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A vial of blood from a living saint",
+			"source": "Texts or lore in Anjali",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-disrupting-i",
+			"name": "Disrupting I",
+			"description": "Whenever you damage an undead using this weapon and leave that undead with 15 Stamina or less, they drop to 0 Stamina.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-hurling",
+		"name": "Hurling",
+		"description": "Whenever you use a melee ability using this weapon, you can throw the weapon by treating the ability’s distance as ranged 3 instead. When the ability is resolved, the weapon returns to your hand. Any ability used when you throw this weapon can’t impose the grabbed or restrained conditions.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "b611a993-e866-4c46-923e-2a436e69afd0",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A magnet made from rare metals",
+			"source": "Texts or lore in Variac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-hurling",
+			"name": "Hurling",
+			"description": "Whenever you use a melee ability using this weapon, you can throw the weapon by treating the ability’s distance as ranged 3 instead. When the ability is resolved, the weapon returns to your hand. Any ability used when you throw this weapon can’t impose the grabbed or restrained conditions.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-merciful",
+		"name": "Merciful",
+		"description": "Whenever you reduce a non-undead creature to 0 Stamina using this weapon, the creature falls unconscious and wakes up 1d6 hours later. A creature with the Heal skill can wake the unconscious creature early with 1 uninterrupted minute of medical treatment. Whenever the creature wakes, they regain 1 Stamina.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "632ae70d-6c40-4fd3-9d6f-a1c5e5eb068d",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A sprig of dockwart, a rare plant with natural anesthetic properties",
+			"source": "Texts or lore in Yllyric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-merciful",
+			"name": "Merciful",
+			"description": "Whenever you reduce a non-undead creature to 0 Stamina using this weapon, the creature falls unconscious and wakes up 1d6 hours later. A creature with the Heal skill can wake the unconscious creature early with 1 uninterrupted minute of medical treatment. Whenever the creature wakes, they regain 1 Stamina.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-terrifying-i",
+		"name": "Terrifying I",
+		"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 2 psychic damage.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "c1491251-d808-4601-b651-06d143e00359",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The preserved, intact amygdala of a mindkiller",
+			"source": "Texts or lore in Variac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-terrifying-i",
+			"name": "Terrifying I",
+			"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 2 psychic damage.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-thundering-i",
+		"name": "Thundering I",
+		"description": "Whenever you deal rolled damage to a creature using this weapon, you can push that creature 1 square after the other effects of the ability resolve.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "6038428b-6a1c-4359-8fb5-751bfaf758ca",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The heart of a lion, bear, or other large predatory animal",
+			"source": "Texts or lore in Low Kuric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-thundering-i",
+			"name": "Thundering I",
+			"description": "Whenever you deal rolled damage to a creature using this weapon, you can push that creature 1 square after the other effects of the ability resolve.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-vengeance-i",
+		"name": "Vengeance I",
+		"description": "Whenever you use a damage-dealing ability using this weapon against a creature who has dealt damage to you since the end of your last turn, the ability deals an extra 2 damage.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "b1c426fc-5c03-40e5-9bfa-615c4fcf98ff",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The crown of a usurper",
+			"source": "Texts or lore in Kalliak",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-vengeance-i",
+			"name": "Vengeance I",
+			"description": "Whenever you use a damage-dealing ability using this weapon against a creature who has dealt damage to you since the end of your last turn, the ability deals an extra 2 damage.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-wingbane",
+		"name": "Wingbane",
+		"description": "Whenever you damage a flying creature using this weapon, that creature is also bleeding (save ends). While bleeding in this way, the creature takes 1 damage per square they fly. If the creature starts and ends their turn on the same solid surface, the bleeding condition ends.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "f868c350-1ca9-4402-a451-e69aeb9ec344",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The pinfeather of a giant hawk",
+			"source": "Texts or lore in Yllyric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 1,
+		"feature": {
+			"id": "imbuement-wingbane",
+			"name": "Wingbane",
+			"description": "Whenever you damage a flying creature using this weapon, that creature is also bleeding (save ends). While bleeding in this way, the creature takes 1 damage per square they fly. If the creature starts and ends their turn on the same solid surface, the bleeding condition ends.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-chargebreaker",
+		"name": "Chargebreaker",
+		"description": "",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "19c6162f-4531-49f2-b441-26cac27cb4f7",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "An adamantine spearhead",
+			"source": "Texts or lore in Zaliac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-chargebreaker",
+			"name": "Chargebreaker",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-chargebreaker",
+					"name": "Chargebreaker",
+					"description": "",
+					"type": {
+						"usage": "Triggered Action",
+						"free": true,
+						"trigger": "The target willingly moves adjacent to you",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [
+						"Melee",
+						"Strike",
+						"Weapon"
+					],
+					"distance": [
+						{
+							"type": "Melee",
+							"value": 1,
+							"value2": 0,
+							"within": 0,
+							"special": "",
+							"qualifier": ""
+						}
+					],
+					"target": "One enemy",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "The target takes 5 damage."
+						}
+					],
+					"_fmt": {
+						"keywords": [
+							"Melee",
+							"Strike",
+							"Weapon"
+						],
+						"distance": [
+							"Melee 1"
+						]
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-chilling-ii",
+		"name": "Chilling II",
+		"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 6 cold damage and is slowed (save ends). This replaces the benefit of Chilling I.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "6b9514c9-08ad-489a-a20e-3ded57389ac3",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Frozen bones from the lair of a white dragon",
+			"source": "Texts or lore in Yllyric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-chilling-ii",
+			"name": "Chilling II",
+			"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 6 cold damage and is slowed (save ends). This replaces the benefit of Chilling I.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-devastating",
+		"name": "Devastating",
+		"description": "Whenever you make an ability roll using this weapon, the number you need to roll to score a critical hit is reduced by 1.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "5a7334b1-cb4e-4042-a337-9ffc0ca29df4",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A slaughter demon’s horn",
+			"source": "Texts or lore in High Kuric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-devastating",
+			"name": "Devastating",
+			"description": "Whenever you make an ability roll using this weapon, the number you need to roll to score a critical hit is reduced by 1.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-disrupting-ii",
+		"name": "Disrupting II",
+		"description": "Whenever you damage an undead using this weapon and leave that undead with 30 Stamina or less, they drop to 0 Stamina. This replaces the benefit of Disrupting I.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "6b833178-3637-4346-b6cf-1f77320ed5b5",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A cutting from a century-old living tree in a graveyard",
+			"source": "Texts or lore in Anjali",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-disrupting-ii",
+			"name": "Disrupting II",
+			"description": "Whenever you damage an undead using this weapon and leave that undead with 30 Stamina or less, they drop to 0 Stamina. This replaces the benefit of Disrupting I.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-metamorphic",
+		"name": "Metamorphic",
+		"description": "",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "b2186b42-9dc3-4db5-9dad-2722e642b56a",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Oil from an olothec’s liver",
+			"source": "Texts or lore in Variac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-metamorphic",
+			"name": "Metamorphic",
+			"description": "",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-metamorphic",
+					"name": "Metamorphic",
+					"description": "",
+					"type": {
+						"usage": "Maneuver",
+						"free": false,
+						"trigger": "",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [],
+					"distance": [],
+					"target": "",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "text",
+							"text": "\nYou can change this weapon’s shape and form, granting one of the following benefits of your choice:\n* **Concealed**: The weapon shrinks to the size of a piece of jewelry and can be worn as an earring, necklace, or similar accessory. While in this form, the weapon can’t be used for weapon abilities.\n* **Large**: Abilities using this weapon gain a +1 melee distance bonus or a +3 ranged distance bonus.\n* **Vicious**: Whenever you damage a creature using this weapon, you deal an extra 1 damage on a tier 1 outcome, an extra 2 damage on a tier 2 outcome, and an extra 3 damage on a tier 3 outcome."
+						}
+					],
+					"_fmt": {
+						"keywords": [],
+						"distance": []
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-silencing",
+		"name": "Silencing",
+		"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature also can’t use magic abilities until the end of their next turn.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "eb2786dc-5ac7-4360-8130-c7e365bdc40d",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "An executioner’s hood worn during the execution of a mage",
+			"source": "Texts or lore in The First Language",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-silencing",
+			"name": "Silencing",
+			"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature also can’t use magic abilities until the end of their next turn.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-terrifying-ii",
+		"name": "Terrifying II",
+		"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 4 psychic damage and is frightened (save ends). This replaces the benefit of Terrifying I.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "c27fb82a-6d73-4df5-b94a-939935b4e309",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Riverbed silt harvested from the Abyssal Wasteland",
+			"source": "Texts or lore in Variac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-terrifying-ii",
+			"name": "Terrifying II",
+			"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 4 psychic damage and is frightened (save ends). This replaces the benefit of Terrifying I.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-thundering-ii",
+		"name": "Thundering II",
+		"description": "Whenever you deal rolled damage to a creature using this weapon, you can push that creature up to 3 squares after the other effects of the ability resolve. If you obtained a tier 3 outcome, the creature is also knocked prone after being pushed. This replaces the benefit of Thundering I.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "d0aa1338-5422-4697-a1fa-e878c44e6c59",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "An iron rod charged by the death throes of an essence of storms",
+			"source": "Texts or lore in Low Kuric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-thundering-ii",
+			"name": "Thundering II",
+			"description": "Whenever you deal rolled damage to a creature using this weapon, you can push that creature up to 3 squares after the other effects of the ability resolve. If you obtained a tier 3 outcome, the creature is also knocked prone after being pushed. This replaces the benefit of Thundering I.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-vengeance-ii",
+		"name": "Vengeance II",
+		"description": "Whenever you use a damage-dealing ability using this weapon against a creature who has dealt damage to you since the end of your last turn, the ability deals an extra 4 damage. This replaces the benefit of Vengeance I.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "7911b2d5-7061-410e-9e9c-aed358fa231d",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The remains of a sworn foe of the creature imbuing the item",
+			"source": "Texts or lore in Kalliak",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 5,
+		"feature": {
+			"id": "imbuement-vengeance-ii",
+			"name": "Vengeance II",
+			"description": "Whenever you use a damage-dealing ability using this weapon against a creature who has dealt damage to you since the end of your last turn, the ability deals an extra 4 damage. This replaces the benefit of Vengeance I.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-chilling-iii",
+		"name": "Chilling III",
+		"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 9 cold damage and is slowed (save ends). This replaces the benefit of Chilling II.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "22f364b9-be6f-4b3a-af7a-9590c3d9912c",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The weapon must be dipped in the Glacial Forge in the coldest depths of Hell",
+			"source": "Texts or lore in Yllyric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-chilling-iii",
+			"name": "Chilling III",
+			"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 9 cold damage and is slowed (save ends). This replaces the benefit of Chilling II.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-disrupting-iii",
+		"name": "Disrupting III",
+		"description": "Whenever you damage an undead using this weapon and leave that undead with 50 Stamina or less, they immediately drop to 0 Stamina. If you instead leave the undead with 100 Stamina or less, they are frightened (save ends). This replaces the benefit of Disrupting II.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "9f7a8320-dfd6-4c95-bed2-cae0bb61af12",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "Wrappings from a mummy buried at least a century ago",
+			"source": "Texts or lore in Anjali",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-disrupting-iii",
+			"name": "Disrupting III",
+			"description": "Whenever you damage an undead using this weapon and leave that undead with 50 Stamina or less, they immediately drop to 0 Stamina. If you instead leave the undead with 100 Stamina or less, they are frightened (save ends). This replaces the benefit of Disrupting II.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-draining",
+		"name": "Draining",
+		"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature is also weakened (save ends). Each time you weaken a creature with this weapon, you gain 1 surge.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "fc9c31a0-8043-4059-86a2-85062c7a3e1d",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The intact, still-thinking brain of a voiceless talker",
+			"source": "Texts or lore in Voll",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-draining",
+			"name": "Draining",
+			"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature is also weakened (save ends). Each time you weaken a creature with this weapon, you gain 1 surge.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-imprisioning",
+		"name": "Imprisioning",
+		"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature is also restrained (save ends). While restrained in this way, the creature can’t use magic or psionic abilities.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "0d8e39b6-e5d3-4b9c-8a08-a73ec4f75a49",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A chain once used to restrain an angel",
+			"source": "Texts or lore in Anjali",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-imprisioning",
+			"name": "Imprisioning",
+			"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature is also restrained (save ends). While restrained in this way, the creature can’t use magic or psionic abilities.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-nova",
+		"name": "Nova",
+		"description": "I am an eternal flame, baby!",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "0e9cd18b-28ff-4ab5-8d13-d877260e6344",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A piece of metal touched by a sun",
+			"source": "Texts or lore in Ullorvic",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-nova",
+			"name": "Nova",
+			"description": "I am an eternal flame, baby!",
+			"type": "Ability",
+			"data": {
+				"ability": {
+					"id": "imbuement-nova",
+					"name": "Nova",
+					"description": "I am an eternal flame, baby!",
+					"type": {
+						"usage": "Main Action",
+						"free": false,
+						"trigger": "",
+						"time": "",
+						"qualifiers": [],
+						"freeStrike": false
+					},
+					"keywords": [
+						"Area",
+						"Magic"
+					],
+					"distance": [
+						{
+							"type": "Burst",
+							"value": 3,
+							"value2": 0,
+							"within": 0,
+							"special": "",
+							"qualifier": ""
+						}
+					],
+					"target": "Each enemy in the area",
+					"cost": 0,
+					"repeatable": false,
+					"minLevel": 1,
+					"sections": [
+						{
+							"type": "roll",
+							"roll": {
+								"characteristic": [
+									"Might",
+									"Agility",
+									"Reason",
+									"Intuition",
+									"Presence"
+								],
+								"bonus": 0,
+								"tier1": "7 fire damage",
+								"tier2": "11 fire damage",
+								"tier3": "16 fire damage"
+							}
+						}
+					],
+					"_fmt": {
+						"keywords": [
+							"Area",
+							"Magic"
+						],
+						"distance": [
+							"3 Burst"
+						]
+					}
+				}
+			}
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-terrifying-iii",
+		"name": "Terrifying III",
+		"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 6 psychic damage and is frightened (save ends). This replaces the benefit of Terrifying II.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "d4e29990-1a27-49a5-9ece-3be50f5d8c84",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The central eye of an overmind",
+			"source": "Texts or lore in Variac",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-terrifying-iii",
+			"name": "Terrifying III",
+			"description": "Whenever you damage a creature with an ability using this weapon and obtain a tier 3 outcome, that creature takes 6 psychic damage and is frightened (save ends). This replaces the benefit of Terrifying II.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-thundering-iii",
+		"name": "Thundering III",
+		"description": "Whenever you deal rolled damage to a creature using this weapon, you can vertical push that creature up to 5 squares and knock them prone after the other effects of the ability resolve. If the creature takes or deals damage as a result of this movement, they also take 5 thunder damage. This replaces the benefit of Thundering II.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "a67897e4-e9a8-42c0-9b7a-dddbe4571229",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "An oracle of storms must willingly bless the weapon with lightning while it is being wielded, and its wielder must survive this trial",
+			"source": "Texts or lore in Low Kuric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-thundering-iii",
+			"name": "Thundering III",
+			"description": "Whenever you deal rolled damage to a creature using this weapon, you can vertical push that creature up to 5 squares and knock them prone after the other effects of the ability resolve. If the creature takes or deals damage as a result of this movement, they also take 5 thunder damage. This replaces the benefit of Thundering II.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-vengeance-iii",
+		"name": "Vengeance III",
+		"description": "Whenever you use a damage-dealing ability using this weapon against a creature who has dealt damage to you since the end of your last turn, the ability deals an extra 6 damage. This replaces the benefit of Vengeance II.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "a05092d6-da1e-4bdb-be63-a28f6392622f",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "The true name of a devil who hunts other devils",
+			"source": "Texts or lore in Kalliak",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-vengeance-iii",
+			"name": "Vengeance III",
+			"description": "Whenever you use a damage-dealing ability using this weapon against a creature who has dealt damage to you since the end of your last turn, the ability deals an extra 6 damage. This replaces the benefit of Vengeance II.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	},
+	{
+		"id": "imbuement-windcutting",
+		"name": "Windcutting",
+		"description": "Whenever you use a melee signature ability that usually targets one creature, you can take a bane on the ability to target each enemy in a cube 3 within distance. If your signature ability would usually cause its target to become grabbed or restrained, each target in the area is instead slowed until the end of their next turn.",
+		"type": "Imbued Weapon",
+		"crafting": {
+			"id": "d6630fb1-7ae8-4588-9591-97dc2d6c77b6",
+			"name": "",
+			"description": "",
+			"itemPrerequisites": "A feather from a bird, once thought extinct, who dwells at the eye of an ever-whirling tornado",
+			"source": "Texts or lore in Yllyric",
+			"characteristic": [
+				"Might",
+				"Reason",
+				"Intuition"
+			],
+			"goal": 150,
+			"isCustom": false,
+			"progress": null
+		},
+		"level": 9,
+		"feature": {
+			"id": "imbuement-windcutting",
+			"name": "Windcutting",
+			"description": "Whenever you use a melee signature ability that usually targets one creature, you can take a bane on the ability to target each enemy in a cube 3 within distance. If your signature ability would usually cause its target to become grabbed or restrained, each target in the area is instead slowed until the end of their next turn.",
+			"type": "Text",
+			"data": null
+		},
+		"_source": "Core",
+		"_sourceType": "Official"
+	}
+]
