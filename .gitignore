@@ -15,3 +15,6 @@ vendor/forgesteel/node_modules/
 # editor
 .vscode/
 .idea/
+
+# local source assets (not committed)
+draw-steel-monsters.pdf
