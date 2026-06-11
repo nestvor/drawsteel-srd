@@ -1,5 +1,5 @@
 ---
-import { renderMarkdown } from '~/lib/markdown';
+import { renderMarkdown, renderInline } from '~/lib/markdown';
 import { href, abilityCostAnchor, abilityCostLabel } from '~/lib/url';
 import Ability from './Ability.astro';
 import StatBlock from './StatBlock.astro';
@@ -11,6 +11,12 @@ const d: any = f.data ?? {};
 const Self = Astro.self;
 const plural = (n: number) => (n > 1 ? 's' : '');
 const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
+
+// Power-roll rendering (shared shape with abilities) for monster malice sections.
+const tierLabels = ['11 or lower', '12–16', '17+'];
+const charAbbrev: Record<string, string> = { Might: 'M', Agility: 'A', Reason: 'R', Intuition: 'I', Presence: 'P' };
+const rollHead = (chars: string[] = []) =>
+	chars.length ? `Power Roll + ${chars.map(c => charAbbrev[c] ?? c).join(' or ')}` : 'Power Roll';
 
 // Mirror forgesteel's FormatLogic.getModifier for damage immunities/weaknesses,
 // so e.g. a revenant's cold immunity reads "+1 per level" rather than just "1".
@@ -52,6 +58,8 @@ function linkSummary(): LinkSummary | null {
 				to: `#${abilityCostAnchor(d.cost)}`,
 				post: d.minLevel ? ` (level ${d.minLevel}+)` : ''
 			};
+		case 'Domain':
+			return { pre: `Choose ${count} `, linkText: `domain${plural(count)}`, to: href('/domains'), post: d.characteristic ? ` (${d.characteristic})` : '' };
 		default:
 			return null;
 	}
@@ -93,6 +101,31 @@ function summary(): string | null {
 			return d.modifiers?.length
 				? d.modifiers.map((m: any) => `${m.damageType ?? 'All'} ${m.type ?? ''} ${formatModifier(m)}`.replace(/\s+/g, ' ').trim()).join(' · ')
 				: null;
+		case 'Ability Distance': {
+			const kw = (d.keywords ?? []).join(', ');
+			return `${kw ? `${kw}: ` : ''}${formatModifier(d)} distance`;
+		}
+		case 'Ability Damage': {
+			const kw = (d.keywords ?? []).join(', ');
+			// damageType is the literal "Damage" when untyped — don't print it twice.
+			const dt = d.damageType && d.damageType !== 'Damage' ? ` ${d.damageType}` : '';
+			return `${kw ? `${kw}: ` : ''}${formatModifier(d)}${dt} damage`;
+		}
+		case 'Heroic Resource Gain':
+			return d.value != null ? `+${d.value}${d.trigger ? ` — ${d.trigger}` : ''}` : null;
+		case 'Switch Value':
+			return d.switch ? `${d.switch}: ${d.value}` : null;
+		case 'Ancestry Feature Choice': {
+			const former = d.source?.former && !d.source?.current;
+			return `Choose a ${d.value ?? 1}-point ancestry feature${former ? ' from a former life' : ''}`;
+		}
+		case 'Follower': {
+			const fl = d.follower ?? {};
+			const chars = (fl.characteristics ?? []).map((c: any) => `${(c.characteristic || '').slice(0, 3)} ${sign(c.value)}`).join(', ');
+			return `Follower${fl.type ? `: ${fl.type}` : ''}${chars ? ` — ${chars}` : ''}`;
+		}
+		case 'Retainer':
+			return 'You gain a retainer who levels up alongside you.';
 		default:
 			return null;
 	}
@@ -109,6 +142,22 @@ const resourceGains: any[] = t === 'Heroic Resource' ? d.gains ?? [] : [];
 // Summoner minions (Summon) and Beastheart companions (Summon Choice) each carry
 // a `monster` stat block we want to render in full.
 const summons: any[] = t === 'Summon' ? d.summons ?? [] : t === 'Summon Choice' ? d.options ?? [] : [];
+
+// Monster malice: cost + sections (markdown strings interleaved with power rolls).
+const maliceCost = t === 'Malice' ? d.cost : null;
+const maliceSections: any[] = t === 'Malice' ? d.sections ?? [] : [];
+// Elementalist-style switches: each option grants a sub-feature, keyed by value.
+const switchOptions: any[] = t === 'Switch Options' ? d.options ?? [] : [];
+// Features that wrap another feature.
+const controllerFeature: any = t === 'For Controller' ? d.feature : null;
+const toggleFeature: any = t === 'Toggle' ? d.featureChecked : null;
+// Summoner fixtures: a terrain-like stat block embedded in a feature.
+const fixture: any = t === 'Fixture' ? d.fixture : null;
+const fixtureFeatures: any[] = (fixture?.featuresByLevel ?? []).flatMap((lvl: any) => lvl.features ?? []);
+
+// Types whose name is generic boilerplate fully replaced by the summary/sub-render.
+const HIDE_NAME = new Set(['Ability Distance', 'Ability Damage', 'For Controller']);
+const showName = f.name && !HIDE_NAME.has(t);
 ---
 {t === 'Ability' || t === 'Malice Ability' ? (
 	<div class="feature">
@@ -116,13 +165,68 @@ const summons: any[] = t === 'Summon' ? d.summons ?? [] : t === 'Summon Choice' 
 	</div>
 ) : (
 	<div class="feature">
-		{f.name && <p class="feature-name">{f.name}</p>}
+		{showName && <p class="feature-name">{f.name}</p>}
+		{maliceCost != null && <p class="feature-summary">{maliceCost} Malice{d.repeatable ? ' · repeatable' : ''}</p>}
 		{linkSum && <p class="feature-summary">{linkSum.pre}<a href={linkSum.to}>{linkSum.linkText}</a>{linkSum.post}</p>}
 		{!linkSum && summaryLine && <p class="feature-summary">{summaryLine}</p>}
 		{f.description && (
 			hasMechanic
 				? <div class="feature-flavor md" set:html={renderMarkdown(f.description)} />
 				: <div class="md" set:html={renderMarkdown(f.description)} />
+		)}
+
+		{maliceSections.map((s: any) => (
+			typeof s === 'string'
+				? <div class="md" set:html={renderMarkdown(s)} />
+				: s && s.tier1 !== undefined
+					? (
+						<table class="power-roll">
+							<caption>{rollHead(s.characteristic)}</caption>
+							<tbody>
+								<tr><td class="tier">{tierLabels[0]}</td><td set:html={renderInline(s.tier1)} /></tr>
+								<tr><td class="tier">{tierLabels[1]}</td><td set:html={renderInline(s.tier2)} /></tr>
+								<tr><td class="tier">{tierLabels[2]}</td><td set:html={renderInline(s.tier3)} /></tr>
+							</tbody>
+						</table>
+					)
+					: null
+		))}
+
+		{controllerFeature && (
+			<div class="feature-children">
+				<p class="feature-note">Applies to the controller:</p>
+				<Self feature={controllerFeature} />
+			</div>
+		)}
+
+		{toggleFeature && (
+			<div class="feature-children">
+				{d.condition && <p class="feature-note">While {d.condition.toLowerCase()}:</p>}
+				<Self feature={toggleFeature} />
+			</div>
+		)}
+
+		{switchOptions.length > 0 && (
+			<div class="feature-children">
+				{switchOptions.map((o: any) => (
+					<div class="feature">
+						<p class="feature-note">{o.value}</p>
+						<Self feature={o.feature} />
+					</div>
+				))}
+			</div>
+		)}
+
+		{fixture && (
+			<div class="summon">
+				{fixture.description && <div class="md" set:html={renderMarkdown(fixture.description)} />}
+				<div class="sb-stats">
+					{fixture.role?.type && <span><strong>Role</strong> {fixture.role.type}{fixture.role.terrainType ? ` (${fixture.role.terrainType})` : ''}</span>}
+					{fixture.baseStamina != null && <span><strong>Stamina</strong> {fixture.baseStamina}</span>}
+					{fixture.size && <span><strong>Size</strong> {fixture.size.value ?? ''}{fixture.size.mod ?? ''}</span>}
+				</div>
+				{fixtureFeatures.map((fe: any) => <Self feature={fe} />)}
+			</div>
 		)}
 
 		{resourceGains.length > 0 && (
