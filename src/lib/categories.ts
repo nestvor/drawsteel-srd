@@ -53,6 +53,7 @@ export const CATEGORIES: Category[] = [
 	{ key: 'terrain', title: 'Terrain', style: 'list', group: 'Encounters', blurb: 'Hazards, fieldworks, siege engines, and other battlefield fixtures.' },
 
 	// Director's Tools
+	{ key: 'monster-basics', title: 'Monster Basics', style: 'single', group: "Director's Tools", blurb: 'Running monsters: reading a stat block, roles, organizations, minions, captains, and malice.' },
 	{ key: 'montages', title: 'Montages', style: 'list', group: "Director's Tools", blurb: 'Structured montage test challenges.' },
 	{ key: 'negotiations', title: 'Negotiations', style: 'list', group: "Director's Tools", blurb: 'Social encounter frameworks with motivations and pitfalls.' },
 

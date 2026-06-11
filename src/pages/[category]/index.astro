@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { CATEGORIES, byKey } from '~/lib/categories';
-import { allSorted } from '~/lib/data';
+import { all, allSorted } from '~/lib/data';
 import { entrySlug } from '~/lib/data';
 import { href, slugify } from '~/lib/url';
 import { renderMarkdown } from '~/lib/markdown';
@@ -12,7 +12,9 @@ export function getStaticPaths() {
 
 const { category } = Astro.props;
 const cat = byKey(category)!;
-const entries = allSorted(category);
+// Most pages list alphabetically; the Monster Basics glossary keeps its authored
+// (chapter) order instead.
+const entries = category === 'monster-basics' ? all(category) : allSorted(category);
 
 // group helper for the simple reference lists
 const groupBy = (items: any[], key: string) => {
@@ -30,8 +32,8 @@ const groupBy = (items: any[], key: string) => {
 	<h1>{cat.title}</h1>
 	<p class="page-lead">{cat.blurb}</p>
 
-	{/* Rules glossary & conditions: full content inline with anchor TOC */}
-	{(category === 'rules' || category === 'conditions') && (
+	{/* Inline-content glossaries: full content with an anchor TOC */}
+	{(category === 'rules' || category === 'conditions' || category === 'monster-basics') && (
 		<>
 			<div class="filter-bar">
 				{entries.map(e => <a class="pill" href={`#${slugify(e.name)}`}>{e.name}</a>)}
