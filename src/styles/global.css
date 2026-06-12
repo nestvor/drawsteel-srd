@@ -237,15 +237,17 @@ h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.18rem; mar
 .level-block { margin: 1.5rem 0; }
 .level-block > h3 { font-family: var(--font-ui); font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; background: var(--surface-2); padding: 0.35rem 0.65rem; border-radius: 6px; border-left: 3px solid var(--accent); color: var(--text); }
 
-/* subclass selector + inline subclass grants interleaved into the progression */
-.subclass-section { margin-top: 0.85rem; }
+/* subclass selector + inline subclass grants interleaved into the progression.
+   The selected content sits in a tinted panel + extra trailing gap so it reads
+   as distinct from the general (always-granted) class features around it. */
+.subclass-section { margin: 0.85rem 0 1.75rem; }
 .subclass-tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin: 0.5rem 0 0.25rem; }
 .subclass-tabs-label { font-family: var(--font-ui); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin-right: 0.15rem; }
 .subclass-tab { font-family: var(--font-ui); font-size: 0.85rem; cursor: pointer; background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 999px; padding: 0.25rem 0.85rem; transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease; }
 .subclass-tab:hover { border-color: var(--accent); }
 .subclass-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-.subclass-inline { display: none; margin-top: 0.75rem; padding-left: 0.85rem; border-left: 3px solid var(--accent-2); }
-.subclass-inline.active { display: block; }
+.subclass-inline { display: none; margin-top: 0.5rem; }
+.subclass-inline.active { display: block; background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--accent-2); border-radius: var(--radius); padding: 0.75rem 0.9rem; }
 .subclass-inline-label { font-family: var(--font-ui); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-2); margin: 0 0 0.4rem; }
 .subclass-inline-label a { color: inherit; }
 
