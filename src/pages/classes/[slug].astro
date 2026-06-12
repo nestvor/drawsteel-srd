@@ -15,6 +15,10 @@ const primaryOptions: string[][] = c.primaryCharacteristicsOptions ?? [];
 const primary = primaryOptions.map(o => o.join(' + ')).join('  /  ');
 const fbl = c.featuresByLevel ?? [];
 const abilities = c.abilities ?? [];
+const subclasses = c.subclasses ?? [];
+const subTypeLabel = c.subclassName || 'Subclass';
+// Subclass features granted at a given level (interleaved into the main progression).
+const subFeaturesAt = (s: any, level: number): any[] => (s.featuresByLevel ?? []).find((l: any) => l.level === level)?.features ?? [];
 // Group abilities by cost (signature first, then ascending) so the "Choose a
 // <cost> ability" links from class features can target each group by anchor.
 const costRank = (cost: any) => (cost === 'signature' ? -1 : Number(cost) || 0);
@@ -33,12 +37,36 @@ const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 	{c.description && <div class="md" set:html={renderMarkdown(c.description)} />}
 
 	<h2>Class Features</h2>
-	{fbl.map((lvl: any) => (
-		<div class="level-block">
-			<h3>Level {lvl.level}</h3>
-			<FeatureList features={lvl.features ?? []} />
+
+	{subclasses.length > 0 && (
+		<div class="subclass-tabs" role="tablist" aria-label={`Select ${subTypeLabel}`}>
+			<span class="subclass-tabs-label">{subTypeLabel}:</span>
+			{subclasses.map((s: any, i: number) => (
+				<button type="button" class:list={['subclass-tab', { active: i === 0 }]} data-subclass={entrySlug(s)} aria-pressed={i === 0 ? 'true' : 'false'}>
+					{s.name}
+				</button>
+			))}
 		</div>
-	))}
+	)}
+
+	{fbl.map((lvl: any) => {
+		const common = lvl.features ?? [];
+		const subBlocks = subclasses
+			.map((s: any) => ({ s, feats: subFeaturesAt(s, lvl.level) }))
+			.filter((b: any) => b.feats.length > 0);
+		return (common.length > 0 || subBlocks.length > 0) && (
+			<div class="level-block">
+				<h3>Level {lvl.level}</h3>
+				<FeatureList features={common} />
+				{subBlocks.map((b: any) => (
+					<div class:list={['subclass-inline', { active: b.s === subclasses[0] }]} data-subclass={entrySlug(b.s)}>
+						<p class="subclass-inline-label">{subTypeLabel}: <a href={`#${entrySlug(b.s)}`}>{b.s.name}</a></p>
+						<FeatureList features={b.feats} />
+					</div>
+				))}
+			</div>
+		);
+	})}
 
 	{abilities.length > 0 && (
 		<>
@@ -54,7 +82,7 @@ const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 
 	{(c.subclasses ?? []).length > 0 && (
 		<>
-			<h2>{c.subclassName || 'Subclasses'}</h2>
+			<h2 id="subclasses">{subTypeLabel} — Full Details</h2>
 			{c.subclasses.map((s: any) => (
 				<section>
 					<h3 id={entrySlug(s)}>{s.name}</h3>
@@ -72,4 +100,31 @@ const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 			))}
 		</>
 	)}
+
+	<script>
+		// Subclass selector: show the chosen subclass's grants inline in the level
+		// progression (and remember the choice). Full listings remain at the bottom.
+		const KEY = 'ds-subclass';
+		const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.subclass-tab'));
+		const blocks = Array.from(document.querySelectorAll<HTMLElement>('.subclass-inline'));
+		if (tabs.length) {
+			const apply = (key: string) => {
+				tabs.forEach(t => {
+					const on = t.dataset.subclass === key;
+					t.classList.toggle('active', on);
+					t.setAttribute('aria-pressed', String(on));
+				});
+				blocks.forEach(b => b.classList.toggle('active', b.dataset.subclass === key));
+			};
+			const saved = sessionStorage.getItem(KEY);
+			if (saved && tabs.some(t => t.dataset.subclass === saved)) apply(saved);
+			tabs.forEach(t =>
+				t.addEventListener('click', () => {
+					const key = t.dataset.subclass!;
+					apply(key);
+					sessionStorage.setItem(KEY, key);
+				})
+			);
+		}
+	</script>
 </BaseLayout>
