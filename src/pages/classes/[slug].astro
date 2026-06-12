@@ -4,7 +4,7 @@ import FeatureList from '~/components/FeatureList.astro';
 import Ability from '~/components/Ability.astro';
 import { renderMarkdown } from '~/lib/markdown';
 import { all, entrySlug } from '~/lib/data';
-import { href, abilityCostAnchor } from '~/lib/url';
+import { href, abilityCostAnchor, slugify } from '~/lib/url';
 
 export function getStaticPaths() {
 	return all('classes').map(entry => ({ params: { slug: entrySlug(entry) }, props: { entry } }));
@@ -17,8 +17,20 @@ const fbl = c.featuresByLevel ?? [];
 const abilities = c.abilities ?? [];
 const subclasses = c.subclasses ?? [];
 const subTypeLabel = c.subclassName || 'Subclass';
-// Subclass features granted at a given level (interleaved into the main progression).
+// Features granted at a given level (works for subclasses and domains alike).
 const subFeaturesAt = (s: any, level: number): any[] => (s.featuresByLevel ?? []).find((l: any) => l.level === level)?.features ?? [];
+
+// Domains: conduit-style classes choose domains instead of subclasses. Detect a
+// "Domain" choice feature, then build a per-level domain selector from domains.json.
+const domainFeature = fbl.flatMap((l: any) => l.features ?? []).find((f: any) => f.type === 'Domain');
+const usesDomains = !!domainFeature;
+const domainCount = domainFeature?.data?.count ?? 2;
+const domainChar = domainFeature?.data?.characteristic;
+const domains = usesDomains ? [...all('domains')].sort((a: any, b: any) => a.name.localeCompare(b.name)) : [];
+const domainLevels = [
+	...new Set(domains.flatMap((d: any) => (d.featuresByLevel ?? []).filter((l: any) => (l.features ?? []).length).map((l: any) => l.level)))
+].sort((a: number, b: number) => a - b);
+const firstDomainLevel = domainLevels[0];
 // Group abilities by cost (signature first, then ascending) so the "Choose a
 // <cost> ability" links from class features can target each group by anchor.
 const costRank = (cost: any) => (cost === 'signature' ? -1 : Number(cost) || 0);
@@ -89,6 +101,46 @@ const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 					{g.abilities.map((a: any) => <Ability ability={a} />)}
 				</section>
 			))}
+		</>
+	)}
+
+	{usesDomains && domains.length > 0 && (
+		<>
+			<h2 id="domains">Domains</h2>
+			<p class="page-lead">A {c.name.toLowerCase()} chooses {domainCount} domains{domainChar ? ` (${domainChar})` : ''}. Pick a domain at each level to compare what they grant — selections are independent per level.</p>
+			{domainLevels.map((level: number) => {
+				const blocks = domains
+					.map((d: any) => ({
+						d,
+						feats: subFeaturesAt(d, level),
+						gains: level === firstDomainLevel ? (d.resourceGains ?? []) : [],
+						defaults: level === firstDomainLevel ? (d.defaultFeatures ?? []) : []
+					}))
+					.filter((b: any) => b.feats.length > 0 || b.gains.length > 0 || b.defaults.length > 0);
+				return blocks.length > 0 && (
+					<div class="level-block">
+						<h3>Level {level}</h3>
+						<div class="subclass-section">
+							<div class="subclass-tabs" role="tablist" aria-label={`Domain at level ${level}`}>
+								<span class="subclass-tabs-label">Domain:</span>
+								{blocks.map((b: any, i: number) => (
+									<button type="button" class:list={['subclass-tab', { active: i === 0 }]} data-subclass={entrySlug(b.d)} aria-pressed={i === 0 ? 'true' : 'false'}>
+										{b.d.name}
+									</button>
+								))}
+							</div>
+							{blocks.map((b: any, i: number) => (
+								<div class:list={['subclass-inline', { active: i === 0 }]} data-subclass={entrySlug(b.d)}>
+									<p class="subclass-inline-label"><a href={href(`/domains/${entrySlug(b.d)}`)}>{b.d.name} — full details →</a></p>
+									{b.gains.length > 0 && <ul class="resource-gains">{b.gains.map((g: any) => <li><strong>{g.value} {g.resource}</strong> — {g.trigger}</li>)}</ul>}
+									{b.defaults.length > 0 && <FeatureList features={b.defaults} />}
+									<FeatureList features={b.feats} />
+								</div>
+							))}
+						</div>
+					</div>
+				);
+			})}
 		</>
 	)}
 
