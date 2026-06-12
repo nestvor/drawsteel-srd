@@ -37,16 +37,8 @@ const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 	{c.description && <div class="md" set:html={renderMarkdown(c.description)} />}
 
 	<h2>Class Features</h2>
-
 	{subclasses.length > 0 && (
-		<div class="subclass-tabs" role="tablist" aria-label={`Select ${subTypeLabel}`}>
-			<span class="subclass-tabs-label">{subTypeLabel}:</span>
-			{subclasses.map((s: any, i: number) => (
-				<button type="button" class:list={['subclass-tab', { active: i === 0 }]} data-subclass={entrySlug(s)} aria-pressed={i === 0 ? 'true' : 'false'}>
-					{s.name}
-				</button>
-			))}
-		</div>
+		<p class="page-lead">Pick a {subTypeLabel.toLowerCase()} at each level below to compare builds — selections are independent per level.</p>
 	)}
 
 	{fbl.map((lvl: any) => {
@@ -58,12 +50,24 @@ const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 			<div class="level-block">
 				<h3>Level {lvl.level}</h3>
 				<FeatureList features={common} />
-				{subBlocks.map((b: any) => (
-					<div class:list={['subclass-inline', { active: b.s === subclasses[0] }]} data-subclass={entrySlug(b.s)}>
-						<p class="subclass-inline-label">{subTypeLabel}: <a href={`#${entrySlug(b.s)}`}>{b.s.name}</a></p>
-						<FeatureList features={b.feats} />
+				{subBlocks.length > 0 && (
+					<div class="subclass-section">
+						<div class="subclass-tabs" role="tablist" aria-label={`${subTypeLabel} at level ${lvl.level}`}>
+							<span class="subclass-tabs-label">{subTypeLabel}:</span>
+							{subBlocks.map((b: any, i: number) => (
+								<button type="button" class:list={['subclass-tab', { active: i === 0 }]} data-subclass={entrySlug(b.s)} aria-pressed={i === 0 ? 'true' : 'false'}>
+									{b.s.name}
+								</button>
+							))}
+						</div>
+						{subBlocks.map((b: any, i: number) => (
+							<div class:list={['subclass-inline', { active: i === 0 }]} data-subclass={entrySlug(b.s)}>
+								<p class="subclass-inline-label"><a href={`#${entrySlug(b.s)}`}>{b.s.name} — full details ↓</a></p>
+								<FeatureList features={b.feats} />
+							</div>
+						))}
 					</div>
-				))}
+				)}
 			</div>
 		);
 	})}
@@ -102,29 +106,22 @@ const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 	)}
 
 	<script>
-		// Subclass selector: show the chosen subclass's grants inline in the level
-		// progression (and remember the choice). Full listings remain at the bottom.
-		const KEY = 'ds-subclass';
-		const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.subclass-tab'));
-		const blocks = Array.from(document.querySelectorAll<HTMLElement>('.subclass-inline'));
-		if (tabs.length) {
-			const apply = (key: string) => {
-				tabs.forEach(t => {
-					const on = t.dataset.subclass === key;
-					t.classList.toggle('active', on);
-					t.setAttribute('aria-pressed', String(on));
-				});
-				blocks.forEach(b => b.classList.toggle('active', b.dataset.subclass === key));
-			};
-			const saved = sessionStorage.getItem(KEY);
-			if (saved && tabs.some(t => t.dataset.subclass === saved)) apply(saved);
-			tabs.forEach(t =>
-				t.addEventListener('click', () => {
-					const key = t.dataset.subclass!;
-					apply(key);
-					sessionStorage.setItem(KEY, key);
+		// Per-level subclass selector: each level's tabs toggle only that level's
+		// inline blocks, so you can mix subclasses across levels to compare builds.
+		document.querySelectorAll<HTMLElement>('.subclass-section').forEach(section => {
+			const tabs = Array.from(section.querySelectorAll<HTMLButtonElement>('.subclass-tab'));
+			const blocks = Array.from(section.querySelectorAll<HTMLElement>('.subclass-inline'));
+			tabs.forEach(tab =>
+				tab.addEventListener('click', () => {
+					const key = tab.dataset.subclass;
+					tabs.forEach(t => {
+						const on = t.dataset.subclass === key;
+						t.classList.toggle('active', on);
+						t.setAttribute('aria-pressed', String(on));
+					});
+					blocks.forEach(b => b.classList.toggle('active', b.dataset.subclass === key));
 				})
 			);
-		}
+		});
 	</script>
 </BaseLayout>
