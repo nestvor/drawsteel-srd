@@ -33,7 +33,7 @@ function formatModifier(m: any): string {
 	const chars: string[] = m.valueCharacteristics ?? [];
 	if (chars.length > 0) {
 		const ch = chars.length === 5 ? 'highest characteristic' : chars.join(' or ');
-		parts.push(m.valueCharacteristicMultiplier === 1 ? `+ ${ch}` : `+ ${ch} x ${m.valueCharacteristicMultiplier}`);
+		parts.push(m.valueCharacteristicMultiplier === 1 ? `+${ch}` : `+${ch} × ${m.valueCharacteristicMultiplier}`);
 	}
 	return parts.join(' ') || '+0';
 }
@@ -152,9 +152,13 @@ const switchOptions: any[] = t === 'Switch Options' ? d.options ?? [] : [];
 // Features that wrap another feature.
 const controllerFeature: any = t === 'For Controller' ? d.feature : null;
 const toggleFeature: any = t === 'Toggle' ? d.featureChecked : null;
-// Summoner fixtures: a terrain-like stat block embedded in a feature.
+// Summoner fixtures: a terrain-like stat block embedded in a feature. Keep the
+// per-level grouping so upgrades that arrive at higher levels are labelled (the
+// baseline level-1 features render unlabelled, later levels show "Level N").
 const fixture: any = t === 'Fixture' ? d.fixture : null;
-const fixtureFeatures: any[] = (fixture?.featuresByLevel ?? []).flatMap((lvl: any) => lvl.features ?? []);
+const fixtureLevels: { level: number; features: any[] }[] = (fixture?.featuresByLevel ?? [])
+	.map((lvl: any) => ({ level: lvl.level, features: lvl.features ?? [] }))
+	.filter((lvl: any) => lvl.features.length > 0);
 
 // Types whose name is generic boilerplate fully replaced by the summary/sub-render.
 const HIDE_NAME = new Set(['Ability Distance', 'Ability Damage', 'For Controller']);
@@ -279,7 +283,12 @@ const domainBlocks = domainVariants();
 					{fixture.baseStamina != null && <span><strong>Stamina</strong> {fixture.baseStamina}</span>}
 					{fixture.size && <span><strong>Size</strong> {fixture.size.value ?? ''}{fixture.size.mod ?? ''}</span>}
 				</div>
-				{fixtureFeatures.map((fe: any) => <Self feature={fe} />)}
+				{fixtureLevels.map((lvl, i) => (
+					<>
+						{(i > 0 || lvl.level > 1) && <p class="feature-note">Level {lvl.level}</p>}
+						{lvl.features.map((fe: any) => <Self feature={fe} />)}
+					</>
+				))}
 			</div>
 		)}
 
@@ -310,12 +319,37 @@ const domainBlocks = domainVariants();
 		{summons.length > 0 && (
 			<div class="feature-children">
 				{t === 'Summon Choice' && d.count > 1 && <p class="feature-note">Choose {d.count}:</p>}
-				{summons.map((s: any) => (
-					<div class="summon">
-						{s.description && <div class="md" set:html={renderMarkdown(s.description)} />}
-						{s.monster && <StatBlock monster={s.monster} />}
-					</div>
-				))}
+				{summons.map((s: any) => {
+					const info = s.info;
+					// Summoner minions carry a summoning cost (in essence) and the number
+					// of minions a single payment buys; signature minions are free.
+					const costLine = info && info.cost > 0
+						? `${info.cost} essence ${info.count === 1 ? 'per minion summoned' : `for ${info.count} minions`}`
+						: null;
+					// Minions/champions also gain upgrades at levels 3/6/10 — surface them
+					// grouped by level so the progression is visible (mirrors fixtures).
+					const upgrades = info
+						? ([[3, info.level3], [6, info.level6], [10, info.level10]] as [number, any[]][])
+							.map(([level, feats]) => ({ level, features: feats ?? [] }))
+							.filter(u => u.features.length > 0)
+						: [];
+					return (
+						<div class="summon">
+							<div class="summon-tags">
+								{info?.isSignature && <span class="summon-tag">Signature</span>}
+								{costLine && <span class="summon-cost">{costLine}</span>}
+							</div>
+							{s.description && <div class="md" set:html={renderMarkdown(s.description)} />}
+							{s.monster && <StatBlock monster={s.monster} />}
+							{upgrades.map(u => (
+								<>
+									<p class="feature-note">Level {u.level}</p>
+									{u.features.map((fe: any) => <Self feature={fe} />)}
+								</>
+							))}
+						</div>
+					);
+				})}
 			</div>
 		)}
 	</div>
