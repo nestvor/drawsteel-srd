@@ -2,6 +2,7 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import StatBlock from '~/components/StatBlock.astro';
 import FeatureList from '~/components/FeatureList.astro';
+import Feature from '~/components/Feature.astro';
 import { renderMarkdown } from '~/lib/markdown';
 import { all, entrySlug } from '~/lib/data';
 import { href } from '~/lib/url';
@@ -12,6 +13,22 @@ export function getStaticPaths() {
 
 const { entry: g } = Astro.props;
 const monsters = [...(g.monsters ?? [])].sort((a: any, b: any) => (a.level ?? 0) - (b.level ?? 0));
+
+// Group the customization add-ons by category, in a sensible order, so they read
+// as boxed option lists with per-option costs (like trait/ability choices).
+const ADDON_ORDER = ['Mobility', 'Defensive', 'Offensive', 'Supernatural', 'Ancestry'];
+const addOnGroups = (() => {
+	const map = new Map<string, any[]>();
+	for (const a of g.addOns ?? []) {
+		const cat = a.data?.category || 'Other';
+		if (!map.has(cat)) map.set(cat, []);
+		map.get(cat)!.push(a);
+	}
+	return [...map.entries()].sort((a, b) => {
+		const ia = ADDON_ORDER.indexOf(a[0]); const ib = ADDON_ORDER.indexOf(b[0]);
+		return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a[0].localeCompare(b[0]);
+	});
+})();
 const desc = (g.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 ---
 <BaseLayout title={g.name} description={desc}>
@@ -39,10 +56,20 @@ const desc = (g.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 		</>
 	)}
 
-	{(g.addOns ?? []).length > 0 && (
+	{addOnGroups.length > 0 && (
 		<>
 			<h2>Customization Options</h2>
-			<FeatureList features={g.addOns} />
+			{addOnGroups.map(([cat, items]) => (
+				<div class="choice-group">
+					<p class="feature-note">{cat}</p>
+					{items.map((a: any) => (
+						<div class="choice-option">
+							{a.data?.cost != null && <span class="choice-cost">{a.data.cost} pt{a.data.cost === 1 ? '' : 's'}</span>}
+							<div class="choice-option-body"><Feature feature={a} /></div>
+						</div>
+					))}
+				</div>
+			))}
 		</>
 	)}
 
