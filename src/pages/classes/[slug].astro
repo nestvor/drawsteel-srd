@@ -43,9 +43,16 @@ const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 
 	{fbl.map((lvl: any) => {
 		const common = lvl.features ?? [];
+		// A subclass is "relevant" at a level if it grants features there OR has an
+		// ability that becomes available at that level (some classes — Vampire,
+		// Vessel — keep subclass abilities in a separate list keyed by minLevel).
 		const subBlocks = subclasses
-			.map((s: any) => ({ s, feats: subFeaturesAt(s, lvl.level) }))
-			.filter((b: any) => b.feats.length > 0);
+			.map((s: any) => ({
+				s,
+				feats: subFeaturesAt(s, lvl.level),
+				abils: (s.abilities ?? []).filter((a: any) => (a.minLevel ?? 1) === lvl.level)
+			}))
+			.filter((b: any) => b.feats.length > 0 || b.abils.length > 0);
 		return (common.length > 0 || subBlocks.length > 0) && (
 			<div class="level-block">
 				<h3>Level {lvl.level}</h3>
@@ -64,6 +71,7 @@ const desc = (c.description || '').replace(/[#*_`>]/g, '').slice(0, 150);
 							<div class:list={['subclass-inline', { active: i === 0 }]} data-subclass={entrySlug(b.s)}>
 								<p class="subclass-inline-label"><a href={`#${entrySlug(b.s)}`}>{b.s.name} — full details ↓</a></p>
 								<FeatureList features={b.feats} />
+								{b.abils.map((a: any) => <Ability ability={a} />)}
 							</div>
 						))}
 					</div>
