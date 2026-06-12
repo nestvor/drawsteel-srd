@@ -1,6 +1,7 @@
 ---
 import { renderMarkdown, renderInline } from '~/lib/markdown';
 import { href, abilityCostAnchor, abilityCostLabel } from '~/lib/url';
+import { all, entrySlug } from '~/lib/data';
 import Ability from './Ability.astro';
 import StatBlock from './StatBlock.astro';
 
@@ -158,6 +159,29 @@ const fixtureFeatures: any[] = (fixture?.featuresByLevel ?? []).flatMap((lvl: an
 // Types whose name is generic boilerplate fully replaced by the summary/sub-render.
 const HIDE_NAME = new Set(['Ability Distance', 'Ability Damage', 'For Controller']);
 const showName = f.name && !HIDE_NAME.has(t);
+
+// Conduit domains: render a domain selector inline at "Domain" / "Domain Feature"
+// slots, so you can pick a domain and see what it grants right in the progression
+// (mirrors the per-level subclass selector on other classes).
+function domainVariants(): { key: string; name: string; link: string; gains: any[]; defaults: any[]; feats: any[] }[] | null {
+	if (t !== 'Domain' && t !== 'Domain Feature') return null;
+	const items = all('domains')
+		.slice()
+		.sort((a: any, b: any) => a.name.localeCompare(b.name))
+		.map((dom: any) => {
+			const base = { key: entrySlug(dom), name: dom.name, link: href(`/domains/${entrySlug(dom)}`) };
+			if (t === 'Domain Feature') {
+				const lvl = d.level ?? 1;
+				const feats = (dom.featuresByLevel ?? []).find((l: any) => l.level === lvl)?.features ?? [];
+				return { ...base, gains: [], defaults: [], feats };
+			}
+			// 'Domain' — the always-on parts gained when you take a domain
+			return { ...base, gains: dom.resourceGains ?? [], defaults: dom.defaultFeatures ?? [], feats: [] };
+		})
+		.filter((b: any) => b.feats.length > 0 || b.gains.length > 0 || b.defaults.length > 0);
+	return items.length ? items : null;
+}
+const domainBlocks = domainVariants();
 ---
 {t === 'Ability' || t === 'Malice Ability' ? (
 	<div class="feature">
@@ -173,6 +197,25 @@ const showName = f.name && !HIDE_NAME.has(t);
 			hasMechanic
 				? <div class="feature-flavor md" set:html={renderMarkdown(f.description)} />
 				: <div class="md" set:html={renderMarkdown(f.description)} />
+		)}
+
+		{domainBlocks && (
+			<div class="subclass-section">
+				<div class="subclass-tabs" role="tablist" aria-label="Choose a domain">
+					<span class="subclass-tabs-label">Domain:</span>
+					{domainBlocks.map((b, i) => (
+						<button type="button" class:list={['subclass-tab', { active: i === 0 }]} data-subclass={b.key} aria-pressed={i === 0 ? 'true' : 'false'}>{b.name}</button>
+					))}
+				</div>
+				{domainBlocks.map((b, i) => (
+					<div class:list={['subclass-inline', { active: i === 0 }]} data-subclass={b.key}>
+						<p class="subclass-inline-label"><a href={b.link}>{b.name} — full details →</a></p>
+						{b.gains.length > 0 && <ul class="resource-gains">{b.gains.map((g: any) => <li><strong>{g.value} {g.resource}</strong> — {g.trigger}</li>)}</ul>}
+						{b.defaults.map((fe: any) => <Self feature={fe} />)}
+						{b.feats.map((fe: any) => <Self feature={fe} />)}
+					</div>
+				))}
+			</div>
 		)}
 
 		{maliceSections.map((s: any) => (
