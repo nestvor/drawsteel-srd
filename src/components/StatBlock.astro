@@ -1,18 +1,28 @@
 ---
 import Feature from './Feature.astro';
 
-const { monster } = Astro.props;
+const { monster, summon } = Astro.props;
 const m = monster ?? {};
 const sizeLabel = m.size ? `${m.size.value ?? ''}${m.size.mod ?? ''}` : '';
 const speedLabel = m.speed ? `${m.speed.value ?? ''}${m.speed.modes?.length ? ` (${m.speed.modes.join(', ')})` : ''}` : '';
 const roleLabel = [m.role?.organization, m.role?.type].filter(Boolean).join(' ');
 const chars = m.characteristics ?? [];
 const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
+// Summoner minions carry a summoning cost (in essence) and the number of minions
+// one payment buys; signature minions are free. The cost reads on the role line
+// (matching forgesteel), and EV — always 0 for a summon — is omitted.
+const costLine = summon && summon.cost > 0
+	? `${summon.cost} essence ${summon.count === 1 ? 'per minion summoned' : `for ${summon.count} minions`}`
+	: null;
 ---
 <div class="statblock">
 	<div class="sb-head">
 		<span class="sb-name">{m.name}</span>
-		<span class="sb-sub">Level {m.level}{roleLabel ? ` ${roleLabel}` : ''}</span>
+		<span class="sb-sub">
+			<span>{summon ? roleLabel : `Level ${m.level}${roleLabel ? ` ${roleLabel}` : ''}`}</span>
+			{summon?.isSignature && <span class="summon-tag">Signature</span>}
+			{costLine && <span class="summon-cost">{costLine}</span>}
+		</span>
 	</div>
 	{m.keywords?.length > 0 && <p class="sb-keywords">{m.keywords.join(', ')}</p>}
 
@@ -21,7 +31,7 @@ const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
 		<span><strong>Speed</strong> {speedLabel}</span>
 		<span><strong>Size</strong> {sizeLabel}</span>
 		<span><strong>Stability</strong> {m.stability}</span>
-		<span><strong>EV</strong> {m.encounterValue}</span>
+		{!summon && <span><strong>EV</strong> {m.encounterValue}</span>}
 		{m.freeStrikeDamage != null && <span><strong>Free Strike</strong> {m.freeStrikeDamage}{m.freeStrikeType && m.freeStrikeType !== 'Damage' ? ` ${m.freeStrikeType}` : ''}</span>}
 	</div>
 

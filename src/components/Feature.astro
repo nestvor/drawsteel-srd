@@ -321,11 +321,6 @@ const domainBlocks = domainVariants();
 				{t === 'Summon Choice' && d.count > 1 && <p class="feature-note">Choose {d.count}:</p>}
 				{summons.map((s: any) => {
 					const info = s.info;
-					// Summoner minions carry a summoning cost (in essence) and the number
-					// of minions a single payment buys; signature minions are free.
-					const costLine = info && info.cost > 0
-						? `${info.cost} essence ${info.count === 1 ? 'per minion summoned' : `for ${info.count} minions`}`
-						: null;
 					// Minions/champions also gain upgrades at levels 3/6/10 — surface them
 					// grouped by level so the progression is visible (mirrors fixtures).
 					const upgrades = info
@@ -335,12 +330,8 @@ const domainBlocks = domainVariants();
 						: [];
 					return (
 						<div class="summon">
-							<div class="summon-tags">
-								{info?.isSignature && <span class="summon-tag">Signature</span>}
-								{costLine && <span class="summon-cost">{costLine}</span>}
-							</div>
 							{s.description && <div class="md" set:html={renderMarkdown(s.description)} />}
-							{s.monster && <StatBlock monster={s.monster} />}
+							{s.monster && <StatBlock monster={s.monster} summon={info} />}
 							{upgrades.map(u => (
 								<>
 									<p class="feature-note">Level {u.level}</p>
