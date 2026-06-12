@@ -196,6 +196,9 @@ h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.18rem; mar
 /* jump targets clear the sticky topbar + filter-bar */
 .filter-bar ~ section > h2 { scroll-margin-top: calc(var(--topbar-h) + 8rem); }
 
+/* Floating "back to top / filters" button — mobile only (see media query). */
+.to-top { display: none; }
+
 /* ---------- abilities ---------- */
 .ability { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 0.8rem 1.1rem; margin: 0.85rem 0; box-shadow: var(--shadow); }
 .ability-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
@@ -312,6 +315,25 @@ h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.18rem; mar
 	.article { padding: 1.5rem 1.1rem 3rem; }
 	.entry-list { columns: 1; }
 	h1 { font-size: 1.8rem; }
+
+	/* The anchor filter is huge when it wraps (19–39 pills); don't let it stick
+	   and swallow the viewport. It lives at the page top; a floating button
+	   jumps back to it. */
+	.filter-bar { position: static; border-bottom: none; padding: 0.4rem 0 0.8rem; margin-bottom: 1rem; }
+	.filter-bar ~ section > h2 { scroll-margin-top: calc(var(--topbar-h) + 0.5rem); }
+	#filter-bar { scroll-margin-top: var(--topbar-h); }
+
+	.to-top {
+		display: flex; align-items: center; justify-content: center;
+		position: fixed; right: 1rem; bottom: 1rem; z-index: 15;
+		width: 2.75rem; height: 2.75rem; border-radius: 50%;
+		background: var(--accent); color: #fff; font-size: 1.3rem; line-height: 1;
+		box-shadow: var(--shadow); text-decoration: none;
+		opacity: 0; transform: translateY(0.5rem); pointer-events: none;
+		transition: opacity 0.18s ease, transform 0.18s ease;
+	}
+	.to-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+	.to-top:hover { text-decoration: none; }
 }
 /* very small screens: drop the brand wordmark so search keeps room */
 @media (max-width: 560px) {

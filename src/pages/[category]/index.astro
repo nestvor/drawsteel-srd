@@ -35,7 +35,7 @@ const groupBy = (items: any[], key: string) => {
 	{/* Inline-content glossaries: full content with an anchor TOC */}
 	{(category === 'rules' || category === 'conditions' || category === 'monster-basics') && (
 		<>
-			<div class="filter-bar">
+			<div class="filter-bar" id="filter-bar">
 				{entries.map(e => <a class="pill" href={`#${slugify(e.name)}`}>{e.name}</a>)}
 			</div>
 			{entries.map(e => (
@@ -44,6 +44,19 @@ const groupBy = (items: any[], key: string) => {
 					<div class="md" set:html={renderMarkdown(e.content)} />
 				</section>
 			))}
+
+			{/* Mobile only: the filter bar isn't sticky on small screens (it would
+			    swallow the viewport), so offer a quick jump back to it at the top. */}
+			<a href="#filter-bar" class="to-top" aria-label="Back to top / filters" data-pagefind-ignore>↑</a>
+			<script is:inline>
+				(() => {
+					const btn = document.querySelector('.to-top');
+					if (!btn) return;
+					const onScroll = () => btn.classList.toggle('show', window.scrollY > 600);
+					window.addEventListener('scroll', onScroll, { passive: true });
+					onScroll();
+				})();
+			</script>
 		</>
 	)}
 
