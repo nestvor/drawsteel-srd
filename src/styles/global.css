@@ -222,6 +222,17 @@ h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.18rem; mar
 .feature-flavor p { margin: 0.2rem 0; }
 .feature-note { font-family: var(--font-ui); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin: 0.4rem 0 0.2rem; }
 .feature-children { margin-left: 1rem; padding-left: 0.85rem; border-left: 2px solid var(--border); }
+
+/* Choice features: an outlined box (transparent, so it nests cleanly inside the
+   tinted subclass/domain panels) that sets the choosable options apart from the
+   always-granted features around them, with optional per-option point costs. */
+.choice-group { margin: 0.6rem 0 1rem; padding: 0.5rem 0.85rem; border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius); }
+.choice-group > .feature-note { margin-top: 0.15rem; }
+.choice-option { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.45rem 0; }
+.choice-option + .choice-option { border-top: 1px dashed var(--border); }
+.choice-option-body { flex: 1 1 auto; min-width: 0; }
+.choice-option-body > .feature { margin: 0; }
+.choice-cost { flex: 0 0 auto; font-family: var(--font-ui); font-size: 0.7rem; font-weight: 700; color: var(--accent); background: var(--pill-bg); border-radius: 999px; padding: 0.1rem 0.5rem; margin-top: 0.15rem; white-space: nowrap; }
 .resource-gains { margin: 0.3rem 0; padding-left: 1.2rem; }
 .feature-list { margin: 1rem 0; }
 

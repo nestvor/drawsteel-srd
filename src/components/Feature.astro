@@ -160,6 +160,17 @@ const fixtureFeatures: any[] = (fixture?.featuresByLevel ?? []).flatMap((lvl: an
 const HIDE_NAME = new Set(['Ability Distance', 'Ability Damage', 'For Controller']);
 const showName = f.name && !HIDE_NAME.has(t);
 
+// Choice rendering: a header that names the pick, and per-option point costs when
+// they're meaningful (ancestry trait point-buy, or options with varying values).
+const choiceCount = t === 'Choice' ? d.count : undefined;
+const choiceHeader =
+	choiceCount === 'ancestry'
+		? 'Choose traits using your ancestry points:'
+		: typeof choiceCount === 'number' && choiceCount > 1
+			? `Choose ${choiceCount}:`
+			: 'Choose one:';
+const showChoiceCosts = t === 'Choice' && (choiceCount === 'ancestry' || choiceOptions.some((o: any) => (o.value ?? 1) !== 1));
+
 // Conduit domains: render a domain selector inline at "Domain" / "Domain Feature"
 // slots, so you can pick a domain and see what it grants right in the progression
 // (mirrors the per-level subclass selector on other classes).
@@ -279,9 +290,14 @@ const domainBlocks = domainVariants();
 		)}
 
 		{choiceOptions.length > 0 && (
-			<div class="feature-children">
-				{(d.count && d.count !== 1) && <p class="feature-note">Choose {d.count}:</p>}
-				{choiceOptions.map((o: any) => <Self feature={o.feature} />)}
+			<div class="choice-group">
+				<p class="feature-note">{choiceHeader}</p>
+				{choiceOptions.map((o: any) => (
+					<div class="choice-option">
+						{showChoiceCosts && o.value != null && <span class="choice-cost">{o.value} pt{o.value === 1 ? '' : 's'}</span>}
+						<div class="choice-option-body"><Self feature={o.feature} /></div>
+					</div>
+				))}
 			</div>
 		)}
 
