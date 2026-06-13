@@ -62,7 +62,9 @@ const OUTCOME_DEFAULTS: Record<number, string> = {
 	<p class="kv"><strong>Ancestry Points</strong> {e.ancestryPoints}</p>
 )}
 
-{e.description && <div class="md" set:html={renderMarkdown(e.description)} />}
+{/* Skip the description for perks whose whole feature (incl. its description) is
+    rendered through Feature below, so it isn't printed twice. */}
+{e.description && !(category === 'perks' && (e.type === 'Summon' || e.type === 'Multiple Features')) && <div class="md" set:html={renderMarkdown(e.description)} />}
 
 {/* kits: equipment + combat stat bonuses */}
 {category === 'kits' && (
@@ -84,8 +86,12 @@ const OUTCOME_DEFAULTS: Record<number, string> = {
 {category === 'imbuements' && e.feature && e.feature.type !== 'Text' && <Feature feature={e.feature} />}
 {category === 'imbuements' && e.crafting && <Crafting crafting={e.crafting} />}
 
-{/* perks: the granted ability, if any */}
+{/* perks: render the granted mechanic. Plain Text perks are just their
+    description (above); Ability perks show the ability; Summon (familiar) and
+    Multiple Features perks render their full feature tree (name suppressed — the
+    H1/stat block already names it). */}
 {category === 'perks' && e.type === 'Ability' && e.data?.ability && <Ability ability={e.data.ability} />}
+{category === 'perks' && (e.type === 'Summon' || e.type === 'Multiple Features') && <Feature feature={e} hideName={true} />}
 
 {/* cultures: the meaningful content is the environment/organization/upbringing
     aspects (each with its own description + skill grant) plus the language. */}

@@ -5,7 +5,7 @@ import { all, entrySlug } from '~/lib/data';
 import Ability from './Ability.astro';
 import StatBlock from './StatBlock.astro';
 
-const { feature } = Astro.props;
+const { feature, hideName } = Astro.props;
 const f = feature ?? {};
 const t: string = f.type ?? '';
 const d: any = f.data ?? {};
@@ -162,7 +162,7 @@ const fixtureLevels: { level: number; features: any[] }[] = (fixture?.featuresBy
 
 // Types whose name is generic boilerplate fully replaced by the summary/sub-render.
 const HIDE_NAME = new Set(['Ability Distance', 'Ability Damage', 'For Controller']);
-const showName = f.name && !HIDE_NAME.has(t);
+const showName = f.name && !HIDE_NAME.has(t) && !hideName;
 
 // Choice rendering: a header that names the pick, and per-option point costs when
 // they're meaningful (ancestry trait point-buy, or options with varying values).
