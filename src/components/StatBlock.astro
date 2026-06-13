@@ -14,6 +14,27 @@ const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
 const costLine = summon && summon.cost > 0
 	? `${summon.cost} essence ${summon.count === 1 ? 'per minion summoned' : `for ${summon.count} minions`}`
 	: null;
+// Forgesteel folds "Bonus" features whose field is Stamina into the monster's
+// Stamina (getStamina). These can't resolve to a concrete number on a static
+// page — a familiar's "2 per level" really means 2 × level, and a beastheart
+// companion's stamina is drawn from its controller — so render the formula and
+// drop the redundant trait line.
+const staminaBonuses = (m.features ?? []).filter((f: any) => f.type === 'Bonus' && f.data?.field === 'Stamina');
+const staminaAt1 = (m.stamina ?? 0) + staminaBonuses.reduce((s: number, f: any) => s + (f.data?.value ?? 0), 0);
+const staminaPerLevel = staminaBonuses.reduce((s: number, f: any) => s + (f.data?.valuePerLevel ?? 0), 0);
+const staminaFromController = staminaBonuses.map((f: any) => f.data?.valueFromController).filter(Boolean);
+let staminaLabel: string;
+if (staminaPerLevel && staminaAt1 === staminaPerLevel && staminaFromController.length === 0) {
+	// Clean case: base 0 + "N per level" → N × level (e.g. the familiar).
+	staminaLabel = `${staminaPerLevel} × your level`;
+} else {
+	const parts: string[] = [];
+	if (staminaAt1) parts.push(`${staminaAt1}`);
+	staminaFromController.forEach((field: string) => parts.push(`your ${field}`));
+	if (staminaPerLevel) parts.push(`${staminaPerLevel} per level after 1st`);
+	staminaLabel = parts.join(' + ') || '0';
+}
+const visibleFeatures = (m.features ?? []).filter((f: any) => !(f.type === 'Bonus' && f.data?.field === 'Stamina'));
 ---
 <div class="statblock">
 	<div class="sb-head">
@@ -27,7 +48,7 @@ const costLine = summon && summon.cost > 0
 	{m.keywords?.length > 0 && <p class="sb-keywords">{m.keywords.join(', ')}</p>}
 
 	<div class="sb-stats">
-		<span><strong>Stamina</strong> {m.stamina}</span>
+		<span><strong>Stamina</strong> {staminaLabel}</span>
 		<span><strong>Speed</strong> {speedLabel}</span>
 		<span><strong>Size</strong> {sizeLabel}</span>
 		<span><strong>Stability</strong> {m.stability}</span>
@@ -43,9 +64,9 @@ const costLine = summon && summon.cost > 0
 
 	{m.withCaptain && <p class="kv"><strong>With Captain</strong> {m.withCaptain}</p>}
 
-	{m.features?.length > 0 && (
+	{visibleFeatures.length > 0 && (
 		<div class="sb-features">
-			{m.features.map((f: any) => <Feature feature={f} />)}
+			{visibleFeatures.map((f: any) => <Feature feature={f} />)}
 		</div>
 	)}
 </div>
