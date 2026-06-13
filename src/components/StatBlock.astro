@@ -5,7 +5,12 @@ const { monster, summon } = Astro.props;
 const m = monster ?? {};
 const sizeLabel = m.size ? `${m.size.value ?? ''}${m.size.mod ?? ''}` : '';
 const speedLabel = m.speed ? `${m.speed.value ?? ''}${m.speed.modes?.length ? ` (${m.speed.modes.join(', ')})` : ''}` : '';
-const roleLabel = [m.role?.organization, m.role?.type].filter(Boolean).join(' ');
+// Drop forgesteel's "No Organization" / "No Role" placeholders so a roleless
+// summon (e.g. a familiar) doesn't read "No Organization No Role".
+const ROLE_PLACEHOLDERS = new Set(['No Organization', 'No Role']);
+const roleLabel = [m.role?.organization, m.role?.type]
+	.filter((p: string) => p && !ROLE_PLACEHOLDERS.has(p))
+	.join(' ');
 const chars = m.characteristics ?? [];
 const sign = (n: number) => (n >= 0 ? `+${n}` : `${n}`);
 // Summoner minions carry a summoning cost (in essence) and the number of minions
@@ -40,7 +45,7 @@ const visibleFeatures = (m.features ?? []).filter((f: any) => !(f.type === 'Bonu
 	<div class="sb-head">
 		<span class="sb-name">{m.name}</span>
 		<span class="sb-sub">
-			<span>{summon ? roleLabel : `Level ${m.level}${roleLabel ? ` ${roleLabel}` : ''}`}</span>
+			<span>{summon ? (roleLabel || m.name) : `Level ${m.level}${roleLabel ? ` ${roleLabel}` : ''}`}</span>
 			{summon?.isSignature && <span class="summon-tag">Signature</span>}
 			{costLine && <span class="summon-cost">{costLine}</span>}
 		</span>
